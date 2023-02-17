@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "./News.module.scss";
 import Img from "./img/img.png";
+import Button from "../../Button/Button";
 const News = () => {
   return (
     <div className={styles.news__block}>
       <div className={styles.news__container}>
-        <h2 className={styles.news__title}>Наши преимущества</h2>
+        <h2 className={styles.news__title}>Последние новости</h2>
         <div className={styles.news__items}>
           <div className={styles.new__item}>
             <img src={Img} alt="" className={styles.new__img} />
@@ -56,6 +57,7 @@ const News = () => {
             </div>
           </div>
         </div>
+        <Button text="Все новости" />
       </div>
     </div>
   );
