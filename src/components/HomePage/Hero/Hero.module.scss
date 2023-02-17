@@ -1,0 +1,127 @@
+.hero__block {
+  position: relative;
+  padding: 0px 20px;
+  background-image: url("./img/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // display: flex;
+  // min-height: 100%;
+  // overflow: hidden;
+  // flex-direction: column;
+  font-size: calc(var(--index) * 0.7);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1222px;
+}
+.block {
+  font-family: sans-serif;
+  color: white;
+  width: 70%;
+}
+.block__title {
+  line-height: 1;
+  font-size: 80px;
+}
+
+.block__text {
+  margin: 30px auto;
+  font-size: 25px;
+}
+.block__btn {
+  background: url("./img/home.png") no-repeat scroll 8% 13px,
+    linear-gradient(90.13deg, #105bfb 0.1%, #5061ff 134.04%);
+  border-radius: 20px;
+  width: 349px;
+  border: none;
+  height: 57px;
+  color: white;
+  font-weight: 900;
+  position: relative;
+  font-size: 22px;
+}
+.home__icon {
+  position: absolute;
+  left: 13%;
+  top: 71%;
+  bottom: 0%;
+}
+.scroll__img {
+  position: absolute;
+  object-fit: cover;
+  bottom: 30px;
+  right: 30px;
+}
+.hand__img {
+  position: absolute;
+  object-fit: cover;
+  bottom: 60px;
+  right: 78px;
+  animation: spin 1.3s infinite linear;
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-delay: -2s;
+}
+
+@keyframes spin {
+  0% {
+    right: 80px;
+    bottom: 40px;
+  }
+  50% {
+    right: 80px;
+    bottom: 100px;
+  }
+  75% {
+    right: 80px;
+    bottom: 100px;
+  }
+  100% {
+    right: 80px;
+    bottom: 40px;
+  }
+}
+
+@media (max-width: 990px) {
+  .block__title {
+    font-size: 60px;
+  }
+  .block__text {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero__block {
+    height: 362px;
+  }
+  .block__title {
+    font-size: 25px;
+  }
+  .block__text {
+    font-size: 14px;
+  }
+  .scroll__img,
+  .hand__img {
+    display: none;
+  }
+  .block__btn {
+    width: 211px;
+
+    font-size: 15px;
+    padding-left: 26px;
+    height: 34px;
+    background: url("./img/home.png") no-repeat scroll 8% 6px,
+      linear-gradient(90.13deg, #105bfb 0.1%, #5061ff 134.04%);
+    background-size: 19px;
+  }
+  .block {
+    width: 80%;
+  }
+}
