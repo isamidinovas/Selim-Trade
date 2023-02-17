@@ -1,0 +1,22 @@
+.btn {
+  border: 1px solid #105bfb;
+  width: 211px;
+  height: 51.54px;
+  border-radius: 18px;
+  font-family: "Inter";
+  font-size: 22px;
+  background: none;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+@media (max-width: 430px) {
+  .btn {
+    width: 100px;
+    height: 42px;
+    font-size: 12px;
+  }
+}
