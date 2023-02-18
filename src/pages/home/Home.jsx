@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../components/Footer/Footer";
 import Forms from "../../components/Forms/Forms";
 import About from "../../components/HomePage/About/About";
 import Advantages from "../../components/HomePage/Advantages/Advantages";
@@ -16,6 +17,7 @@ const Home = () => {
       <News />
       <Advantages />
       <Forms />
+      <Footer />
     </>
   );
 };
