@@ -1,0 +1,166 @@
+.wrapper {
+  max-width: 1399px;
+  margin-inline: auto;
+  padding: 0 20px;
+}
+
+.title {
+  position: absolute;
+  margin-top: -103px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 60px;
+  color: var(--dark);
+}
+.grid {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  column-gap: 20px;
+  overflow-x: scroll;
+  //   scroll-snap-type: proximity;
+  scroll-snap-align: none center;
+  scroll-behavior: smooth;
+  height: 240px;
+}
+
+.grid_item {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  width: 325px;
+  height: 203px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  padding: 0 10px 0 8px;
+  font-size: 17px;
+  line-height: 24px;
+  line-height: 140%;
+  padding-bottom: 40px;
+}
+
+.scrollBtns {
+  margin-top: 20px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.scrollBtns button:first-child {
+  margin-right: 40px;
+}
+
+.arrow {
+  position: absolute;
+  top: 22px;
+  left: 31px;
+}
+
+.scrollBtn {
+  width: max-content;
+  padding: 0;
+  border: none;
+  background: none;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  top: -17px;
+  left: 10px;
+  border: 5px solid white;
+}
+
+.card_header {
+  display: flex;
+  margin-bottom: 7px;
+  height: min-content;
+
+  .card_text {
+    font-weight: 400;
+  }
+  h4 {
+    font-size: 18px;
+    margin-top: 16px;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+}
+.author {
+  margin-left: 29px;
+  height: max-content;
+
+  p {
+    color: #414141;
+    font-size: 16px;
+    font-weight: 300;
+  }
+}
+
+@media (max-width: 700px) {
+  .scrollBtns button:first-child {
+    margin-right: 29px;
+  }
+  .scrollBtn {
+    width: 44px;
+    height: 44px;
+  }
+  .grid {
+    height: 168px;
+  }
+  .scrollBtns {
+    justify-content: center;
+  }
+  .card_header {
+    margin-bottom: 0;
+  }
+  .img {
+    width: 59px;
+    height: 59px;
+    left: 8px;
+    top: -11px;
+  }
+  .grid_item {
+    width: 241px;
+    height: 150px;
+    padding: 0 5px;
+
+    p {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 17px;
+    }
+  }
+
+  .author {
+    margin-left: 15px;
+    h4 {
+      margin-top: 9px;
+      font-size: 13px;
+      margin-bottom: 3px;
+      line-height: 19px;
+    }
+
+    p {
+      font-size: 11px;
+      line-height: 17px;
+    }
+  }
+}
