@@ -97,6 +97,13 @@
   }
 }
 
+@media (max-width: 700px) {
+  .scroll__img,
+  .hand__img {
+    display: none;
+  }
+}
+
 @media (max-width: 430px) {
   .hero__block {
     height: 362px;
@@ -106,10 +113,6 @@
   }
   .block__text {
     font-size: 14px;
-  }
-  .scroll__img,
-  .hand__img {
-    display: none;
   }
   .block__btn {
     width: 211px;
