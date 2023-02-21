@@ -98,9 +98,21 @@
 }
 
 @media (max-width: 700px) {
+  .hero__block {
+    height: 65vh;
+  }
   .scroll__img,
   .hand__img {
     display: none;
+  }
+  .block__title {
+    font-size: 50px;
+  }
+  .block__text {
+    font-size: 20px;
+  }
+  .block__btn {
+    font-size: 20px;
   }
 }
 

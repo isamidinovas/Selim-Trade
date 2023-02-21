@@ -3,7 +3,8 @@
   display: flex;
   align-items: center;
   padding: 0px 10px;
-  height: 574px;
+  height: 280px;
+  margin: 120px auto;
 }
 .container {
   width: 100%;
@@ -40,6 +41,18 @@
 // .advantager__img {
 //   padding-bottom: 15px;
 // }
+@media (max-width: 700px) {
+  .advantages__block {
+    margin: 0;
+    height: 370px;
+  }
+  .advantages__title {
+    font-size: 30px;
+  }
+  .advantages__item {
+    font-size: 18px;
+  }
+}
 @media (max-width: 660px) {
   .advantages__items {
     display: flex;
