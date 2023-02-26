@@ -35,7 +35,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 300px;
 }
 .new__item img {
   object-fit: cover;
@@ -121,8 +120,6 @@
   .new__item {
     font-size: 14px;
     flex: 0 0 auto;
-    padding: 16px 0px;
-    height: 234px;
   }
   .new__item img {
     object-fit: cover;
@@ -151,7 +148,7 @@
   }
   .new__item {
     font-size: 14px;
-    height: 132px;
+    height: 162px;
   }
   .new__text {
     font-size: 10px;

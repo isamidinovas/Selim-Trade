@@ -1,17 +1,16 @@
 .container {
   max-width: 1207px;
   padding: 0px 10px;
-  margin: 0 auto;
-  height: 292px;
+  margin: 60px auto;
 }
 .forms__title {
   display: flex;
   justify-content: center;
+  margin: 20px auto;
   text-transform: uppercase;
   font-family: "Montserrat";
   font-weight: 700;
   font-size: 40px;
-  line-height: 150%;
 }
 .forms {
   display: flex;
@@ -74,6 +73,7 @@
     margin: 0 auto;
     height: 47px;
   }
+
   .forms__title {
     font-size: 16px;
   }

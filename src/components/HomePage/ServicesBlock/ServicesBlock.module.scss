@@ -1,5 +1,4 @@
-.advantages__block {
-  background: url("./img/bg.png");
+.services__block {
   display: flex;
   align-items: center;
   background-size: cover;
@@ -10,7 +9,7 @@
   margin: 0 auto;
   max-width: 1297px;
 }
-.advantages__title {
+.services__title {
   text-align: center;
   margin: 20px auto;
 
@@ -70,6 +69,7 @@
   }
   .item {
     font-size: 14px;
+    height: 153px;
     width: 60%;
     flex: 0 0 auto;
   }
