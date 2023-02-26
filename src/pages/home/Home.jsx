@@ -7,6 +7,7 @@ import Hero from "../../components/HomePage/Hero/Hero";
 import News from "../../components/HomePage/News/News";
 import OurWorks from "../../components/HomePage/OurWorks/OurWorks";
 import Revews from "../../components/HomePage/Revews/Revews";
+import ServicesBlock from "../../components/HomePage/ServicesBlock/ServicesBlock";
 import WeOffer from "../../components/HomePage/WeOffer/WeOffer";
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Home.module.scss";
@@ -20,7 +21,7 @@ const Home = () => {
       <Advantages />
       <News />
       <OurWorks />
-      <Advantages />
+      <ServicesBlock />
       <div className={styles.background_img_container}>
         <Revews />
         <Forms />
