@@ -1,10 +1,10 @@
 .swiper_container {
   overflow: hidden;
   max-width: 1356px;
-  height: 470px;
+  height: 459px;
 }
 .container {
-  margin-top: 120px;
+  margin-top: 127px;
 }
 .nextArrow {
   position: absolute;
@@ -26,6 +26,7 @@
   line-height: 60px;
   color: var(--dark);
   font-family: "Montserrat", sans-serif;
+  margin-bottom: 45px;
 }
 .prevArrow {
   z-index: 100;
@@ -45,7 +46,7 @@
 
 .img {
   border-radius: 10px;
-  margin-top: 70px;
+  margin-top: 48px;
   width: 341px;
   height: 361px;
   object-fit: cover;
@@ -73,6 +74,13 @@
 }
 
 @media (max-width: 650px) {
+  .swiper_container {
+    height: 250px;
+  }
+  .title {
+    font-size: 24px;
+    margin-bottom: 0;
+  }
   .nextArrow {
     display: none;
   }
@@ -83,5 +91,15 @@
   .img {
     width: 156px;
     height: 161px;
+  }
+}
+
+@media (max-width: 532px) {
+  .title {
+    font-size: 16px;
+    margin-bottom: -25px;
+  }
+  .container {
+    margin-top: 50px;
   }
 }
