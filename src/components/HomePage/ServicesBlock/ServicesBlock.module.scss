@@ -3,6 +3,7 @@
   align-items: center;
   background-size: cover;
   padding: 100px 10px;
+  margin-bottom: 106px;
 }
 .container {
   width: 100%;
@@ -45,6 +46,9 @@
   .advantages__title {
     font-size: 30px;
   }
+  .services__title {
+    font-size: 24px;
+  }
 
   .items {
     display: flex;
@@ -56,6 +60,17 @@
     width: 40%;
     flex: 0 0 auto;
     padding: 16px 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  .services__block {
+    margin-bottom: 46px;
+    padding: 50px 10px 60px 10px;
+  }
+
+  .services__title {
+    font-size: 16px;
   }
 }
 
