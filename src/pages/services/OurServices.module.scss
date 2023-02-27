@@ -1,11 +1,23 @@
+.background_img_container {
+  background-image: url("../services/img//header_bg.png"),
+    url("../services/img/header_bg_leaves.png");
+  background-size: cover, 400px;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
 .container {
   max-width: 1339px;
   padding-inline: 10px;
   margin-inline: auto;
-  //   background-color: black;
+}
+
+.servicesList {
 }
 
 .header {
+  //   background-image: url("../services/img/footer_bg.png");
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr 1fr;
