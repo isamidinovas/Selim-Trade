@@ -20,8 +20,11 @@ const Home = () => {
       <WeOffer />
       <Advantages />
       <News />
-      <OurWorks />
-      <ServicesBlock />
+      <div className={styles.background__services}>
+        <OurWorks />
+        <ServicesBlock />
+      </div>
+
       <div className={styles.background_img_container}>
         <Revews />
         <Forms />
