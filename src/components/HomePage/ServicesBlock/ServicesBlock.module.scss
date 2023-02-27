@@ -1,16 +1,16 @@
-.advantages__block {
-  background: url("./img/bg.png");
+.services__block {
   display: flex;
   align-items: center;
   background-size: cover;
   padding: 100px 10px;
+  margin-bottom: 106px;
 }
 .container {
   width: 100%;
   margin: 0 auto;
   max-width: 1297px;
 }
-.advantages__title {
+.services__title {
   text-align: center;
   margin: 20px auto;
 
@@ -46,6 +46,9 @@
   .advantages__title {
     font-size: 30px;
   }
+  .services__title {
+    font-size: 24px;
+  }
 
   .items {
     display: flex;
@@ -60,16 +63,28 @@
   }
 }
 
+@media (max-width: 500px) {
+  .services__block {
+    margin-bottom: 46px;
+    padding: 50px 10px 60px 10px;
+  }
+
+  .services__title {
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 430px) {
   .advantages__block {
     height: 166px;
-    margin: 60px auto 95px auto;
+    margin: 60px auto;
   }
   .advantages__title {
     font-size: 16px;
   }
   .item {
     font-size: 14px;
+    height: 153px;
     width: 60%;
     flex: 0 0 auto;
   }
