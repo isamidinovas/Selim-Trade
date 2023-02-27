@@ -3,3 +3,9 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+@media (max-width: 500px) {
+  .background_img_container {
+    background-image: none;
+  }
+}
