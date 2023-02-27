@@ -1,7 +1,12 @@
 .news__block {
   display: flex;
   align-items: center;
+  height: 100vh;
   padding: 0px 10px;
+  background: url("./img/bg.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 100% 98%;
 }
 .news__container {
   width: 100%;
@@ -96,6 +101,12 @@
 @media (max-width: 1200px) {
   .news__items {
     flex-wrap: wrap;
+  }
+}
+@media (max-width: 920px) {
+  .news__block {
+    background: none;
+    height: auto;
   }
 }
 @media (max-width: 700px) {
