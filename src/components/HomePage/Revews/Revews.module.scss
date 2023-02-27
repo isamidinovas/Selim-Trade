@@ -43,7 +43,6 @@
 
 .scrollBtns {
   margin-top: 20px;
-  margin-bottom: 100px;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -114,6 +113,12 @@
   }
 }
 
+@media (max-width: 800px) {
+  .title {
+    font-size: 24px;
+  }
+}
+
 @media (max-width: 700px) {
   .scrollBtns button:first-child {
     margin-right: 29px;
@@ -162,5 +167,12 @@
       font-size: 11px;
       line-height: 17px;
     }
+  }
+}
+
+@media (max-width: 500px) {
+  .title {
+    font-size: 16px;
+    margin-top: -72px;
   }
 }
