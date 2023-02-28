@@ -1,4 +1,5 @@
 import React from "react";
+import ServicesList from "../../components/ServicesPage/ServicesList/ServicesList";
 import styles from "./OurServices.module.scss";
 
 const OurServices = () => {
@@ -17,7 +18,7 @@ const OurServices = () => {
             </p>
           </header>
           <div className={styles.servicesList}>
-            
+            <ServicesList />
           </div>
         </div>
       </section>

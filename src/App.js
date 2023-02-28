@@ -5,7 +5,7 @@ import OurServices from "./pages/services/OurServices";
 function App() {
   return (
     <div className="App">
-      {/* <Home /> */}
+      <Home />
       <OurServices />
     </div>
   );
