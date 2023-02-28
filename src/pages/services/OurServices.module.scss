@@ -1,10 +1,13 @@
 .background_img_container {
   background-image: url("../services/img//header_bg.png"),
-    url("../services/img/header_bg_leaves.png");
-  background-size: cover, 400px;
+    url("../services/img/header_bg_leaves.png"),
+    url("../services/img/body_bg_leaves.png");
+  background-size: cover 400px cover;
+  background-position: top left, top left, center left;
   background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 
 .container {
@@ -13,16 +16,13 @@
   margin-inline: auto;
 }
 
-.servicesList {
-}
-
 .header {
   //   background-image: url("../services/img/footer_bg.png");
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr 1fr;
   padding-bottom: 120px;
-  padding-top: 80px;
+  padding-top: 177px;
   align-items: center;
   color: var(--dark);
 
