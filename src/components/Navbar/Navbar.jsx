@@ -26,10 +26,6 @@ const Navbar = () => {
                   src={popUpLogo}
                   alt="Selim-Trade"
                 />
-                {/* <a href="#">Главная</a>
-                <a href="#">Услуги</a>
-                <a href="#">Новости</a>
-                <a href="#">Наши работы</a> */}
                 <ul>
                   <li>
                     <NavLink to="/">Главная</NavLink>
@@ -98,7 +94,6 @@ const Navbar = () => {
             </div>
           </div>
           <div
-            //   ref={BRef}
             className={`${styles.burger} ${isOpen ? styles.open : ""}`}
             onClick={handleClick}
           >
