@@ -14,7 +14,7 @@ import styles from "./Home.module.scss";
 const Home = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <About />
       <WeOffer />
@@ -27,9 +27,9 @@ const Home = () => {
 
       <div className={styles.background_img_container}>
         <Revews />
-        <Forms />
+        {/* <Forms /> */}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

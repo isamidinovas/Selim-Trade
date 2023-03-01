@@ -31,11 +31,15 @@
 }
 
 .nav_link {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 25px;
   margin-inline: 25px;
   border-bottom: 3px solid transparent;
 }
 
-.nav_link:hover {
+.nav_link li:hover {
   border-bottom: 3px white solid;
 }
 
