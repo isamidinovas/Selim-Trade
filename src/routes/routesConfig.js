@@ -1,4 +1,5 @@
 import Home from "../pages/home/Home";
+import ServiceInfo from "../pages/serviceInfo/ServiceInfo";
 import ServicePage from "../pages/services/OurServices";
 const routesConfig = [
   {
@@ -8,6 +9,10 @@ const routesConfig = [
   {
     path: "/service",
     element: <ServicePage />,
+  },
+  {
+    path: "/service/id",
+    element: <ServiceInfo />,
   },
 ];
 
