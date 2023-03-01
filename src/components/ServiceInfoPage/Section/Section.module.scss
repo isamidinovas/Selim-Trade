@@ -1,0 +1,24 @@
+.section {
+  max-width: 1288px;
+  margin: 50px auto;
+  padding: 0px 20px;
+}
+.text {
+  font-family: "Montserrat";
+  font-weight: 300;
+  text-transform: lowercase;
+  font-size: 20px;
+  line-height: 140%;
+  text-align: justify;
+  color: #414141;
+}
+
+@media (max-width: 430px) {
+  .section {
+    padding: 0px;
+    width: 300px;
+  }
+  .text {
+    font-size: 14px;
+  }
+}
