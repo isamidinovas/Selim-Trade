@@ -17,7 +17,6 @@
 }
 
 .header {
-  //   background-image: url("../services/img/footer_bg.png");
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr 1fr;
@@ -40,6 +39,16 @@
   }
 }
 
+.footer_bg {
+  position: absolute;
+  z-index: -60;
+  bottom: -645px;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
 // Media ----------------------------------------
 @media (max-width: 1100px) {
   .header {
@@ -80,5 +89,9 @@
 @media (max-width: 817px) {
   .header {
     padding-top: 77px;
+  }
+
+  .footer_bg {
+    display: none;
   }
 }
