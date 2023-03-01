@@ -4,6 +4,7 @@ import logo from "../../assets/icons/logo-navbar.svg";
 import burger from "../../assets/icons/menu.svg";
 import popUpLogo from "../../assets/icons/logo_small_dark.svg";
 import popUpCallIcon from "../../assets/icons/Call_icon_dark.svg";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,10 +26,24 @@ const Navbar = () => {
                   src={popUpLogo}
                   alt="Selim-Trade"
                 />
-                <a href="#">Главная</a>
+                {/* <a href="#">Главная</a>
                 <a href="#">Услуги</a>
                 <a href="#">Новости</a>
-                <a href="#">Наши работы</a>
+                <a href="#">Наши работы</a> */}
+                <ul>
+                  <li>
+                    <NavLink to="/">Главная</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/service">Услуги</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/news">Новости</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/works">Наши работы</NavLink>
+                  </li>
+                </ul>
                 <div className={styles.pop_up_contact}>
                   <p>г. Бишкек</p>
                   <div>
@@ -45,18 +60,20 @@ const Navbar = () => {
             <img className={styles.logo} src={logo} alt="Selim-Trade" />
           </div>
           <div className={styles.navbar_center}>
-            <a className={styles.nav_link} href="#">
-              главное
-            </a>
-            <a className={styles.nav_link} href="#">
-              услуги
-            </a>
-            <a className={styles.nav_link} href="#">
-              новости
-            </a>
-            <a className={styles.nav_link} href="#">
-              наши работы
-            </a>
+            <ul className={styles.nav_link}>
+              <li>
+                <NavLink to="/">Главная</NavLink>
+              </li>
+              <li>
+                <NavLink to="/service">Услуги</NavLink>
+              </li>
+              <li>
+                <NavLink to="/news">Новости</NavLink>
+              </li>
+              <li>
+                <NavLink to="/works">Наши работы</NavLink>
+              </li>
+            </ul>
           </div>
           <div className={styles.navbar_contact}>
             <p>г.Бишкек</p>
