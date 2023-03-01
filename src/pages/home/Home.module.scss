@@ -3,9 +3,14 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-
 .background__services {
   background: url("./img/bg.png");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+@media (max-width: 500px) {
+  .background_img_container {
+    background-image: none;
+  }
 }
