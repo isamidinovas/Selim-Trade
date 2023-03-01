@@ -60,6 +60,8 @@
     text-align: center;
     grid-auto-flow: row;
     grid-template-columns: 1fr;
+    padding-top: 127px;
+    padding-bottom: 40px;
     h2 {
       font-size: 16px;
       line-height: 24px;
@@ -72,5 +74,11 @@
       font-size: 14px;
       line-height: 19px;
     }
+  }
+}
+
+@media (max-width: 817px) {
+  .header {
+    padding-top: 77px;
   }
 }
