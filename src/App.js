@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Forms from "./components/Forms/Forms";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
+import Home from "./pages/home/Home";
 
 function App() {
   return (

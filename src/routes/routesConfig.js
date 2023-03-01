@@ -5,10 +5,6 @@ const routesConfig = [
     path: "/",
     element: <Home />,
   },
-  {
-    path: "/service",
-    // element: <Home />,
-  },
 ];
 
 export default routesConfig;
