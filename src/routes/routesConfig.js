@@ -1,4 +1,5 @@
 import Home from "../pages/home/Home";
+import NewInfo from "../pages/newInfo/NewInfo";
 import News from "../pages/news/News";
 import ServiceInfo from "../pages/serviceInfo/ServiceInfo";
 import ServicePage from "../pages/services/OurServices";
@@ -18,6 +19,10 @@ const routesConfig = [
   {
     path: "/news",
     element: <News />,
+  },
+  {
+    path: "/new",
+    element: <NewInfo />,
   },
 ];
 

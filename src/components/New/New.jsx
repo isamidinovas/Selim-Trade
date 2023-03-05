@@ -1,5 +1,7 @@
 import React from "react";
 import Img from "./img/img.png";
+import { NavLink } from "react-router-dom";
+
 import styles from "./New.module.scss";
 
 const New = () => {
@@ -16,7 +18,9 @@ const New = () => {
           гаражных сексионных ворот стандартной серии RSD01SC BIM.C 10 марта
           2016 года для заказа стали доступны ворота с дизайном панели
         </p>
-        <button className={styles.btn__hover}>Узнать больше</button>
+        <NavLink className={styles.btn__hover} to="/new">
+          <button>Узнать больше</button>
+        </NavLink>
       </div>
     </div>
   );

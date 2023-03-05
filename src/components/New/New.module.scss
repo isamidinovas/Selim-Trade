@@ -51,7 +51,13 @@
   border: 1px solid #105bfb;
   height: 40px;
 }
-
+.btn__hover button {
+  background: none;
+  font-size: 18px;
+  margin: 10px auto;
+  color: #fff;
+  border: none;
+}
 .new__item:hover {
   transition: 0.9s;
   background: linear-gradient(to bottom, #000000, #000000);
