@@ -24,6 +24,10 @@ const routesConfig = [
     path: "/new",
     element: <NewInfo />,
   },
+  {
+    path: "/works",
+    element: <Works />,
+  },
 ];
 
 export default routesConfig;
