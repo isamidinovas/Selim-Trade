@@ -16,18 +16,6 @@ const routesConfig = [
     path: "/service/id",
     element: <ServiceInfo />,
   },
-  {
-    path: "/news",
-    element: <News />,
-  },
-  {
-    path: "/new",
-    element: <NewInfo />,
-  },
-  {
-    path: "/works",
-    element: <Works />,
-  },
 ];
 
 export default routesConfig;
