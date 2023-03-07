@@ -1,7 +1,7 @@
 import React from "react";
 import ServicesList from "../../components/ServicesPage/ServicesList/ServicesList";
 import styles from "./OurServices.module.scss";
-
+import footer_bg_img from "./img/footer_bg.png";
 const OurServices = () => {
   return (
     <>
@@ -20,6 +20,9 @@ const OurServices = () => {
           <div className={styles.servicesList}>
             <ServicesList />
           </div>
+        </div>
+        <div className={styles.footer_bg}>
+          <img src={footer_bg_img} />
         </div>
       </section>
     </>
