@@ -26,7 +26,7 @@ const Navbar = () => {
                   src={popUpLogo}
                   alt="Selim-Trade"
                 />
-                <ul>
+                <ul className={styles.list}>
                   <li>
                     <NavLink to="/">Главная</NavLink>
                   </li>
@@ -67,7 +67,7 @@ const Navbar = () => {
                 <NavLink to="/news">Новости</NavLink>
               </li>
               <li>
-                <NavLink to="/works">Наши работы</NavLink>
+                <NavLink to="">Наши работы</NavLink>
               </li>
             </ul>
           </div>
