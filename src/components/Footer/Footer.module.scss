@@ -88,9 +88,24 @@
   }
 
   .footer_col_4 {
-    background-color: rgb(20, 100, 44);
+    position: relative;
     border-radius: 10px;
   }
+}
+
+.footer_col_4_text {
+  color: var(--dark);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 5px 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  z-index: 10;
 }
 
 .footer_col_3 div:first-child {
@@ -166,6 +181,12 @@
     margin-bottom: 8px;
   }
 
+  .footer_col_4_text {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 3px 5px;
+  }
+
   .footer {
     height: 270px;
   }
@@ -184,6 +205,12 @@
 
   .location_pin_small {
     right: 25%;
+  }
+
+  .footer_col_4_text {
+    font-size: 9px;
+    line-height: 12px;
+    padding: 1px 2px;
   }
 }
 
