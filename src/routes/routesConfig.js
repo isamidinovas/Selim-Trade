@@ -3,6 +3,7 @@ import NewInfo from "../pages/newInfo/NewInfo";
 import News from "../pages/news/News";
 import ServiceInfo from "../pages/serviceInfo/ServiceInfo";
 import ServicePage from "../pages/services/OurServices";
+import Works from "../pages/works/Works";
 const routesConfig = [
   {
     path: "/",
@@ -13,7 +14,7 @@ const routesConfig = [
     element: <ServicePage />,
   },
   {
-    path: "/service/id",
+    path: "/service/:id",
     element: <ServiceInfo />,
   },
   {
@@ -23,6 +24,10 @@ const routesConfig = [
   {
     path: "/new",
     element: <NewInfo />,
+  },
+  {
+    path: "/works",
+    element: <Works />,
   },
 ];
 
