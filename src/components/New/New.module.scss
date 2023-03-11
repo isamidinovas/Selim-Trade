@@ -90,7 +90,10 @@
   }
   .new__item img {
     object-fit: cover;
-    width: 390px;
+    max-width: 390px;
+  }
+  .block__hover {
+    gap: 15px;
   }
   .text__hover {
     width: 100%;
@@ -103,7 +106,6 @@
   }
   .new__item {
     font-size: 14px;
-    // height: 162px;
   }
   .new__text {
     font-size: 10px;
@@ -115,7 +117,10 @@
   }
   .btn__hover {
     width: 41%;
+    height: 26px;
+  }
+  .btn__hover button {
     font-size: 10px;
-    height: 20px;
+    margin: 5px auto;
   }
 }
