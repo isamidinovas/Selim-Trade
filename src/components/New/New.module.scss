@@ -26,6 +26,7 @@
   color: #fff;
 }
 .block__hover {
+  gap: 10px;
   display: flex;
   justify-content: center;
   position: absolute;
@@ -34,9 +35,10 @@
 }
 .text__hover {
   opacity: 0;
-  font-size: 20px;
+  font-size: 18px;
+  text-align: left;
   line-height: 150%;
-  width: 80%;
+  width: 92%;
   color: #fff;
 }
 .btn__hover {
@@ -92,16 +94,10 @@
     object-fit: cover;
     max-width: 390px;
   }
-  .block__hover {
-    gap: 15px;
-  }
-  .text__hover {
-    width: 100%;
-  }
 }
 @media (max-width: 430px) {
   .new__item img {
-    width: 241px;
+    width: 242px;
     height: 152p;
   }
   .new__item {
@@ -113,7 +109,6 @@
   .text__hover {
     font-size: 10px;
     line-height: 150%;
-    width: 68%;
   }
   .btn__hover {
     width: 41%;
