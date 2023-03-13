@@ -2,6 +2,7 @@ import React from "react";
 import About from "../../components/HomePage/About/About";
 import Advantages from "../../components/HomePage/Advantages/Advantages";
 import Hero from "../../components/HomePage/Hero/Hero";
+import NavigateBtn from "../../components/HomePage/NavigateBtn/NavigateBtn";
 import News from "../../components/HomePage/News/News";
 import OurWorks from "../../components/HomePage/OurWorks/OurWorks";
 import Revews from "../../components/HomePage/Revews/Revews";
@@ -11,8 +12,11 @@ import styles from "./Home.module.scss";
 const Home = () => {
   return (
     <>
-      <Hero />
+      <div id="hero">
+        <Hero />
+      </div>
       <About />
+      {/* <NavigateBtn /> */}
       <WeOffer />
       <Advantages />
       <News />
