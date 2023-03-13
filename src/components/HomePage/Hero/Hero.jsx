@@ -3,6 +3,7 @@ import React from "react";
 import Hand from "./img/hand.png";
 import Scroll from "./img/scroll.png";
 import styles from "./Hero.module.scss";
+import NavigateBtn from "../NavigateBtn/NavigateBtn";
 
 const Hero = () => {
   return (
@@ -18,8 +19,10 @@ const Hero = () => {
               или предоставьте это нам
             </p>
             <button className={styles.block__btn}>Заказать ворота</button>
-            <img className={styles.scroll__img} src={Scroll} alt="scroll" />
-            <img src={Hand} alt="hand" className={styles.hand__img} />
+            <div className={styles.scroll}>
+              <img className={styles.scroll__img} src={Scroll} alt="scroll" />
+              <img src={Hand} alt="hand" className={styles.hand__img} />
+            </div>
           </div>
         </div>
       </div>

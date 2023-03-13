@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import styles from "./WeOffer.module.scss";
 import ArrowLeft from "../../../assets/icons/LeftArrow.svg";
 import ArrowRight from "../../../assets/icons/RightArrow.svg";
+import NavigateBtn from "../NavigateBtn/NavigateBtn";
 
 const WeOffer = () => {
   const [scrollAmount, setScrollAmount] = useState(270);
@@ -16,6 +17,7 @@ const WeOffer = () => {
     <>
       <div className={styles.background_img_container}>
         <div className={styles.container}>
+          <NavigateBtn />
           <h2 className={styles.page_title}>Мы предлагаем</h2>
           <div className={styles.page3__block} ref={scrollRef}>
             <div className={styles.block__item}>
