@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import styles from "./Revews.module.scss";
 import LeftArrow from "../../../assets/icons/LeftArrow.svg";
 import RightArrow from "../../../assets/icons/RightArrow.svg";
+import NavigateBtn from "../NavigateBtn/NavigateBtn";
 
 const Revews = () => {
   const [scrollAmount, setScrollAmount] = useState(347);

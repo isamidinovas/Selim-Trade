@@ -3,7 +3,6 @@ import React from "react";
 import Hand from "./img/hand.png";
 import Scroll from "./img/scroll.png";
 import styles from "./Hero.module.scss";
-import NavigateBtn from "../NavigateBtn/NavigateBtn";
 
 const Hero = () => {
   return (
