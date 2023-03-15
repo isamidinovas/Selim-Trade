@@ -168,24 +168,6 @@ const Footer = () => {
             <div className={styles.footer_col_4}>{/* <Map /> */}</div>
           </div>
 
-          <div className={styles.footer_col_4}>
-            <iframe
-              style={{ borderRadius: "10px" }}
-              width="100%"
-              height="100%"
-              frameborder="0"
-              scrolling="no"
-              marginheight="0"
-              marginwidth="0"
-              id="gmap_canvas"
-              src="https://maps.google.com/maps?width=738&amp;height=377&amp;hl=en&amp;q=%D0%90%D0%B9%D0%BD%D0%B8%2022%20Bishkek+(Selim%20Trade)&amp;t=p&amp;z=18&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-            ></iframe>
-            <div className={styles.footer_col_4_text}>
-              <p>АДРЕС</p>
-              <p>г. Бишкек, ул. Айни 22</p>
-            </div>
-          </div>
-        </div>
           <span className={styles.location_pin}>
             <svg
               width="329"
@@ -272,16 +254,16 @@ const Footer = () => {
               </defs>
             </svg>
           </span>
-        </footer>
-        <div className={styles.footer_under}>
-          <div>11111111111</div>
-          <div className={styles.footer_under__text}>
-            <p>
-              © 2023 Selim Trade. Данный сайт защищён от копирования. Любая
-              передача данных в интернете запрещена.
-            </p>
+          <div className={styles.footer_under}>
+            <div>11111111111</div>
+            <div className={styles.footer_under__text}>
+              <p>
+                © 2023 Selim Trade. Данный сайт защищён от копирования. Любая
+                передача данных в интернете запрещена.
+              </p>
+            </div>
           </div>
-        </div>
+        </footer>
       </div>
     </>
   );
