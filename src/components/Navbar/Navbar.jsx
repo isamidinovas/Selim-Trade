@@ -26,7 +26,7 @@ const Navbar = () => {
                   src={popUpLogo}
                   alt="Selim-Trade"
                 />
-                <ul className={styles.list}>
+                <ul className={styles.list} onClick={() => setIsOpen(false)}>
                   <li>
                     <NavLink to="/">Главная</NavLink>
                   </li>
