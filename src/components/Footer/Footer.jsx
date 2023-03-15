@@ -255,15 +255,15 @@ const Footer = () => {
             </svg>
           </span>
         </footer>
-          <div className={styles.footer_under}>
-            <div>11111111111</div>
-            <div className={styles.footer_under__text}>
-              <p>
-                © 2023 Selim Trade. Данный сайт защищён от копирования. Любая
-                передача данных в интернете запрещена.
-              </p>
-            </div>
+        <div className={styles.footer_under}>
+          <div>11111111111</div>
+          <div className={styles.footer_under__text}>
+            <p>
+              © 2023 Selim Trade. Данный сайт защищён от копирования. Любая
+              передача данных в интернете запрещена.
+            </p>
           </div>
+        </div>
       </div>
     </>
   );
