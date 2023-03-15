@@ -57,18 +57,13 @@ const Navbar = () => {
           </div>
           <div className={styles.navbar_center}>
             <ul className={styles.nav_link}>
-              <li>
-                <NavLink to="/">Главная</NavLink>
-              </li>
-              <li>
-                <NavLink to="/service">Услуги</NavLink>
-              </li>
-              <li>
-                <NavLink to="/news">Новости</NavLink>
-              </li>
-              <li>
-                <NavLink to="/works">Наши работы</NavLink>
-              </li>
+              <NavLink to="/">Главная</NavLink>
+
+              <NavLink to="/service">Услуги</NavLink>
+
+              <NavLink to="/news">Новости</NavLink>
+
+              <NavLink to="/works">Наши работы</NavLink>
             </ul>
           </div>
           <div className={styles.navbar_contact}>
