@@ -254,6 +254,7 @@ const Footer = () => {
               </defs>
             </svg>
           </span>
+        </footer>
           <div className={styles.footer_under}>
             <div>11111111111</div>
             <div className={styles.footer_under__text}>
@@ -263,7 +264,6 @@ const Footer = () => {
               </p>
             </div>
           </div>
-        </footer>
       </div>
     </>
   );
