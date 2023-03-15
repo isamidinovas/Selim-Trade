@@ -1,14 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 import logo from "../../assets/icons/logo-navbar.svg";
+import dark_logo from "../../assets/icons/dark_logo.svg";
 import burger from "../../assets/icons/menu.svg";
 import popUpLogo from "../../assets/icons/logo_small_dark.svg";
 import popUpCallIcon from "../../assets/icons/Call_icon_dark.svg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const popupRef = useRef(null);
+  const location = useLocation();
+  console.log("🚀 ~ file: Navbar.jsx:14 ~ Navbar ~ location:", location);
 
   const handleClick = (e) => {
     setIsOpen(!isOpen);
@@ -21,11 +24,13 @@ const Navbar = () => {
           {isOpen && (
             <div ref={popupRef} className={styles.pop_up_menu}>
               <div className={styles.wrapper}>
-                <img
-                  className={styles.pop_up_logo}
-                  src={popUpLogo}
-                  alt="Selim-Trade"
-                />
+                <Link to="/" onClick={() => setIsOpen(false)}>
+                  <img
+                    className={styles.pop_up_logo}
+                    src={popUpLogo}
+                    alt="Selim-Trade"
+                  />
+                </Link>
                 <ul className={styles.list} onClick={() => setIsOpen(false)}>
                   <li>
                     <NavLink to="/">Главная</NavLink>
@@ -52,8 +57,30 @@ const Navbar = () => {
             </div>
           )}
 
-          <div className={styles.navbar_left}>
-            <img className={styles.logo} src={logo} alt="Selim-Trade" />
+          <div className={styles.navbar_left} onClick={() => setIsOpen(false)}>
+            {location.pathname !== "/" && (
+              <Link to="/">
+                <img
+                  className={styles.logo_second}
+                  src={logo}
+                  alt="Selim-Trade"
+                />
+              </Link>
+            )}
+            {location.pathname === "/" && (
+              <Link to="/">
+                <img className={styles.logo} src={logo} alt="Selim-Trade" />
+              </Link>
+            )}
+            {location.pathname !== "/" && (
+              <Link to="/">
+                <img
+                  className={styles.logo_dark}
+                  src={dark_logo}
+                  alt="Selim-Trade"
+                />
+              </Link>
+            )}
           </div>
           <div className={styles.navbar_center}>
             <ul className={styles.nav_link}>

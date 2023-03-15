@@ -52,7 +52,6 @@ ul {
   border-bottom: 3px white solid;
 }
 
-
 .call_text {
   font-size: 16px;
 }
@@ -64,6 +63,7 @@ ul {
 .logo {
   min-width: 100px;
   margin-top: 8px;
+  color: black;
 }
 
 .burger {
@@ -184,7 +184,18 @@ ul {
   }
 }
 
+.logo_dark {
+  display: none;
+}
 @media (max-width: 817px) {
+  .logo_dark {
+    display: block;
+  }
+  .logo_second {
+    display: none;
+    width: 85px;
+    height: 39px;
+  }
   .navbar {
     background: none;
     backdrop-filter: blur(0);
