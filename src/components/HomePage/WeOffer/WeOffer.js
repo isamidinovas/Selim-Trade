@@ -17,7 +17,6 @@ const WeOffer = () => {
     <>
       <div className={styles.background_img_container}>
         <div className={styles.container}>
-          <NavigateBtn />
           <h2 className={styles.page_title}>Мы предлагаем</h2>
           <div className={styles.page3__block} ref={scrollRef}>
             <div className={styles.block__item}>

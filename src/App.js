@@ -5,6 +5,7 @@ import Forms from "./components/Forms/Forms";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 import Home from "./pages/home/Home";
+import NavigateBtn from "./components/HomePage/NavigateBtn/NavigateBtn";
 function App() {
   return (
     <div className="App">
