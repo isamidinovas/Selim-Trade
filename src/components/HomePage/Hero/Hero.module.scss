@@ -9,10 +9,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // display: flex;
-  // min-height: 100%;
-  // overflow: hidden;
-  // flex-direction: column;
   font-size: calc(var(--index) * 0.7);
 }
 
@@ -53,9 +49,9 @@
   bottom: 0%;
 }
 .scroll__img {
-  position: absolute;
+  position: relative;
   object-fit: cover;
-  bottom: 30px;
+  bottom: 25px;
   right: 30px;
 }
 .hand__img {
@@ -96,7 +92,11 @@
     font-size: 22px;
   }
 }
-
+@media (max-width: 890px) {
+  .hero__block {
+    height: 100vh;
+  }
+}
 @media (max-width: 700px) {
   .hero__block {
     height: 65vh;
@@ -139,4 +139,9 @@
   .block {
     width: 80%;
   }
+}
+
+.scroll {
+  position: absolute;
+  right: 30px;
 }
