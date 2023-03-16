@@ -1,7 +1,6 @@
 .news__block {
   display: flex;
   align-items: center;
-  height: 100vh;
   padding: 0px 10px;
   background: url("./img/bg.png");
   background-repeat: no-repeat;
@@ -16,7 +15,6 @@
 .news__title {
   text-align: center;
   margin: 20px auto;
-
   font-family: "Montserrat";
   font-weight: 700;
   font-size: 40px;
@@ -24,7 +22,6 @@
 }
 .news__items {
   gap: 15px;
-
   justify-content: center;
   display: flex;
 }
@@ -34,10 +31,9 @@
     flex-wrap: wrap;
   }
 }
-@media (max-width: 920px) {
+@media (max-width: 914px) {
   .news__block {
     background: none;
-    height: auto;
   }
 }
 @media (max-width: 700px) {

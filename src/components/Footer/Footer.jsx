@@ -2,11 +2,13 @@ import React from "react";
 import styles from "./Footer.module.scss";
 import logo from "../../assets/icons/logo.svg";
 import { Link } from "react-router-dom";
+import NavigateBtn from "../HomePage/NavigateBtn/NavigateBtn";
 // import { Map } from "2gis-maps-react";
 const Footer = () => {
   return (
     <>
-      <footer className={styles.footer}>
+      <footer className={styles.footer} style={{ position: "relative" }}>
+        <NavigateBtn />
         <div className={styles.footer_container}>
           <div className={styles.footer_col_1}>
             <Link to="/">

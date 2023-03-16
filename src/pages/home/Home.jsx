@@ -11,7 +11,9 @@ import styles from "./Home.module.scss";
 const Home = () => {
   return (
     <>
-      <Hero />
+      <div id="hero">
+        <Hero />
+      </div>
       <About />
       <WeOffer />
       <Advantages />
