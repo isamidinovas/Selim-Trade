@@ -5,7 +5,10 @@
 }
 
 /* UTILS */
-
+.active {
+  border-bottom: 3px white solid;
+  color: red;
+}
 /* Box sizing rules */
 *,
 *::before,
