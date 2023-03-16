@@ -16,7 +16,7 @@ const Revews = () => {
 
   return (
     <>
-      <div className={styles.wrapper}>
+      <div id="reviews" className={styles.wrapper}>
         <h2 className={styles.title}>Отзывы наших клиентов</h2>
         <div className={styles.grid} ref={scrollRef}>
           <div className={styles.grid_item}>
