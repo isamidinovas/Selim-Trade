@@ -3,7 +3,7 @@ import styles from "./About.module.scss";
 
 const About = () => {
   return (
-    <div className={styles.about__block}>
+    <div id="about" className={styles.about__block}>
       <div className={styles.container}>
         <h2 className={styles.block__title}>Кто такие Selim trade?</h2>
         <div className={styles.block__texts}>
