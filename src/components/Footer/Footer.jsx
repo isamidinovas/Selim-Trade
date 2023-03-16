@@ -7,15 +7,14 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-
       <div style={{ position: "relative" }}>
         <NavigateBtn />
         <footer className={styles.footer}>
           <div className={styles.footer_container}>
             <div className={styles.footer_col_1}>
-                <Link to="/">
-              <img className={styles.logo} src={logo} alt="Selim trade" />
-            </Link>
+              <Link to="/">
+                <img className={styles.logo} src={logo} alt="Selim trade" />
+              </Link>
 
               <div>
                 <p>СОЦИАЛЬНЫЕ СЕТИ</p>
@@ -144,54 +143,45 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-
-          </div>
-          <div className={styles.footer_col_2}>
-            <div>
-              <Link
-                to="/"
-                onClick={() => {
-                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                }}
-              >
-                Главная
-              </Link>
-              <a href="#about">О нас</a>
-              <Link
-                to="service"
-                onClick={() => {
-                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                }}
-              >
-                Услуги
-              </Link>
-            </div>
-            <div>
-              <Link
-                to="/works"
-                onClick={() => {
-                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                }}
-              >
-                Работы
-              </Link>
-              <a href="#reviews">Отзывы</a>
-              <Link
-                to="/news"
-                onClick={() => {
-                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                }}
-              >
-                Новости
-              </Link>
-            </div>
-          </div>
-          <div className={styles.footer_col_3}>
-            <div>
-              <p>РЕЖИМ РАБОТЫ</p>
-              <p>Пн-Пт 8:30–18:30</p>
-              <p>Суббота 8:30–14:00</p>
-
+            <div className={styles.footer_col_2}>
+              <div>
+                <Link
+                  to="/"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                >
+                  Главная
+                </Link>
+                <a href="#about">О нас</a>
+                <Link
+                  to="service"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                >
+                  Услуги
+                </Link>
+              </div>
+              <div>
+                <Link
+                  to="/works"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                >
+                  Работы
+                </Link>
+                <a href="#reviews">Отзывы</a>
+                <Link
+                  to="/news"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                >
+                  Новости
+                </Link>
+              </div>
             </div>
             <div className={styles.footer_col_3}>
               <div>
@@ -224,6 +214,18 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
+          {/*        
+          <div className={styles.footer_col_3}>
+            <div>
+              <p>РЕЖИМ РАБОТЫ</p>
+              <p>Пн-Пт 8:30–18:30</p>
+              <p>Суббота 8:30–14:00</p>
+
+            </div>
+            
+           
+          </div> */}
 
           <span className={styles.location_pin}>
             <svg
@@ -327,3 +329,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// add some text to  test merging

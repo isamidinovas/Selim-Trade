@@ -1,4 +1,4 @@
-#btn {
+.wrapper {
   background: linear-gradient(90.13deg, #105bfb 0.1%, #5061ff 134.04%);
   background-repeat: no-repeat;
   width: 70px;
@@ -11,12 +11,14 @@
   top: -50px;
   right: 0;
   margin-right: 30px;
+  cursor: pointer;
+  z-index: 100;
 }
-
 .scroll__btn {
   display: flex;
-  justify-content: end;
-  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  // margin-top: 30px;
 }
 
 @media (max-width: 700px) {
