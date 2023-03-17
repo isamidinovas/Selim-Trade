@@ -9,9 +9,11 @@ const NavigateBtn = () => {
   // }
 
   return (
-    <div className={styles.scroll__btn}>
+    <div className={styles.wrapper}>
       <Link to="hero" smooth={true} duration={500} id={styles.btn}>
-        <img src={Arrow} alt="" />
+        <div className={styles.scroll__btn}>
+          <img src={Arrow} alt="" />
+        </div>
       </Link>
     </div>
   );

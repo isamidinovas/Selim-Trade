@@ -7,12 +7,13 @@
   margin-inline: auto;
   border-radius: 20px;
   position: relative;
-  z-index: -11;
+  z-index: 11;
 }
 
 .logo {
   width: 100px;
   height: 52px;
+  cursor: pointer;
 }
 .location_pin {
   position: absolute;
@@ -72,6 +73,7 @@
 
       a {
         margin-bottom: 15px;
+        cursor: pointer;
       }
     }
   }

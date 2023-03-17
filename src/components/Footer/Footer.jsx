@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Footer.module.scss";
 import logo from "../../assets/icons/logo.svg";
 import NavigateBtn from "../HomePage/NavigateBtn/NavigateBtn";
+import { Link } from "react-router-dom";
 // import { Map } from "2gis-maps-react";
 const Footer = () => {
   return (
@@ -11,7 +12,9 @@ const Footer = () => {
         <footer className={styles.footer}>
           <div className={styles.footer_container}>
             <div className={styles.footer_col_1}>
-              <img className={styles.logo} src={logo} alt="Selim trade" />
+              <Link to="/">
+                <img className={styles.logo} src={logo} alt="Selim trade" />
+              </Link>
 
               <div>
                 <p>СОЦИАЛЬНЫЕ СЕТИ</p>
@@ -142,14 +145,42 @@ const Footer = () => {
             </div>
             <div className={styles.footer_col_2}>
               <div>
-                <a href="#">Главная</a>
-                <a href="#">О нас</a>
-                <a href="#">Услуги</a>
+                <Link
+                  to="/"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                >
+                  Главная
+                </Link>
+                <a href="#about">О нас</a>
+                <Link
+                  to="service"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                >
+                  Услуги
+                </Link>
               </div>
               <div>
-                <a href="#">Работы</a>
-                <a href="#">Отзывы</a>
-                <a href="#">Новости</a>
+                <Link
+                  to="/works"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                >
+                  Работы
+                </Link>
+                <a href="#reviews">Отзывы</a>
+                <Link
+                  to="/news"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                >
+                  Новости
+                </Link>
               </div>
             </div>
             <div className={styles.footer_col_3}>
@@ -183,6 +214,18 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
+          {/*        
+          <div className={styles.footer_col_3}>
+            <div>
+              <p>РЕЖИМ РАБОТЫ</p>
+              <p>Пн-Пт 8:30–18:30</p>
+              <p>Суббота 8:30–14:00</p>
+
+            </div>
+            
+           
+          </div> */}
 
           <span className={styles.location_pin}>
             <svg
@@ -286,3 +329,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// add some text to  test merging
