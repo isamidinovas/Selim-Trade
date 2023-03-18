@@ -9,6 +9,8 @@ import Home from "./pages/home/Home";
 import NavigateBtn from "./components/HomePage/NavigateBtn/NavigateBtn";
 import { BrowserRouter } from "react-router-dom";
 import Layout from "./routes/Layout";
+import Authentication from "./admin/pages/authentication/Authentication";
+import ProtectedRoute from "./admin/routes/ProtectedRoute";
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
             <Route key={index} path={route.path} element={route.element} />
           ))}
         </Route>
-        <Route path="a" element={<>hi admin</>} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="admin" element={<Authentication />} />
+        </Route>
       </Routes>
     </div>
   );
