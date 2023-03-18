@@ -31,12 +31,17 @@
   font-size: 25px;
 }
 .block__btn {
+  cursor: pointer;
   background: url("./img/home.png") no-repeat scroll 8% 13px,
     linear-gradient(90.13deg, #105bfb 0.1%, #5061ff 134.04%);
   border-radius: 20px;
   width: 349px;
   border: none;
   height: 57px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   font-weight: 900;
   position: relative;

@@ -3,7 +3,7 @@ import styles from "./Forms.module.scss";
 
 const Forms = () => {
   return (
-    <div className={styles.forms__block}>
+    <div id="form">
       <div className={styles.container}>
         <h2 className={styles.forms__title}>Остались вопросы?</h2>
         <div className={styles.forms}>

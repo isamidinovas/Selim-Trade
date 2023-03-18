@@ -17,7 +17,10 @@ const Hero = () => {
               Найдите идеальный вариант сами <br />
               или предоставьте это нам
             </p>
-            <button className={styles.block__btn}>Заказать ворота</button>
+
+            <a href="#form" className={styles.block__btn}>
+              Заказать ворота
+            </a>
             <div className={styles.scroll}>
               <img className={styles.scroll__img} src={Scroll} alt="scroll" />
               <img src={Hand} alt="hand" className={styles.hand__img} />
