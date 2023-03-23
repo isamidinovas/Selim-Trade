@@ -21,6 +21,7 @@ function App() {
             <Route key={index} path={route.path} element={route.element} />
           ))}
         </Route>
+        {/* ADMIN ROUTES ⬇️ */}
         <Route element={<ProtectedRoute />}>
           <Route path="admin" element={<Authentication />} />
         </Route>

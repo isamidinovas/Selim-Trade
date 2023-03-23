@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { register } from "../../../redux/admin/adminSlice";
 // import { Admin, ListGuesser, Resource, useAuthProvider } from "react-admin";
 
@@ -32,7 +33,23 @@ const Authentication = () => {
       passwordConfirmation,
       role,
     } = adminInfo;
-    console.log(adminInfo);
+
+    // FORM VALIDATIONS
+    if (
+      !lastName ||
+      !firstName ||
+      !username ||
+      !password ||
+      !passwordConfirmation
+    ) {
+      toast.warn("Заполните все поля");
+      return;
+    }
+
+    if (password !== passwordConfirmation) {
+      toast.error("Потвердите пороль верно");
+      return;
+    }
     dispatch(
       register({
         lastName: lastName,
@@ -85,8 +102,9 @@ const Authentication = () => {
             type="password"
             value={adminInfo.passwordConfirmation}
           />
-          <button onClick={onSubmit}>submit</button>
+          <button onClick={onSubmit}>Отправить</button>
         </div>
+        <p>Есть аккаунт</p>
       </div>
     </>
   );
