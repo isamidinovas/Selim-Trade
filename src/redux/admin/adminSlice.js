@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import customFetch from "../../utils/axios";
 
 const initialState = {
-  token: "null",
+  token: null,
   isLoading: "false",
 };
 
@@ -43,8 +43,9 @@ export const adminSlice = createSlice({
   name: "admin",
   initialState,
   reducers: {
-    inc: (state) => {
-      state.count = state.count + 1;
+    logOut: (state) => {
+      toast.success("Log Out");
+      state.token = null;
     },
   },
   extraReducers: {
@@ -72,5 +73,5 @@ export const adminSlice = createSlice({
   },
 });
 
+export const { logOut } = adminSlice.actions;
 export default adminSlice.reducer;
-export const { inc } = adminSlice.actions;
