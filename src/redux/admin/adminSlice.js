@@ -24,6 +24,20 @@ export const register = createAsyncThunk(
     }
   }
 );
+export const logIn = createAsyncThunk(
+  "admin/login",
+  async (adminData, thunkAPI) => {
+    try {
+      const response = await customFetch.post(
+        "api/v1/public/auth/login",
+        adminData
+      );
+      return response.data;
+    } catch (error) {
+      return error;
+    }
+  }
+);
 
 export const adminSlice = createSlice({
   name: "admin",
@@ -44,7 +58,15 @@ export const adminSlice = createSlice({
     },
     [register.rejected]: (state, { payload }) => {
       state.isLoading = false;
-      console.log("request rejected");
+      toast.error(payload);
+    },
+    // LOGIN
+    [logIn.fulfilled]: (state, { payload }) => {
+      state.token = payload.token || null;
+      console.log(state.token);
+    },
+    [logIn.rejected]: (state, { payload }) => {
+      state.isLoading = false;
       toast.error(payload);
     },
   },

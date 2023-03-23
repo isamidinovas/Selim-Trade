@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { register } from "../../../redux/admin/adminSlice";
+import { logIn, register } from "../../../redux/admin/adminSlice";
 // import { Admin, ListGuesser, Resource, useAuthProvider } from "react-admin";
 
 const Authentication = () => {
@@ -14,7 +14,7 @@ const Authentication = () => {
     role: "ROLE_ADMIN",
   };
   const [adminInfo, setAdminInfo] = useState(initialState);
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -34,6 +34,13 @@ const Authentication = () => {
       role,
     } = adminInfo;
 
+    // LOG IN
+    if (isLoggedIn) {
+      if (!username || !password) toast.error("Заполните все поля");
+      dispatch(logIn({ username, password }));
+      return;
+    }
+
     // FORM VALIDATIONS
     if (
       !lastName ||
@@ -50,6 +57,8 @@ const Authentication = () => {
       toast.error("Потвердите пороль верно");
       return;
     }
+
+    // REJISTER
     dispatch(
       register({
         lastName: lastName,
@@ -67,20 +76,34 @@ const Authentication = () => {
     <>
       <div className="container">
         <div className="inner_wrapper">
-          <label>Фамилия</label>
-          <input
-            onChange={handleChange}
-            name="lastName"
-            type="text"
-            value={adminInfo.lastName}
-          />
-          <label>Имя</label>
-          <input
-            onChange={handleChange}
-            name="firstName"
-            type="text"
-            value={adminInfo.firstName}
-          />
+          <button
+            style={{ display: "block" }}
+            onClick={() => setIsLoggedIn(!isLoggedIn)}
+          >
+            change
+          </button>
+          {!isLoggedIn && (
+            <div>
+              <label>Фамилия</label>
+              <input
+                onChange={handleChange}
+                name="lastName"
+                type="text"
+                value={adminInfo.lastName}
+              />
+            </div>
+          )}
+          {!isLoggedIn && (
+            <div>
+              <label>Имя</label>
+              <input
+                onChange={handleChange}
+                name="firstName"
+                type="text"
+                value={adminInfo.firstName}
+              />
+            </div>
+          )}
           <label>Никнейм</label>
           <input
             onChange={handleChange}
@@ -95,16 +118,22 @@ const Authentication = () => {
             type="password"
             value={adminInfo.password}
           />
-          <label>Потверждения пороля</label>
-          <input
-            onChange={handleChange}
-            name="passwordConfirmation"
-            type="password"
-            value={adminInfo.passwordConfirmation}
-          />
+          {!isLoggedIn && (
+            <div>
+              <label>Потверждения пороля</label>
+              <input
+                onChange={handleChange}
+                name="passwordConfirmation"
+                type="password"
+                value={adminInfo.passwordConfirmation}
+              />
+            </div>
+          )}
           <button onClick={onSubmit}>Отправить</button>
         </div>
-        <p>Есть аккаунт</p>
+        <p onClick={() => setIsLoggedIn(!isLoggedIn)}>
+          {isLoggedIn ? "Создать аккаунт?" : "Есть аккаунт?"}
+        </p>
       </div>
     </>
   );

@@ -6,7 +6,7 @@ import Authentication from "../pages/authentication/Authentication";
 const ProtectedRoute = () => {
   const [isA, setIsA] = useState(false);
   const { token } = useSelector((store) => store.admin);
-  return <div>{isA ? <Dashboard /> : <Authentication />}</div>;
+  return <div>{token ? <Dashboard /> : <Authentication />}</div>;
 };
 
 export default ProtectedRoute;
