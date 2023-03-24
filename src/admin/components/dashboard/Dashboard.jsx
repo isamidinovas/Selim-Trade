@@ -14,10 +14,6 @@ const Dashboard = () => {
   const handleClick = (e) => {
     const formData = new FormData();
     formData.append("photo", photo);
-    console.log(
-      "🚀 ~ file: Dashboard.jsx:17 ~ handleClick ~ formData:",
-      formData
-    );
   };
   return (
     <div>
