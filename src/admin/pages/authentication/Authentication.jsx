@@ -75,13 +75,7 @@ const Authentication = () => {
   return (
     <>
       <div className="container">
-        <div className="inner_wrapper">
-          <button
-            style={{ display: "block" }}
-            onClick={() => setIsLoggedIn(!isLoggedIn)}
-          >
-            change
-          </button>
+        <div style={{ display: "flex" }} className="inner_wrapper">
           {!isLoggedIn && (
             <div>
               <label>Фамилия</label>
@@ -104,20 +98,24 @@ const Authentication = () => {
               />
             </div>
           )}
-          <label>Никнейм</label>
-          <input
-            onChange={handleChange}
-            name="username"
-            type="text"
-            value={adminInfo.username}
-          />
-          <label>Пароль</label>
-          <input
-            onChange={handleChange}
-            name="password"
-            type="password"
-            value={adminInfo.password}
-          />
+          <div>
+            <label>Никнейм</label>
+            <input
+              onChange={handleChange}
+              name="username"
+              type="text"
+              value={adminInfo.username}
+            />
+          </div>
+          <div>
+            <label>Пароль</label>
+            <input
+              onChange={handleChange}
+              name="password"
+              type="password"
+              value={adminInfo.password}
+            />
+          </div>
           {!isLoggedIn && (
             <div>
               <label>Потверждения пороля</label>
@@ -131,7 +129,10 @@ const Authentication = () => {
           )}
           <button onClick={onSubmit}>Отправить</button>
         </div>
-        <p onClick={() => setIsLoggedIn(!isLoggedIn)}>
+        <p
+          style={{ color: "blue", margin: "4rem" }}
+          onClick={() => setIsLoggedIn(!isLoggedIn)}
+        >
           {isLoggedIn ? "Создать аккаунт?" : "Есть аккаунт?"}
         </p>
       </div>
