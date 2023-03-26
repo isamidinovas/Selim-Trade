@@ -21,6 +21,7 @@
 }
 .content__top {
   display: flex;
+  width: 100%;
 }
 .title {
   margin-bottom: 30px;
@@ -53,7 +54,6 @@
 }
 .news {
   gap: 15px;
-  justify-content: center;
   display: flex;
 }
 .news__title {
@@ -64,7 +64,9 @@
   font-size: 40px;
   line-height: 150%;
 }
-
+.message{
+  
+}
 @media (max-width: 1280px) {
   .title {
     font-size: 35px;

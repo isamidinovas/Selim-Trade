@@ -45,7 +45,10 @@
   cursor: pointer;
   display: none;
   color: #fff;
-  width: 48%;
+  padding: 0px 15px;
+  position: absolute;
+  width: 190px;
+  bottom: -46px;
   border-radius: 15px;
   font-size: 18px;
   height: 45px;
@@ -112,7 +115,7 @@
     line-height: 150%;
   }
   .btn__hover {
-    width: 41%;
+    width: max-content;
     height: 26px;
   }
   .btn__hover button {

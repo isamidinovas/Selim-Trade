@@ -24,14 +24,13 @@ const routesConfig = [
     element: <News />,
   },
   {
-    path: "/new",
+    path: "/news/:id",
     element: <NewInfo />,
   },
   {
     path: "/works",
     element: <Works />,
   },
-  
 ];
 
 export default routesConfig;

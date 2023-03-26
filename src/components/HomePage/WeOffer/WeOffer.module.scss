@@ -122,18 +122,18 @@
     margin-top: 25px;
   }
 }
- 
+
 @media (max-width: 579px) {
-  .container{
+  .container {
     padding: 40px 10px 0 10px;
   }
   // text
-  .item__text {
-    padding: 5px 10px;
-    font-size: 16px;
-    line-height: 24px;
-    border-radius: 12px;
-  }
+  // .item__text {
+  //   padding: 5px 10px;
+  //   font-size: 16px;
+  //   line-height: 24px;
+  //   border-radius: 12px;
+  // }
   .show_all_btn {
     padding: 14px 10px;
     border-radius: 10px;
