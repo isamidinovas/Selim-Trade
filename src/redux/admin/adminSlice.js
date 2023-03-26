@@ -1,9 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import customFetch from "../../utils/axios";
+import {
+  getTokenFromLocalStorage,
+  saveTokenToLocalStorage,
+} from "../../utils/localStorage";
 
 const initialState = {
-  token: null,
+  token: getTokenFromLocalStorage(),
   isLoading: "false",
 };
 
@@ -64,7 +68,7 @@ export const adminSlice = createSlice({
     // LOGIN
     [logIn.fulfilled]: (state, { payload }) => {
       state.token = payload.token || null;
-      console.log(state.token);
+      saveTokenToLocalStorage(payload.token);
     },
     [logIn.rejected]: (state, { payload }) => {
       state.isLoading = false;

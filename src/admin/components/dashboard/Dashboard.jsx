@@ -2,6 +2,10 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../../redux/admin/adminSlice";
 import { useState } from "react";
+import {
+  getTokenFromLocalStorage,
+  saveTokenToLocalStorage,
+} from "../../../utils/localStorage";
 const Dashboard = () => {
   const dispatch = useDispatch();
   const [photo, setPhoto] = useState(null);
