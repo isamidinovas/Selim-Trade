@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import customFetch from "../../utils/axios";
 import {
   getTokenFromLocalStorage,
+  removeTokenFromLocalStorage,
   saveTokenToLocalStorage,
 } from "../../utils/localStorage";
 
@@ -39,6 +40,7 @@ export const logIn = createAsyncThunk(
       return response.data;
     } catch (error) {
       return error;
+      // toast.error("hi");
     }
   }
 );
@@ -50,6 +52,7 @@ export const adminSlice = createSlice({
     logOut: (state) => {
       toast.success("Log Out");
       state.token = null;
+      removeTokenFromLocalStorage();
     },
   },
   extraReducers: {
@@ -72,7 +75,7 @@ export const adminSlice = createSlice({
     },
     [logIn.rejected]: (state, { payload }) => {
       state.isLoading = false;
-      toast.error(payload);
+      toast.error("Не верный пользователь");
     },
   },
 });

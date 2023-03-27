@@ -8,5 +8,6 @@ export function removeTokenFromLocalStorage() {
 
 export function getTokenFromLocalStorage() {
   const result = localStorage.getItem("token");
-  return result;
+  const r = result ? result : null;
+  return r;
 }
