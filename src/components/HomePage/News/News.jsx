@@ -7,8 +7,7 @@ import { getNewsPag } from "../../../redux/user/UserThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 const News = () => {
-  const { newsPaginationList } = useSelector((state) => state.news);
-  console.log("img", newsPaginationList);
+  const { newsPaginationList } = useSelector((state) => state.newsPagination);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getNewsPag());

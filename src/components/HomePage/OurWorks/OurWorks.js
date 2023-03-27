@@ -17,7 +17,7 @@ import { useEffect } from "react";
 import { getProjects } from "../../../redux/user/UserThunk";
 import { WorkItem } from "./WorkItem";
 const OurWorks = () => {
-  const { projectsPagList } = useSelector((state) => state.projects);
+  const { projectsPagList } = useSelector((state) => state.projectsPagination);
   console.log("projects", projectsPagList);
 
   const dispatch = useDispatch();

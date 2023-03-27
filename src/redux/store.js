@@ -1,18 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 import adminSlice from "./adminSlice";
-import { allNewsReducer } from "./user/AllNewsSlice";
 import { newDetailReducer } from "./user/NewsDetailSlice";
+import { newsPaginationReducer } from "./user/NewsPaginationSlice";
 import { newsReducer } from "./user/NewsSlice";
-import { projectsReducer } from "./user/ProjectsSlice";
+import { projectsPaginationReducer } from "./user/ProjectsPaginationSlice";
 import { similarNewsReducer } from "./user/SimilarNewsSlice";
 
 export const store = configureStore({
   reducer: {
     admin: adminSlice,
-    allNews: allNewsReducer,
     news: newsReducer,
+    newsPagination: newsPaginationReducer,
     newDetail: newDetailReducer,
     similarNews: similarNewsReducer,
-    projects: projectsReducer,
+    projectsPagination: projectsPaginationReducer,
   },
 });

@@ -4,12 +4,12 @@ import { getProjects } from "./UserThunk";
 export const projectsSlice = createSlice({
   name: "projects",
   initialState: {
-    projectsPagList: [],
+    projectsList: [],
   },
 
   extraReducers: (builder) => {
     builder.addCase(getProjects.fulfilled, (state, action) => {
-      state.projectsPagList = action.payload;
+      state.projectsList = action.payload;
     });
   },
 });

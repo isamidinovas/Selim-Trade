@@ -7,7 +7,7 @@ import New from "../New/New";
 import Img from "./img/img.png";
 import styles from "./NewsList.module.scss";
 const NewsList = () => {
-  const { newsList } = useSelector((state) => state.allNews);
+  const { newsList } = useSelector((state) => state.news);
   console.log("news", newsList);
   const [news, setNews] = useState([]);
   const [page, setPage] = useState(0);

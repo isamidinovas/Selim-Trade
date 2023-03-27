@@ -1,17 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getNewsPag } from "./UserThunk";
+import { getNews } from "./UserThunk";
 
 export const newsSlice = createSlice({
   name: "news",
   initialState: {
-    newsPaginationList: [],
+    newsList: [],
   },
 
   extraReducers: (builder) => {
-    builder.addCase(getNewsPag.fulfilled, (state, action) => {
-      state.newsPaginationList = action.payload;
+    builder.addCase(getNews.fulfilled, (state, action) => {
+      state.newsList = action.payload;
     });
   },
 });
-
 export const newsReducer = newsSlice.reducer;
