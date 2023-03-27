@@ -43,3 +43,13 @@ export const getSimilarNews = createAsyncThunk(
     return response.data;
   }
 );
+
+export const getProjects = createAsyncThunk("get/projects", async () => {
+  const response = await axios.get(
+    "http://198.199.91.23/api/v1/public/projects?page=0&size=5"
+  );
+  if (!response.status) {
+    throw new Error("Server error");
+  }
+  return response.data.content;
+});

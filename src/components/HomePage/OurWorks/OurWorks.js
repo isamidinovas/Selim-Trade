@@ -12,7 +12,18 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { EffectCoverflow, Pagination, Navigation } from "swiper";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getProjects } from "../../../redux/user/UserThunk";
+import { WorkItem } from "./WorkItem";
 const OurWorks = () => {
+  const { projectsPagList } = useSelector((state) => state.projects);
+  console.log("projects", projectsPagList);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProjects());
+  }, []);
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>Наши работы</h3>
@@ -56,15 +67,24 @@ const OurWorks = () => {
           },
         }}
       >
-        <SwiperSlide>
+        {projectsPagList.length > 0 ? (
+          <div className={styles.items}>
+            {projectsPagList.map((item) => (
+              <WorkItem item={item} key={item.id} />
+            ))}
+          </div>
+        ) : (
+          <h2>jj</h2>
+        )}
+        {/* <SwiperSlide>
           {({ isActive }) => (
             <img
               className={`${styles.img} ${isActive ? styles.active22 : null}`}
               src="https://media.wired.com/photos/5fb70f2ce7b75db783b7012c/master/pass/Gear-Photos-597589287.jpg"
             />
           )}
-        </SwiperSlide>
-        <SwiperSlide>
+        </SwiperSlide> */}
+        {/* <SwiperSlide>
           {({ isActive }) => (
             <img
               className={`${styles.img} ${isActive ? styles.active22 : null}`}
@@ -119,7 +139,7 @@ const OurWorks = () => {
               src="https://media.npr.org/assets/img/2022/08/21/moon1_sq-3e2ed2ced72ec3254ca022691e4d7ed0ac9f3a14-s1100-c50.jpg"
             />
           )}
-        </SwiperSlide>
+        </SwiperSlide> */}
 
         <div className={styles.slider_controlers}>
           <img className={`next ${styles.nextArrow}`} src={LeftArrow} />
