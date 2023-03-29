@@ -3,7 +3,8 @@ import customFetch from "../../utils/axios";
 import { getTokenFromLocalStorage } from "../../utils/localStorage";
 
 const initialState = {
-  projects: null,
+  projects: [],
+  copy: null,
 };
 
 export const createProject = createAsyncThunk(
@@ -19,6 +20,7 @@ export const createProject = createAsyncThunk(
           },
         }
       );
+      console.log(response);
       return response.data;
     } catch (error) {
       console.log(error.response.data);
@@ -44,15 +46,41 @@ export const getAllProjects = createAsyncThunk(
     }
   }
 );
+export const deleteProject = createAsyncThunk(
+  "contentControl/deleteProject",
+  async (projectId, thunkAPI) => {
+    try {
+      const response = await customFetch.delete(
+        `api/v1/protected/projects/${projectId}`,
+        {
+          headers: {
+            authorization: `Bearer ${thunkAPI.getState().admin.token}`,
+          },
+        }
+      );
+      return projectId;
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  }
+);
 
 const contentControlSlice = createSlice({
   name: "contentControl",
   initialState,
   reducers: {},
   extraReducers: {
+    [createProject.fulfilled]: (state, { payload }) => {
+      state.projects = [...state.projects, payload];
+    },
     [getAllProjects.fulfilled]: (state, { payload }) => {
       state.projects = payload.content;
-      console.log(payload);
+    },
+    [deleteProject.fulfilled]: (state, { payload }) => {
+      const deletedElementId = payload;
+      state.projects = state.projects.filter(
+        (element) => element.id !== deletedElementId
+      );
     },
   },
 });

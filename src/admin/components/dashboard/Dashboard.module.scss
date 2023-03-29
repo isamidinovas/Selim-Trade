@@ -1,0 +1,42 @@
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.add_work {
+  max-width: 500px;
+  height: 150px;
+  background-color: rgb(220, 219, 241);
+  margin-block: 50px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 15px;
+
+  button {
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: green;
+    color: white;
+  }
+}
+
+.file_input {
+  border: 2px rgb(46, 6, 110) solid;
+  width: 300px;
+  padding: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.file_input::-webkit-file-upload-button {
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: rgb(14, 63, 131);
+  border: none;
+  padding: 10px;
+  color: white;
+}

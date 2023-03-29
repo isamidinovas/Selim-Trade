@@ -1,0 +1,50 @@
+.container {
+  background-color: red;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+
+  img {
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.btn_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  button {
+    border: none;
+    padding: 7px 0;
+    color: white;
+  }
+
+  .file_input_label {
+    width: 100%;
+    border-bottom-right-radius: 6px;
+    background-color: rgb(39, 113, 36);
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input[type="file"] {
+    opacity: 0;
+    z-index: -29;
+  }
+  .edit_btn {
+    border-bottom-right-radius: 6px;
+    background-color: rgb(39, 113, 36);
+  }
+
+  .delete_btn {
+    border-bottom-left-radius: 6px;
+    background-color: red;
+  }
+}
