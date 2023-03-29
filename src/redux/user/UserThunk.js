@@ -57,12 +57,16 @@ export const getProjectsPagination = createAsyncThunk(
   }
 );
 
-export const getProjects = createAsyncThunk("get/projects", async () => {
-  const response = await axios.get(
-    "http://198.199.91.23/api/v1/public/projects"
-  );
-  if (!response.status) {
-    throw new Error("Server error");
+export const getProjects = createAsyncThunk(
+  "get/projects",
+  async ({ page, size, totalPages }) => {
+    const response = await axios.get(
+      // "http://198.199.91.23/api/v1/public/projects"
+      `http://198.199.91.23/api/v1/public/projects?page=${page}&size=${size}&totalPages=${totalPages}`
+    );
+    if (!response.status) {
+      throw new Error("Server error");
+    }
+    return response.data.content;
   }
-  return response.data.content;
-});
+);

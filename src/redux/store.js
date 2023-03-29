@@ -4,6 +4,7 @@ import { newDetailReducer } from "./user/NewsDetailSlice";
 import { newsPaginationReducer } from "./user/NewsPaginationSlice";
 import { newsReducer } from "./user/NewsSlice";
 import { projectsPaginationReducer } from "./user/ProjectsPaginationSlice";
+import { projectsReducer } from "./user/ProjectsSlice";
 import { similarNewsReducer } from "./user/SimilarNewsSlice";
 
 export const store = configureStore({
@@ -14,5 +15,6 @@ export const store = configureStore({
     newDetail: newDetailReducer,
     similarNews: similarNewsReducer,
     projectsPagination: projectsPaginationReducer,
+    projects: projectsReducer,
   },
 });

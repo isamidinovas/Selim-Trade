@@ -1,17 +1,13 @@
 import React from "react";
 import styles from "./SingleWork.module.scss";
 
-const SingleWork = ({img}) => {
+const SingleWork = ({ img }) => {
+  console.log("imf", img);
   return (
     <>
-      <section className={styles.container}>
-        <img
-          className={styles.Haa}
-          src={img}
-          alt="Фото работы"
-        />
-       
-      </section>
+      {/* <section className={styles.containerr}> */}
+      <img className={styles.Haa} src={img} alt="Фото работы" />
+      {/* </section> */}
     </>
   );
 };

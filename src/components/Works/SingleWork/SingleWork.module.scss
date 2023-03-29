@@ -1,11 +1,110 @@
-.container {
-  width: 100%;
-  height: 100%;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-  }
+// .containerr {
+//   width: 100%;
+//   height: 100%;
+
+img {
+  // width: 100%;
+  // height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+// }
+// .containerr:nth-child(5) {
+//   max-width: 800px;
+// }
+
+// .containerr:nth-child(2n) {
+//   max-width: 200px;
+// }
+
+// .containerr:nth-child(3n) {
+//   max-width: 300px;
+// }
+
+// .containerr:nth-child(1) {
+//   max-width: 465px;
+//   min-height: 100px;
+// }
+
+// .containerr:nth-child(4) {
+//   max-width: 465px;
+//   min-height: 100px;
+// }
+
+// // для больших
+// .Haa:nth-child(4n + 5) {
+//   border: 3px solid rgb(40, 0, 125);
+//   width: 800px;
+// }
+
+// /* для средних */
+// .Haa:nth-child(2n + 4) {
+//   width: 465px;
+//   height: 278px;
+//   border: 3px solid green;
+// }
+// .Haa:nth-child(1) {
+//   width: 465px;
+//   height: 278px;
+//   border: 3px solid green;
+// }
+// .Haa:nth-child(3) {
+//   width: 465px;
+//   height: 278px;
+//   border: 3px solid green;
+// }
+
+// // для маленьких
+// .Haa:nth-child(5n + 2) {
+//   width: 345px;
+//   height: 200px;
+//   border: 3px solid yellow;
+// }
+
+//// для больших
+// .containerr:nth-child(4n + 5) {
+//   border: 3px solid rgb(40, 0, 125);
+//   width: 800px;
+// }
+
+// /* для средних */
+// .containerr:nth-child(2n + 4) {
+//   width: 465px;
+//   height: 278px;
+//   border: 3px solid green;
+// }
+// .containerr:nth-child(1) {
+//   width: 465px;
+//   height: 278px;
+//   border: 3px solid green;
+// }
+// .containerr:nth-child(3) {
+//   width: 465px;
+//   height: 278px;
+//   border: 3px solid red;
+// }
+// .book:nth-child(5n + 2) {
+//   border: 3px solid yellow;
+//   width: 305px;
+//   height: 200px;
+// }
+
+// для больших
+.book:nth-child(4n + 5) {
+  border: 3px solid rgb(40, 0, 125);
 }
 
+/* для средних */
+.book:nth-child(2n + 4) {
+  border: 3px solid green;
+}
+.book:nth-child(1) {
+  border: 3px solid green;
+}
+.book:nth-child(3) {
+  border: 3px solid green;
+}
+
+для маленьких .book:nth-child(5n + 2) {
+  border: 3px solid yellow;
+}
