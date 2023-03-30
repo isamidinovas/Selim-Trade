@@ -34,7 +34,7 @@ const Dashboard = () => {
           accept="image/*"
           className={styles.file_input}
         />
-        <button onClick={handleClick}>Создать работу</button>
+        <button onClick={handleClick}>Создать работу ✨</button>
       </div>
       <PostList />
     </div>

@@ -6,7 +6,9 @@
 .add_work {
   max-width: 500px;
   height: 150px;
-  background-color: rgb(220, 219, 241);
+  // background-color: rgb(21, 129, 35);
+  background-color: rgb(255, 255, 255);
+  // background-image: linear-gradient(rgba(9, 69, 181, 0.429),  rgba(9, 251, 89, 0.758));
   margin-block: 50px;
   margin-inline: auto;
   display: flex;
@@ -14,18 +16,21 @@
   justify-content: space-evenly;
   align-items: center;
   border-radius: 15px;
+  box-shadow: 0 0 5px #211a1aa7;
 
   button {
-    padding: 5px 10px;
+    padding: 7px 15px;
     border-radius: 8px;
     border: none;
-    background-color: green;
-    color: white;
+    background-image: linear-gradient(to right bottom,rgba(21, 255, 0, 0.586), rgba(0, 0, 255, 0.816));
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    // outline: 2px rgb(0, 255, 204) solid;
   }
 }
 
 .file_input {
-  border: 2px rgb(46, 6, 110) solid;
+  border: 2px rgb(14, 63, 131) solid;
   width: 300px;
   padding: 4px;
   border-radius: 8px;
