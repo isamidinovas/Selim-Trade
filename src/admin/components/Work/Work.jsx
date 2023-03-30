@@ -17,10 +17,10 @@ const Work = ({ id, image }) => {
       />
       <div className={styles.btn_container}>
         <button className={styles.delete_btn} onClick={() => handleDelete(id)}>
-          Удалить
+          Удалить ❌
         </button>
         <label htmlFor="file" className={styles.file_input_label}>
-          Редактировать
+          Редактировать ✅
         </label>
         <input type="file" id="file" className={styles.input} />
       </div>

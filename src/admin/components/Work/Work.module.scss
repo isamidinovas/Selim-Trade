@@ -1,11 +1,12 @@
 .container {
   background-color: red;
-  border-top-right-radius: 6px;
-  border-top-left-radius: 6px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  box-shadow: 0 0 5px #69746e;
 
   img {
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -15,23 +16,32 @@
 .btn_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-top: 10px;
+  column-gap: 19px;
 
   button {
+    border-radius: 10px;
     border: none;
     padding: 7px 0;
-    color: white;
+    color: rgb(0, 0, 0);
   }
 
   .file_input_label {
+    color: rgb(0, 0, 0);
     width: 100%;
-    border-bottom-right-radius: 6px;
-    background-color: rgb(39, 113, 36);
-    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    // border-bottom-right-radius: 6px;
+    // background-color: rgb(39, 113, 36);
+    // color: white;
     text-align: center;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    // background-image: linear-gradient(to right top, #00fc26, #2e249c);
+    // background-color: rgba(76, 242, 78, 0.871);
+    outline: rgba(1, 252, 1, 0.478) 2px solid;
   }
 
   input[type="file"] {
@@ -39,12 +49,15 @@
     z-index: -29;
   }
   .edit_btn {
-    border-bottom-right-radius: 6px;
-    background-color: rgb(39, 113, 36);
+    // border-bottom-right-radius: 6px;
+    // background-color: rgb(39, 113, 36);
   }
 
   .delete_btn {
-    border-bottom-left-radius: 6px;
-    background-color: red;
+    outline: rgba(255, 0, 0, 0.496) 2px solid;
+    font-weight: 600;
+    // border-bottom-left-radius: 6px;
+    // background-color: rgba(255, 0, 0, 0.567);
+    // background-image: linear-gradient(to right top, #ff0329, #2e249c);
   }
 }
