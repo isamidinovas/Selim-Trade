@@ -13,6 +13,17 @@
   }
 }
 
+.trash_icon{
+height: 15px;
+}
+
+.edit_icon{
+  height: 35px;
+  width: 21px;
+  margin-left: 4px;
+
+}
+
 .btn_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -31,16 +42,11 @@
     width: 100%;
     border-radius: 10px;
     font-weight: 600;
-    // border-bottom-right-radius: 6px;
-    // background-color: rgb(39, 113, 36);
-    // color: white;
     text-align: center;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-image: linear-gradient(to right top, #00fc26, #2e249c);
-    // background-color: rgba(76, 242, 78, 0.871);
     outline: rgba(1, 252, 1, 0.478) 2px solid;
   }
 
@@ -48,16 +54,9 @@
     opacity: 0;
     z-index: -29;
   }
-  .edit_btn {
-    // border-bottom-right-radius: 6px;
-    // background-color: rgb(39, 113, 36);
-  }
 
   .delete_btn {
     outline: rgba(255, 0, 0, 0.496) 2px solid;
     font-weight: 600;
-    // border-bottom-left-radius: 6px;
-    // background-color: rgba(255, 0, 0, 0.567);
-    // background-image: linear-gradient(to right top, #ff0329, #2e249c);
   }
 }

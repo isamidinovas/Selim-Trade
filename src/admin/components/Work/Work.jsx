@@ -2,7 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteProject } from "../../../redux/admin/contentControlSlice";
 import styles from "./Work.module.scss";
-
+import {BsTrash3} from "react-icons/bs"
+import {TbEdit} from "react-icons/tb"
 const Work = ({ id, image }) => {
   const dispatch = useDispatch();
 
@@ -17,10 +18,10 @@ const Work = ({ id, image }) => {
       />
       <div className={styles.btn_container}>
         <button className={styles.delete_btn} onClick={() => handleDelete(id)}>
-          Удалить ❌
+          Удалить {" "} <BsTrash3 className={styles.trash_icon}/>
         </button>
         <label htmlFor="file" className={styles.file_input_label}>
-          Редактировать ✅
+          Редактировать {"  "} <TbEdit className={styles.edit_icon}/>
         </label>
         <input type="file" id="file" className={styles.input} />
       </div>
