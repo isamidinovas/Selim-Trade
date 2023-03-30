@@ -8,7 +8,7 @@ import {
   createProject,
   getAllProjects,
 } from "../../../redux/admin/contentControlSlice";
-import PostList from "../WorksList/WorksList";
+import PostList from "../../components/WorksList/WorksList";
 const Dashboard = () => {
   const dispatch = useDispatch();
   const [photo, setPhoto] = useState(null);
@@ -28,7 +28,12 @@ const Dashboard = () => {
     <div className={styles.container}>
       <button onClick={() => dispatch(logOut())}>out</button>
       <div className={styles.add_work}>
-        <input onChange={handleChange} type="file" accept="image/*" className={styles.file_input}/>
+        <input
+          onChange={handleChange}
+          type="file"
+          accept="image/*"
+          className={styles.file_input}
+        />
         <button onClick={handleClick}>Создать работу</button>
       </div>
       <PostList />
