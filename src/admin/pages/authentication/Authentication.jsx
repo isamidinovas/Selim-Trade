@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { logIn, register } from "../../../redux/admin/adminSlice";
+import styles from "./Authentication.module.scss";
 // import { Admin, ListGuesser, Resource, useAuthProvider } from "react-admin";
 
 const Authentication = () => {
@@ -74,8 +75,8 @@ const Authentication = () => {
 
   return (
     <>
-      <div className="container">
-        <div style={{ display: "flex" }} className="inner_wrapper">
+      <div className={styles.container}>
+        <div className={styles.inner_wrapper}>
           {!isLoggedIn && (
             <div>
               <label>Фамилия</label>
@@ -127,14 +128,14 @@ const Authentication = () => {
               />
             </div>
           )}
-          <button onClick={onSubmit}>Отправить</button>
+          <button className={styles.submit_btn} onClick={onSubmit}>Отправить</button>
+          <p
+          className={styles.question}
+            onClick={() => setIsLoggedIn(!isLoggedIn)}
+          >
+            {isLoggedIn ? "Создать аккаунт ?" : "Есть аккаунт ?"}
+          </p>
         </div>
-        <p
-          style={{ color: "blue", margin: "4rem" }}
-          onClick={() => setIsLoggedIn(!isLoggedIn)}
-        >
-          {isLoggedIn ? "Создать аккаунт?" : "Есть аккаунт?"}
-        </p>
       </div>
     </>
   );
