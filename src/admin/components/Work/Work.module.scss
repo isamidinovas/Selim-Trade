@@ -1,5 +1,4 @@
 .container {
-  background-color: red;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   box-shadow: 0 0 5px #69746e;
@@ -11,17 +10,28 @@
     width: 100%;
     object-fit: cover;
   }
+
+  input {
+    opacity: 0;
+    z-index: -19;
+    margin-top: 30px;
+  }
 }
 
-.trash_icon{
-height: 15px;
+.trash_icon {
+  height: 15px;
 }
 
-.edit_icon{
-  height: 35px;
+.check_icon {
+  margin-left: 4px;
+  height: 17px;
+  width: 21px;
+}
+
+.edit_icon {
+  height: 23px;
   width: 21px;
   margin-left: 4px;
-
 }
 
 .btn_container {
@@ -37,7 +47,7 @@ height: 15px;
     color: rgb(0, 0, 0);
   }
 
-  .file_input_label {
+  .edit_btn {
     color: rgb(0, 0, 0);
     width: 100%;
     border-radius: 10px;
@@ -47,16 +57,18 @@ height: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    outline: rgba(1, 252, 1, 0.478) 2px solid;
-  }
-
-  input[type="file"] {
-    opacity: 0;
-    z-index: -29;
+    outline: #002b5b 3px solid;
   }
 
   .delete_btn {
-    outline: rgba(255, 0, 0, 0.496) 2px solid;
+    outline: #850000 3px solid;
+    // outline: rgba(255, 0, 0, 0.496) 3px solid;
     font-weight: 600;
+  }
+
+  .submit_btn {
+    @extend .edit_btn;
+    background-color: #002b5b;
+    color: white;
   }
 }

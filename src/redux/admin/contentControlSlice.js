@@ -10,6 +10,7 @@ const initialState = {
 export const createProject = createAsyncThunk(
   "contentControl/createProject",
   async (project, thunkAPI) => {
+    console.log("🚀 ~ file: contentControlSlice.js:13 ~ project:", project);
     try {
       const response = await customFetch.post(
         "api/v1/protected/projects",
@@ -64,6 +65,26 @@ export const deleteProject = createAsyncThunk(
     }
   }
 );
+export const updateProject = createAsyncThunk(
+  "contentControl/updateProject",
+  async ({ formData, id }, thunkAPI) => {
+    console.log(id);
+    try {
+      const response = await customFetch.put(
+        `api/v1/protected/projects/${id}`,
+        formData,
+        {
+          headers: {
+            authorization: `Bearer ${thunkAPI.getState().admin.token}`,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  }
+);
 
 const contentControlSlice = createSlice({
   name: "contentControl",
@@ -72,6 +93,11 @@ const contentControlSlice = createSlice({
   extraReducers: {
     [createProject.fulfilled]: (state, { payload }) => {
       state.projects = [...state.projects, payload];
+    },
+    [updateProject.fulfilled]: (state, { payload }) => {
+      const id = payload;
+      state.projects = [...state.projects, payload];
+
     },
     [getAllProjects.fulfilled]: (state, { payload }) => {
       state.projects = payload.content;
