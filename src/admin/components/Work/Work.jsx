@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import {
   deleteProject,
   updateProject,
-} from "../../../redux/admin/contentControlSlice";
+} from "../../../redux/admin/projectsSlice";
 import styles from "./Work.module.scss";
 import { BsTrash3Fill } from "react-icons/bs";
 import { TbEdit } from "react-icons/tb";

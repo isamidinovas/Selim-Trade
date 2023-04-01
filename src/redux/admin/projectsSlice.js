@@ -86,8 +86,8 @@ export const updateProject = createAsyncThunk(
   }
 );
 
-const contentControlSlice = createSlice({
-  name: "contentControl",
+const projectsSlice = createSlice({
+  name: "projects",
   initialState,
   reducers: {},
   extraReducers: {
@@ -111,4 +111,4 @@ const contentControlSlice = createSlice({
   },
 });
 
-export default contentControlSlice.reducer;
+export default projectsSlice.reducer;

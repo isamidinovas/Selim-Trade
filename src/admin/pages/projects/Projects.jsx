@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../../redux/admin/adminSlice";
 import { useState } from "react";
-import styles from "./Dashboard.module.scss";
+import styles from "./Projects.module.scss";
 
 import {
   createProject,
   getAllProjects,
-} from "../../../redux/admin/contentControlSlice";
+} from "../../../redux/admin/projectsSlice";
 import PostList from "../../components/WorksList/WorksList";
-const Dashboard = () => {
+const Projects = () => {
   const dispatch = useDispatch();
   const [photo, setPhoto] = useState(null);
   const handleChange = (e) => {
@@ -41,4 +41,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Projects;

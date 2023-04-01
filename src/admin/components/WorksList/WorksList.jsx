@@ -2,13 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProjects } from "../../../redux/admin/contentControlSlice";
 import Work from "../Work/Work";
 import styles from "./WorksList.module.scss";
+import { getAllProjects } from "../../../redux/admin/projectsSlice";
 
 const PostList = () => {
-  const { projects } = useSelector((store) => store.contentControl);
-
+  const { projects } = useSelector((store) => store.projects);
   useEffect(() => {
     dispatch(getAllProjects());
   }, []);
