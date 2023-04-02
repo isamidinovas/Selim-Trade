@@ -1,6 +1,6 @@
 .container {
-  max-width: 1200px;
-  margin-inline: auto;
+  max-width: 1250px;
+  margin-inline: 244px auto;
 }
 
 .add_work {
@@ -22,7 +22,11 @@
     padding: 7px 15px;
     border-radius: 8px;
     border: none;
-    background-image: linear-gradient(to right bottom,rgba(21, 255, 0, 0.586), rgba(0, 0, 255, 0.816));
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(21, 255, 0, 0.586),
+      rgba(0, 0, 255, 0.816)
+    );
     color: rgb(255, 255, 255);
     font-weight: 500;
     // outline: 2px rgb(0, 255, 204) solid;
