@@ -12,8 +12,7 @@ import Layout from "./routes/Layout";
 import Authentication from "./admin/pages/authentication/Authentication";
 import ProtectedRoute from "./admin/routes/ProtectedRoute";
 import Projects from "./admin/pages/projects/Projects";
-import News from "./admin/pages/projects/news/News";
-import AdminLayout from "./admin/routes/AdminLayout";
+import News from "./admin/pages/news/News";
 
 function App() {
   return (

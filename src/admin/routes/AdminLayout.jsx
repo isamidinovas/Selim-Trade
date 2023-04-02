@@ -5,10 +5,8 @@ const MemoizedSideBar = React.memo(SideBar);
 const AdminLayout = () => {
   return (
     <>
+      <Outlet />
       <SideBar />
-      <div>
-        <Outlet />
-      </div>
     </>
   );
 };
