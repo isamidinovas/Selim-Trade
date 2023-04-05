@@ -6,7 +6,6 @@ import styles from "./New.module.scss";
 
 const New = ({ item, id }) => {
   const img = `http://161.35.29.179:8090/api/v1/public/image/${item.coverImage}`;
-  console.log("img", img);
   const maxLength = 270;
   const shortenedText =
     item.text.slice(0, maxLength) + (item.text.length > maxLength ? "..." : "");
