@@ -7,19 +7,6 @@ const ServicesList = () => {
     <>
       <div className={styles.list}>
         <SingleService />
-        <SingleService />
-        <SingleService />
-        <SingleService />
-        <SingleService />
-        <SingleService />
-        <SingleService />
-        <SingleService />
-        <SingleService />
-        <SingleService />
-        <SingleService />
-        <SingleService />
-        <SingleService />
-        <SingleService />
       </div>
     </>
   );

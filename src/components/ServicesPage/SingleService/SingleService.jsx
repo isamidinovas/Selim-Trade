@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./SingleService.module.scss";
 
-const SingleService = () => {
+const SingleService = ({ item }) => {
   return (
     <>
       <div className={styles.singleService}>

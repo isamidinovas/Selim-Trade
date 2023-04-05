@@ -3,188 +3,38 @@ import styles from "./Revews.module.scss";
 import LeftArrow from "../../../assets/icons/LeftArrow.svg";
 import RightArrow from "../../../assets/icons/RightArrow.svg";
 import NavigateBtn from "../NavigateBtn/NavigateBtn";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getReviews } from "../../../redux/user/UserThunk";
+import ReviewItem from "./ReviewItem/ReviewItem";
 
 const Revews = () => {
   const [scrollAmount, setScrollAmount] = useState(347);
   const scrollRef = useRef(null);
-
+  // const { reviewsList } = useSelector((state) => state.reviews);
+  // console.log("review", reviewsList);
+  const dispatch = useDispatch();
   const scrollLeft = () => {
     scrollRef.current.scrollLeft -= scrollAmount;
   };
   const scrollRight = () => {
     scrollRef.current.scrollLeft += scrollAmount;
   };
-
+  // useEffect(() => {
+  //   dispatch(getReviews());
+  // }, []);
   return (
     <>
       <div id="reviews" className={styles.wrapper}>
         <h2 className={styles.title}>Отзывы наших клиентов</h2>
+        {/* {reviewsList.length ? ( */}
         <div className={styles.grid} ref={scrollRef}>
-          <div className={styles.grid_item}>
-            <div className={styles.card_header}>
-              <img
-                className={styles.img}
-                src="http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"
-                alt=""
-              />
-
-              <div className={styles.author}>
-                <h4>Мадина Аимбекова </h4>
-                <p>секционные ворота</p>
-              </div>
-            </div>
-            <p>
-              Ворота стоят уже более двух лет. За это время с ними не было
-              никаких проблем. Спасибо, Selim Trade!
-            </p>
-          </div>
-          <div className={styles.grid_item}>
-            <div className={styles.card_header}>
-              <img
-                className={styles.img}
-                src="http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"
-                alt=""
-              />
-
-              <div className={styles.author}>
-                <h4>Мадина Аимбекова </h4>
-                <p>секционные ворота</p>
-              </div>
-            </div>
-            <p>
-              Ворота стоят уже более двух лет. За это время с ними не было
-              никаких проблем. Спасибо, Selim Trade!
-            </p>
-          </div>
-          <div className={styles.grid_item}>
-            <div className={styles.card_header}>
-              <img
-                className={styles.img}
-                src="http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"
-                alt=""
-              />
-
-              <div className={styles.author}>
-                <h4>Мадина Аимбекова </h4>
-                <p>секционные ворота</p>
-              </div>
-            </div>
-            <p>
-              Ворота стоят уже более двух лет. За это время с ними не было
-              никаких проблем. Спасибо, Selim Trade!
-            </p>
-          </div>
-          <div className={styles.grid_item}>
-            <div className={styles.card_header}>
-              <img
-                className={styles.img}
-                src="http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"
-                alt=""
-              />
-
-              <div className={styles.author}>
-                <h4>Мадина Аимбекова </h4>
-                <p>секционные ворота</p>
-              </div>
-            </div>
-            <p>
-              Ворота стоят уже более двух лет. За это время с ними не было
-              никаких проблем. Спасибо, Selim Trade!
-            </p>
-          </div>
-          <div className={styles.grid_item}>
-            <div className={styles.card_header}>
-              <img
-                className={styles.img}
-                src="http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"
-                alt=""
-              />
-
-              <div className={styles.author}>
-                <h4>Мадина Аимбекова </h4>
-                <p>секционные ворота</p>
-              </div>
-            </div>
-            <p>
-              Ворота стоят уже более двух лет. За это время с ними не было
-              никаких проблем. Спасибо, Selim Trade!
-            </p>
-          </div>
-          <div className={styles.grid_item}>
-            <div className={styles.card_header}>
-              <img
-                className={styles.img}
-                src="http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"
-                alt=""
-              />
-
-              <div className={styles.author}>
-                <h4>Мадина Аимбекова </h4>
-                <p>секционные ворота</p>
-              </div>
-            </div>
-            <p>
-              Ворота стоят уже более двух лет. За это время с ними не было
-              никаких проблем. Спасибо, Selim Trade!
-            </p>
-          </div>
-          <div className={styles.grid_item}>
-            <div className={styles.card_header}>
-              <img
-                className={styles.img}
-                src="http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"
-                alt=""
-              />
-
-              <div className={styles.author}>
-                <h4>Мадина Аимбекова </h4>
-                <p>секционные ворота</p>
-              </div>
-            </div>
-            <p>
-              Ворота стоят уже более двух лет. За это время с ними не было
-              никаких проблем. Спасибо, Selim Trade!
-            </p>
-          </div>
-          <div className={styles.grid_item}>
-            <div className={styles.card_header}>
-              <img
-                className={styles.img}
-                src="http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"
-                alt=""
-              />
-
-              <div className={styles.author}>
-                <h4>Мадина Аимбекова </h4>
-                <p>секционные ворота</p>
-              </div>
-            </div>
-            <p>
-              Ворота стоят уже более двух лет. За это время с ними не было
-              никаких проблем. Спасибо, Selim Trade!
-            </p>
-          </div>
-          <div className={styles.grid_item}>
-            <div className={styles.card_header}>
-              <img
-                className={styles.img}
-                src="http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"
-                alt=""
-              />
-
-              <div className={styles.author}>
-                <h4>Мадина Аимбекова </h4>
-                <p>секционные ворота</p>
-              </div>
-            </div>
-            <p className={styles.card_text}>
-              Ворота стоят уже более двух лет. За это время с ними не было
-              никаких проблем. Спасибо, Selim Trade!
-            </p>
-          </div>
-
+          {/* {reviewsList.map((item) => ( */}
+          <ReviewItem />
+          {/* ))} */}
           <div className={styles.grid_item}>end</div>
         </div>
+        {/* ) : null} */}
         <div className={styles.scrollBtns}>
           <button onClick={scrollLeft} className={styles.scrollBtn}>
             <img src={LeftArrow} alt="LeftArrow" />

@@ -6,7 +6,6 @@ const Works = () => {
   return (
     <>
     <section className={styles.background}>
-
       <section className={styles.container}>
         <div className={styles.header_wrapper}>
           <header className={styles.header}>
