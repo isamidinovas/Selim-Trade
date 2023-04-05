@@ -4,8 +4,6 @@ import ArrowLeft from "../../../assets/icons/LeftArrow.svg";
 import ArrowRight from "../../../assets/icons/RightArrow.svg";
 import NavigateBtn from "../NavigateBtn/NavigateBtn";
 import WeOfferItem from "./WeOfferItem/WeOfferItem";
-import { useDispatch, useSelector } from "react-redux";
-import { BOOKS } from "../../newss";
 import { NavLink } from "react-router-dom";
 
 const WeOffer = () => {
@@ -23,15 +21,15 @@ const WeOffer = () => {
       <div className={styles.background_img_container}>
         <div className={styles.container}>
           <h2 className={styles.page_title}>Мы предлагаем</h2>
-          {BOOKS.length > 0 ? (
-            <div className={styles.page3__block} ref={scrollRef}>
-              {BOOKS.map((item) => (
-                <WeOfferItem item={item} key={item.id} />
-              ))}
-            </div>
-          ) : (
-            <h2>ss</h2>
-          )}
+          {/* {BOOKS.length > 0 ? ( */}
+          <div className={styles.page3__block} ref={scrollRef}>
+            {/* {BOOKS.map((item) => ( */}
+            <WeOfferItem />
+            {/* ))} */}
+          </div>
+          {/* ) : ( */}
+          {/* <h2>ss</h2> */}
+          {/* )} */}
           <div className={styles.btns}>
             <button onClick={scrollLeft} className={styles.scrollBtn}>
               <img src={ArrowLeft} alt="LeftArrow" />
