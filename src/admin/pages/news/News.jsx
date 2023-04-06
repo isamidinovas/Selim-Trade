@@ -2,11 +2,11 @@ import React from "react";
 import styles from "./News.module.scss";
 import { useState } from "react";
 import { createNewItem, getAllNews } from "../../../redux/admin/newsSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
+import NewsList from "../../components/NewsList/NewsList";
 const News = () => {
-  const { news } = useSelector((store) => store.news);
   const dispatch = useDispatch();
   const [newsValue, setNewsValue] = useState({
     saveDto: {
@@ -98,9 +98,9 @@ const News = () => {
         />
       </div>
       <button onClick={handleSubmit}>submit</button>
-      {news.map((newItem) => {
-        return <h1>{newItem.title}</h1>;
-      })}
+      <div className={styles.list_container}>
+        <NewsList />
+      </div>
     </section>
   );
 };
