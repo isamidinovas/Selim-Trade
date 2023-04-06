@@ -8,8 +8,8 @@ const WeOfferItem = ({ gates, item }) => {
     //   <span className={styles.item__text}>{gates.name}</span>
     // </div>
     <div className={styles.block__item}>
-      <img src={item.imageUrl} alt="avatar" className="im" />
-      <span className={styles.item__text}>{item.name}</span>
+      <img src={Img} alt="avatar" className="im" />
+      <span className={styles.item__text}>Ворота</span>
     </div>
   );
 };
