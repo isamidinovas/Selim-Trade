@@ -19,6 +19,7 @@ export const createNewItem = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log(error.response);
+      return error.response;
     }
   }
 );
@@ -29,9 +30,16 @@ const newsSlice = createSlice({
   reducers: {},
   extraReducers: {
     [createNewItem.fulfilled]: (state, payload) => {
-    state.isLoading = false
+      state.isLoading = false;
       state.news = [...state.news, payload];
-      toast.success("Новость создана.")
+      toast.success("Новость создана.");
+    },
+    [createNewItem.pending]: (state, payload) => {
+      state.isLoading = true;
+    },
+    [createNewItem.rejected]: (state, payload) => {
+      state.isLoading = false;
+      toast.success("Error");
     },
   },
 });
