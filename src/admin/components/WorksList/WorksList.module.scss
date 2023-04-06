@@ -1,0 +1,15 @@
+.container {
+  color: red;
+
+  .list_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 25px;
+    row-gap: 90px;
+  }
+
+  .btn_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

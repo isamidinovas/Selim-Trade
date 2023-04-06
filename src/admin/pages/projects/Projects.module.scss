@@ -1,0 +1,51 @@
+.container {
+  max-width: 1250px;
+  margin-inline: 244px auto;
+}
+
+.add_work {
+  max-width: 500px;
+  height: 150px;
+  // background-color: rgb(21, 129, 35);
+  background-color: rgb(255, 255, 255);
+  // background-image: linear-gradient(rgba(9, 69, 181, 0.429),  rgba(9, 251, 89, 0.758));
+  margin-block: 50px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 0 0 5px #211a1aa7;
+
+  button {
+    padding: 7px 15px;
+    border-radius: 8px;
+    border: none;
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(21, 255, 0, 0.586),
+      rgba(0, 0, 255, 0.816)
+    );
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    // outline: 2px rgb(0, 255, 204) solid;
+  }
+}
+
+.file_input {
+  border: 2px rgb(14, 63, 131) solid;
+  width: 300px;
+  padding: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.file_input::-webkit-file-upload-button {
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: rgb(14, 63, 131);
+  border: none;
+  padding: 10px;
+  color: white;
+}

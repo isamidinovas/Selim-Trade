@@ -11,6 +11,8 @@ import { BrowserRouter } from "react-router-dom";
 import Layout from "./routes/Layout";
 import Authentication from "./admin/pages/authentication/Authentication";
 import ProtectedRoute from "./admin/routes/ProtectedRoute";
+import Projects from "./admin/pages/projects/Projects";
+import News from "./admin/pages/news/News";
 
 function App() {
   return (
@@ -21,8 +23,12 @@ function App() {
             <Route key={index} path={route.path} element={route.element} />
           ))}
         </Route>
+        {/* ADMIN ROUTES ⬇️ */}
         <Route element={<ProtectedRoute />}>
-          <Route path="admin" element={<Authentication />} />
+          <Route path="/admin/">
+            <Route path="projects" element={<Projects />} />
+            <Route path="news" element={<News />} />
+          </Route>
         </Route>
       </Routes>
     </div>

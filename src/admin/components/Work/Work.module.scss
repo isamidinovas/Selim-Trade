@@ -1,0 +1,74 @@
+.container {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  box-shadow: 0 0 5px #69746e;
+
+  img {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  input {
+    opacity: 0;
+    z-index: -19;
+    margin-top: 30px;
+  }
+}
+
+.trash_icon {
+  height: 15px;
+}
+
+.check_icon {
+  margin-left: 4px;
+  height: 17px;
+  width: 21px;
+}
+
+.edit_icon {
+  height: 23px;
+  width: 21px;
+  margin-left: 4px;
+}
+
+.btn_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 10px;
+  column-gap: 19px;
+
+  button {
+    border-radius: 10px;
+    border: none;
+    padding: 7px 0;
+    color: rgb(0, 0, 0);
+  }
+
+  .edit_btn {
+    color: rgb(0, 0, 0);
+    width: 100%;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: #002b5b 3px solid;
+  }
+
+  .delete_btn {
+    outline: #850000 3px solid;
+    // outline: rgba(255, 0, 0, 0.496) 3px solid;
+    font-weight: 600;
+  }
+
+  .submit_btn {
+    @extend .edit_btn;
+    background-color: #002b5b;
+    color: white;
+  }
+}
