@@ -1,9 +1,90 @@
-import React from 'react'
-
+import React from "react";
+import styles from "./News.module.scss";
+import { useState } from "react";
+import { createNewItem } from "../../../redux/admin/newsSlice";
+import { useDispatch } from "react-redux";
 const News = () => {
-  return (
-    <div>News</div>
-  )
-}
+  const dispatch = useDispatch();
+  const [newsValue, setNewsValue] = useState({
+    saveDto: {
+      title: "",
+      text: "",
+    },
+    coverImage: null,
+    contentImage: null,
+  });
 
-export default News
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "coverImage" || name === "contentImage") {
+      const img = e.target.files[0];
+      console.log(name);
+      setNewsValue({ ...newsValue, [name]: img });
+      return;
+    }
+    setNewsValue((prevState) => ({
+      ...prevState,
+      saveDto: {
+        ...prevState.saveDto,
+        [name]: value,
+      },
+    }));
+    // }
+  };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("coverImage", newsValue.coverImage);
+    formData.append("contentImage", newsValue.contentImage);
+    formData.append(
+      "saveDto",
+      new Blob([JSON.stringify(newsValue.saveDto)], {
+        type: "application/json",
+      })
+    );
+    dispatch(createNewItem(formData));
+  };
+
+  return (
+    <section className="admin_container">
+      <div className={styles.container}>
+        <label htmlFor="">title</label>
+        <input
+          type="text"
+          name="title"
+          onChange={handleChange}
+          value={newsValue.title}
+        />
+
+        <label htmlFor="">cover Img</label>
+        <input
+          type="file"
+          accept="image/*"
+          name="coverImage"
+          onChange={handleChange}
+        />
+
+        <label htmlFor="">text</label>
+        <input
+          type="text"
+          name="text"
+          onChange={handleChange}
+          value={newsValue.text}
+        />
+
+        <label htmlFor="">content Img</label>
+        <input
+          type="file"
+          accept="image/*"
+          name="contentImage"
+          onChange={handleChange}
+        />
+      </div>
+      <button onClick={handleSubmit}>submit</button>
+    </section>
+  );
+};
+
+export default News;

@@ -9,6 +9,12 @@
   border-bottom: 3px white solid;
   color: red;
 }
+
+.admin_container {
+    max-width: 1250px;
+    margin-inline: 244px auto;
+
+}
 /* Box sizing rules */
 *,
 *::before,

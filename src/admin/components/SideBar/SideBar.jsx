@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { NavLink, useLocation } from "react-router-dom";
 import styles from "./SideBar.module.scss";
+import { useState } from "react";
 
 const SideBar = () => {
   const { pathname } = useLocation();
@@ -9,9 +10,14 @@ const SideBar = () => {
     { path: "/admin/news", name: "News" },
     { path: "/admin/projects", name: "Projects" },
   ];
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <>
-      <div className={styles.sidebar}>
+      <div className={`${styles.sidebar}`}>
         <ul>
           {navigationLinks.map((link, index) => {
             const { name, path } = link;

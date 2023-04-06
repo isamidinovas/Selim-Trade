@@ -18,7 +18,7 @@ const Projects = () => {
 
   const handleClick = (e) => {
     const formData = new FormData();
-    formData.append("file", photo);
+    formData.append("image", photo);
     if (photo) {
       dispatch(createProject(formData));
     }

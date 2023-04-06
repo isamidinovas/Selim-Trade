@@ -4,13 +4,11 @@ import { getTokenFromLocalStorage } from "../../utils/localStorage";
 
 const initialState = {
   projects: [],
-  copy: null,
 };
 
 export const createProject = createAsyncThunk(
   "contentControl/createProject",
   async (project, thunkAPI) => {
-    console.log("🚀 ~ file: contentControlSlice.js:13 ~ project:", project);
     try {
       const response = await customFetch.post(
         "api/v1/protected/projects",
@@ -21,7 +19,7 @@ export const createProject = createAsyncThunk(
           },
         }
       );
-      console.log(response);
+      console.log(response.data);
       return response.data;
     } catch (error) {
       console.log(error.response.data);
@@ -95,9 +93,11 @@ const projectsSlice = createSlice({
       state.projects = [...state.projects, payload];
     },
     [updateProject.fulfilled]: (state, { payload }) => {
-      const id = payload;
-      state.projects = [...state.projects, payload];
-
+      const updatedProject = payload;
+      const updatedProjects = state.projects.map((project) =>
+        project.id === updatedProject.id ? updatedProject : project
+      );
+      state.projects = updatedProjects;
     },
     [getAllProjects.fulfilled]: (state, { payload }) => {
       state.projects = payload.content;

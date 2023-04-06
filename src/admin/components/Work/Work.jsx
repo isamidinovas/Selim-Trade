@@ -27,7 +27,7 @@ const Work = ({ id, image }) => {
 
   const handleUpdate = (e) => {
     const formData = new FormData();
-    formData.append("file", updatePhoto);
+    formData.append("image", updatePhoto);
     setIsEditing(!isEditing);
     if (updatePhoto) {
       dispatch(updateProject({ formData, id }));
