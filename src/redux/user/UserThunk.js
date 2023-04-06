@@ -94,7 +94,7 @@ export const getReviews = createAsyncThunk("get/reviews", async () => {
   if (!response.status) {
     throw new Error("Server error");
   }
-  return response.data.content;
+  return response.data;
 });
 
 export const orderCreate = createAsyncThunk(

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import adminSlice from "./adminSlice";
+import { adminSlice } from "./admin/adminSlice";
 import { gatesReducer } from "./user/GatesSlice";
 import { newDetailReducer } from "./user/NewsDetailSlice";
 import { newsPaginationReducer } from "./user/NewsPaginationSlice";
