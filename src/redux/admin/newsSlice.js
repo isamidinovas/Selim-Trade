@@ -7,6 +7,18 @@ const initialState = {
   isLoading: false,
 };
 
+export const getAllNews = createAsyncThunk(
+  "news/getAllNews",
+  async (_, thunkAPI) => {
+    try {
+      const resp = await customFetch.get("api/v1/public/news");
+      return resp.data;
+    } catch (error) {
+      console.log(error.response.data);
+      return error;
+    }
+  }
+);
 export const createNewItem = createAsyncThunk(
   "news/createANewItem",
   async (data, thunkAPI) => {
@@ -29,6 +41,7 @@ const newsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
+    // CREATE NEW
     [createNewItem.fulfilled]: (state, payload) => {
       state.isLoading = false;
       state.news = [...state.news, payload];
@@ -39,7 +52,15 @@ const newsSlice = createSlice({
     },
     [createNewItem.rejected]: (state, payload) => {
       state.isLoading = false;
-      toast.success("Error");
+      toast.error("Error");
+    },
+    // GET NEWS
+    [getAllNews.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      state.news = payload.content;
+    },
+    [getAllNews.pending]: (state) => {
+      state.isLoading = true;
     },
   },
 });

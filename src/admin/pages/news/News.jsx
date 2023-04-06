@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./News.module.scss";
 import { useState } from "react";
-import { createNewItem } from "../../../redux/admin/newsSlice";
-import { useDispatch } from "react-redux";
+import { createNewItem, getAllNews } from "../../../redux/admin/newsSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 const News = () => {
+  const { news } = useSelector((store) => store.news);
   const dispatch = useDispatch();
   const [newsValue, setNewsValue] = useState({
     saveDto: {
@@ -14,6 +16,10 @@ const News = () => {
     coverImage: null,
     contentImage: null,
   });
+
+  useEffect(() => {
+    dispatch(getAllNews());
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -92,6 +98,9 @@ const News = () => {
         />
       </div>
       <button onClick={handleSubmit}>submit</button>
+      {news.map((newItem) => {
+        return <h1>{newItem.title}</h1>;
+      })}
     </section>
   );
 };
