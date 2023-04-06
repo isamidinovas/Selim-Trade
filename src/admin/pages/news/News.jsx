@@ -3,6 +3,7 @@ import styles from "./News.module.scss";
 import { useState } from "react";
 import { createNewItem } from "../../../redux/admin/newsSlice";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 const News = () => {
   const dispatch = useDispatch();
   const [newsValue, setNewsValue] = useState({
@@ -32,9 +33,17 @@ const News = () => {
     // }
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    const {
+      saveDto: { title, text },
+      coverImage,
+      contentImage,
+    } = newsValue;
+    if (!text || !title || !contentImage || !coverImage) {
+      toast.error("Заполните все поля.");
+      return;
+    }
     const formData = new FormData();
     formData.append("coverImage", newsValue.coverImage);
     formData.append("contentImage", newsValue.contentImage);

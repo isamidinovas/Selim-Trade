@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import customFetch from "../../utils/axios";
+import { toast } from "react-toastify";
 
 const initialState = {
   news: [],
@@ -9,12 +10,10 @@ const initialState = {
 export const createNewItem = createAsyncThunk(
   "news/createANewItem",
   async (data, thunkAPI) => {
-    console.log(data);
     try {
       const response = await customFetch.post("api/v1/protected/news", data, {
         headers: {
           authorization: `Bearer ${thunkAPI.getState().admin.token}`,
-          // "Content-Type": "application/json",
         },
       });
       return response.data;
@@ -30,7 +29,9 @@ const newsSlice = createSlice({
   reducers: {},
   extraReducers: {
     [createNewItem.fulfilled]: (state, payload) => {
-      // state.news = [...state.news, payload];
+    state.isLoading = false
+      state.news = [...state.news, payload];
+      toast.success("Новость создана.")
     },
   },
 });
