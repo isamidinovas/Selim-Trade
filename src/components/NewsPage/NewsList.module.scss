@@ -39,7 +39,9 @@
   display: flex;
   justify-content: center;
 }
-
+.empty {
+  text-align: center;
+}
 @media (max-width: 800px) {
   .news__title {
     font-size: 40px;

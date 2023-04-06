@@ -26,6 +26,9 @@
   display: flex;
 }
 
+.btn__hover {
+  text-decoration: none;
+}
 @media (max-width: 1200px) {
   .news__items {
     flex-wrap: wrap;

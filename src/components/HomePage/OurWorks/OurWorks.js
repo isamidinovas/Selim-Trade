@@ -12,7 +12,37 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { EffectCoverflow, Pagination, Navigation } from "swiper";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import {
+  getProjects,
+  getProjectsPagination,
+} from "../../../redux/user/UserThunk";
+import { WorkItem } from "./WorkItem";
 const OurWorks = () => {
+  const { projectsList } = useSelector((state) => state.projects);
+  // console.log("projects", projectsPagList);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProjects());
+  }, []);
+
+  // console.log("su", img);
+  const Slides = projectsList.map((item) => {
+    const img = `http://161.35.29.179:8090/api/v1/public/image/${item.image}`;
+    return (
+      <SwiperSlide key={item.id}>
+        {({ isActive }) => (
+          <img
+            className={`${styles.img} ${isActive ? styles.active22 : null}`}
+            src={img}
+          />
+        )}
+      </SwiperSlide>
+    );
+  });
+
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>Наши работы</h3>
@@ -56,70 +86,7 @@ const OurWorks = () => {
           },
         }}
       >
-        <SwiperSlide>
-          {({ isActive }) => (
-            <img
-              className={`${styles.img} ${isActive ? styles.active22 : null}`}
-              src="https://media.wired.com/photos/5fb70f2ce7b75db783b7012c/master/pass/Gear-Photos-597589287.jpg"
-            />
-          )}
-        </SwiperSlide>
-        <SwiperSlide>
-          {({ isActive }) => (
-            <img
-              className={`${styles.img} ${isActive ? styles.active22 : null}`}
-              src="https://mymodernmet.com/wp/wp-content/uploads/2021/12/kristina-makeeva-eoy-photo-1.jpeg"
-            />
-          )}
-        </SwiperSlide>
-        <SwiperSlide>
-          {({ isActive }) => (
-            <img
-              className={`${styles.img} ${isActive ? styles.active22 : null}`}
-              src="https://res.cloudinary.com/dk-find-out/image/upload/q_80,w_1920,f_auto/A-Alamy-BXWK5E_vvmkuf.jpg"
-            />
-          )}
-        </SwiperSlide>
-        <SwiperSlide>
-          {({ isActive }) => (
-            <img
-              className={`${styles.img} ${isActive ? styles.active22 : null}`}
-              src="https://media.npr.org/assets/img/2022/08/21/moon1_sq-3e2ed2ced72ec3254ca022691e4d7ed0ac9f3a14-s1100-c50.jpg"
-            />
-          )}
-        </SwiperSlide>
-        <SwiperSlide>
-          {({ isActive }) => (
-            <img
-              className={`${styles.img} ${isActive ? styles.active22 : null}`}
-              src="https://media.wired.com/photos/5fb70f2ce7b75db783b7012c/master/pass/Gear-Photos-597589287.jpg"
-            />
-          )}
-        </SwiperSlide>
-        <SwiperSlide>
-          {({ isActive }) => (
-            <img
-              className={`${styles.img} ${isActive ? styles.active22 : null}`}
-              src="https://mymodernmet.com/wp/wp-content/uploads/2021/12/kristina-makeeva-eoy-photo-1.jpeg"
-            />
-          )}
-        </SwiperSlide>
-        <SwiperSlide>
-          {({ isActive }) => (
-            <img
-              className={`${styles.img} ${isActive ? styles.active22 : null}`}
-              src="https://res.cloudinary.com/dk-find-out/image/upload/q_80,w_1920,f_auto/A-Alamy-BXWK5E_vvmkuf.jpg"
-            />
-          )}
-        </SwiperSlide>
-        <SwiperSlide>
-          {({ isActive }) => (
-            <img
-              className={`${styles.img} ${isActive ? styles.active22 : null}`}
-              src="https://media.npr.org/assets/img/2022/08/21/moon1_sq-3e2ed2ced72ec3254ca022691e4d7ed0ac9f3a14-s1100-c50.jpg"
-            />
-          )}
-        </SwiperSlide>
+        {Slides}
 
         <div className={styles.slider_controlers}>
           <img className={`next ${styles.nextArrow}`} src={LeftArrow} />
@@ -131,3 +98,5 @@ const OurWorks = () => {
 };
 
 export default OurWorks;
+
+// export default MySwiper;
