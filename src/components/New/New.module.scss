@@ -16,7 +16,6 @@
 }
 .new__item img {
   object-fit: cover;
-  // max-width: 440px;
   width: 440px;
   height: 300px;
 }
@@ -44,7 +43,7 @@
   font-size: 18px;
   text-align: left;
   line-height: 150%;
-  width: 81%;
+  width: 87%;
   color: #fff;
 }
 .btn__hover {
@@ -52,9 +51,7 @@
   display: none;
   color: #fff;
   padding: 0px 15px;
-  // position: absolute;
   width: 190px;
-  // bottom: -46px;
   border-radius: 15px;
   font-size: 18px;
   height: 45px;

@@ -23,11 +23,16 @@ const Forms = () => {
   };
   const handleClick = (e) => {
     e.preventDefault();
+    const capitalizedName =
+      orderData.customerName.charAt(0).toUpperCase() +
+      orderData.customerName.slice(1);
+    const capitalizedText =
+      orderData.message.charAt(0).toUpperCase() + orderData.message.slice(1);
 
     let formData = new FormData();
-    formData.append("customerName", orderData.customerName);
+    formData.append("customerName", capitalizedName);
     formData.append("customerPhone", orderData.customerPhone);
-    formData.append("message", orderData.message);
+    formData.append("message", capitalizedText);
     dispatch(orderCreate(formData));
     setOrderData({
       customerName: "",

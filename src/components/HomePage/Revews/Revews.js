@@ -11,7 +11,6 @@ const Revews = () => {
   const [scrollAmount, setScrollAmount] = useState(347);
   const scrollRef = useRef(null);
   const { reviewsList } = useSelector((state) => state.reviews);
-  console.log("review", reviewsList);
   const dispatch = useDispatch();
   const scrollLeft = () => {
     scrollRef.current.scrollLeft -= scrollAmount;

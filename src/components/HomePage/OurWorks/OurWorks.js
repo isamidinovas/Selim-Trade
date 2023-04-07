@@ -21,14 +21,12 @@ import {
 import { WorkItem } from "./WorkItem";
 const OurWorks = () => {
   const { projectsList } = useSelector((state) => state.projects);
-  // console.log("projects", projectsPagList);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProjects());
   }, []);
 
-  // console.log("su", img);
   const Slides = projectsList.map((item) => {
     const img = `http://161.35.29.179:8090/api/v1/public/image/${item.image}`;
     return (

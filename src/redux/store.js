@@ -9,7 +9,7 @@ import { projectsPaginationReducer } from "./user/ProjectsPaginationSlice";
 import { projectsReducer } from "./user/ProjectsSlice";
 import { reviewsReducer } from "./user/ReviewsSlice";
 import { similarNewsReducer } from "./user/SimilarNewsSlice";
-import { imagesReducer } from "./user/GetImagesSlice";
+import { gateInfoReducer } from "./user/GetGateInfoSlice";
 
 export const store = configureStore({
   reducer: {
@@ -23,6 +23,6 @@ export const store = configureStore({
     gates: gatesReducer,
     reviews: reviewsReducer,
     orders: ordersReducer,
-    images: imagesReducer,
+    gateInfo: gateInfoReducer,
   },
 });

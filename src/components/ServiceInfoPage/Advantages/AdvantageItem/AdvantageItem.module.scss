@@ -1,0 +1,50 @@
+.item {
+  position: relative;
+}
+.number {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 300px;
+  line-height: 150%;
+  text-align: justify;
+  text-transform: uppercase;
+  opacity: 0.3;
+  left: 70px;
+  top: -210px;
+  font-size: 352px;
+  color: #ebebeb;
+  position: absolute;
+}
+.item__title {
+  font-weight: 600;
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 150%;
+}
+.item__text {
+  line-height: 150%;
+  text-align: justify;
+  margin: 0 auto;
+  width: 396px;
+  height: 90px;
+  font-weight: 300;
+  font-size: 20px;
+  text-transform: lowercase;
+}
+
+@media (max-width: 430px) {
+  .item {
+    height: 160px;
+    width: 302px;
+  }
+  .item__text {
+    width: 300px;
+    font-size: 14px;
+  }
+  .item__title {
+    font-size: 20px;
+    // width: 319px;
+  }
+}

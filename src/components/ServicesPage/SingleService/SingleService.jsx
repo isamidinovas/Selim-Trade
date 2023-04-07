@@ -2,17 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./SingleService.module.scss";
 
-const SingleService = ({ item }) => {
+const SingleService = ({ item, id }) => {
+  const img = `http://161.35.29.179:8090/api/v1/public/image/${item.image}`;
   return (
     <>
       <div className={styles.singleService}>
-        <Link to={"/service/id"}>
-          <img
-            className={styles.img}
-            src="https://news.airbnb.com/wp-content/uploads/sites/4/2021/11/Home-Alone-Airbnb-01-Exterior-Credit-Sarah-Crowley.jpg?fit=2500%2C1667"
-            alt="img"
-          />
-          <p className={styles.service_text}>Промышленные секционные ворота</p>
+        <Link to={`/service/${id}`}>
+          <img className={styles.img} src={img} alt="img" />
+          <p className={styles.service_text}>{item.name}</p>
         </Link>
       </div>
     </>
