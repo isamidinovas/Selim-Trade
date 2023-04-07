@@ -17,7 +17,6 @@ dispatch(deleteANew(id))
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <p>{id}</p>
         <img src={image} alt="News Image" className={styles.image} />
         <h3>{title}</h3>
         <p>{shortText}</p>
