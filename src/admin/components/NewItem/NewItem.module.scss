@@ -1,0 +1,24 @@
+.content {
+  min-height: 434px;
+
+  img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  h3 {
+    margin-top: 5px;
+  }
+
+  p {
+    margin-top: 5px;
+  }
+}
+
+.btn_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 15px;
+  column-gap: 19px;
+}
