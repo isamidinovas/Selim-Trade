@@ -1,50 +1,20 @@
-
 .btn {
-    border-radius: 10px;
-    border: none;
-    padding: 7px 0;
-    color: rgb(0, 0, 0);
-    color: rgb(0, 0, 0);
-    width: 100%;
-    border-radius: 10px;
-    font-weight: 600;
-    text-align: center;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    outline: #002b5b 3px solid;
-  }
+  border-radius: 10px;
+  border: none;
+  padding: 7px 0;
+  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  width: 100%;
+  border-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: #002b5b 3px solid;
+}
 
-  .delete_btn {
-    outline: #850000 3px solid;
-    // outline: rgba(255, 0, 0, 0.496) 3px solid;
-    font-weight: 600;
-  }
-
-  .submit_btn {
-    @extend .btn;
-    background-color: #002b5b;
-    color: white;
-  }
-
-  .icon{
-    margin-left: 4px;
-
-  }
-
-  .trash_icon {
-    height: 15px;
-  }
-  
-  .check_icon {
-    margin-left: 4px;
-    height: 17px;
-    width: 21px;
-  }
-  
-  .edit_icon {
-    height: 23px;
-    width: 21px;
-    margin-left: 4px;
-  }
+.icon {
+  margin-left: 4px;
+}

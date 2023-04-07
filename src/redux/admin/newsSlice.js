@@ -19,6 +19,22 @@ export const getAllNews = createAsyncThunk(
     }
   }
 );
+export const deleteANew = createAsyncThunk(
+  "news/deleteANew",
+  async (id, thunkAPI) => {
+    try {
+      const response = await customFetch.delete(`api/v1/protected/news/${id}`, {
+        headers: {
+          authorization: `Bearer ${thunkAPI.getState().admin.token}`,
+        },
+      });
+      return id;
+    } catch (error) {
+      console.log(error.response);
+      return error.response;
+    }
+  }
+);
 export const createNewItem = createAsyncThunk(
   "news/createANewItem",
   async (data, thunkAPI) => {
@@ -42,7 +58,7 @@ const newsSlice = createSlice({
   reducers: {},
   extraReducers: {
     // CREATE NEW
-    [createNewItem.fulfilled]: (state, payload) => {
+    [createNewItem.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       state.news = [...state.news, payload];
       toast.success("Новость создана.");
@@ -60,6 +76,18 @@ const newsSlice = createSlice({
       state.news = payload.content;
     },
     [getAllNews.pending]: (state) => {
+      state.isLoading = true;
+    },
+    // DELETE NEW
+    [deleteANew.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      const itemId = payload;
+      state.news = state.news.filter((item) => {
+        return item.id !== itemId;
+      });
+      toast.success("Удалено.");
+    },
+    [deleteANew.pending]: (state) => {
       state.isLoading = true;
     },
   },
