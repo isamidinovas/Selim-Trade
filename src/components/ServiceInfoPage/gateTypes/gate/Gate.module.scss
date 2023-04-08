@@ -1,0 +1,30 @@
+.item {
+  position: relative;
+}
+.item__img {
+  border-radius: 10px;
+  width: 256px;
+  height: 314px;
+}
+.item__text {
+  position: absolute;
+  font-family: "Montserrat";
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 110%;
+  color: #ffffff;
+  bottom: 10px;
+  left: 5px;
+}
+
+@media (max-width: 430px) {
+  .item__img {
+    width: 286px;
+    height: 172px;
+  }
+  .item__text {
+    width: 148px;
+    height: 30px;
+    bottom: 24px;
+  }
+}

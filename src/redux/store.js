@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import adminSlice from "./adminSlice";
+import { adminSlice } from "./admin/adminSlice";
 import { gatesReducer } from "./user/GatesSlice";
 import { newDetailReducer } from "./user/NewsDetailSlice";
 import { newsPaginationReducer } from "./user/NewsPaginationSlice";
@@ -9,7 +9,7 @@ import { projectsPaginationReducer } from "./user/ProjectsPaginationSlice";
 import { projectsReducer } from "./user/ProjectsSlice";
 import { reviewsReducer } from "./user/ReviewsSlice";
 import { similarNewsReducer } from "./user/SimilarNewsSlice";
-import { imagesReducer } from "./user/GetImagesSlice";
+import { gateInfoReducer } from "./user/GetGateInfoSlice";
 
 export const store = configureStore({
   reducer: {
@@ -23,6 +23,6 @@ export const store = configureStore({
     gates: gatesReducer,
     reviews: reviewsReducer,
     orders: ordersReducer,
-    images: imagesReducer,
+    gateInfo: gateInfoReducer,
   },
 });

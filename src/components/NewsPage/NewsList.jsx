@@ -43,7 +43,7 @@ const NewsList = () => {
         </div>
         {newsList.length > 0 && (
           <div className={styles.news__items}>
-            {newsList.map((item) => (
+          {newsList.map((item) => (  
               <New item={item} id={item.id} key={item.id} />
             ))}
           </div>

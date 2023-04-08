@@ -69,12 +69,12 @@ export const getProjects = createAsyncThunk("get/projects", async () => {
 
 export const getGates = createAsyncThunk("get/gates", async () => {
   const response = await axios.get(
-    "http://161.35.29.179:8090/api/v1/public/gate"
+    "http://161.35.29.179:8090/api/v1/public/gate_category"
   );
   if (!response.status) {
     throw new Error("Server error");
   }
-  return response.data.content;
+  return response.data;
 });
 
 export const getGatesPagination = createAsyncThunk("get/gates", async () => {
@@ -86,7 +86,15 @@ export const getGatesPagination = createAsyncThunk("get/gates", async () => {
   }
   return response.data.content;
 });
-
+export const getGateInfo = createAsyncThunk("get/gateInfo", async (id) => {
+  const response = await axios.get(
+    `http://161.35.29.179:8090/api/v1/public/gate_category/${id}`
+  );
+  if (!response.status) {
+    throw new Error("Server error");
+  }
+  return response.data;
+});
 export const getReviews = createAsyncThunk("get/reviews", async () => {
   const response = await axios.get(
     "http://161.35.29.179:8090/api/v1/public/review"
@@ -94,7 +102,7 @@ export const getReviews = createAsyncThunk("get/reviews", async () => {
   if (!response.status) {
     throw new Error("Server error");
   }
-  return response.data.content;
+  return response.data;
 });
 
 export const orderCreate = createAsyncThunk(
