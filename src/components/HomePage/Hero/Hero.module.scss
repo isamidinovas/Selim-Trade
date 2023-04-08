@@ -56,23 +56,34 @@
 .scroll__img {
   position: relative;
   object-fit: cover;
-  bottom: 25px;
+  bottom: -16px;
   right: 30px;
 }
-// .tab {
-//   position: absolute;
-//   object-fit: cover;
-//   bottom: -50px;
-//   right: -40px;
-//   animation: tab 1.3s infinite linear;
-//   animation-name: tab;
-//   animation-duration: 1s;
-//   animation-delay: -2s;
-// }
+.tab {
+  position: absolute;
+  object-fit: cover;
+  bottom: 28px;
+  left: 31px;
+  animation: spin 1.3s infinite linear;
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-delay: -2s;
+}
+.arrow__left {
+  position: absolute;
+  color: #105bfb;
+  width: 31px;
+  left: 42px;
+  animation: spin 1.3s infinite linear;
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-delay: -2s;
+  font-size: 19px;
+}
 .hand__img {
   position: absolute;
   object-fit: cover;
-  bottom: 60px;
+  top: 57px;
   right: 78px;
   animation: spin 1.3s infinite linear;
   animation-name: spin;
@@ -83,19 +94,19 @@
 @keyframes spin {
   0% {
     right: 80px;
-    bottom: 40px;
+    top: 40px;
   }
   50% {
     right: 80px;
-    bottom: 100px;
+    top: 100px;
   }
   75% {
     right: 80px;
-    bottom: 100px;
+    top: 100px;
   }
   100% {
     right: 80px;
-    bottom: 40px;
+    top: 40px;
   }
 }
 

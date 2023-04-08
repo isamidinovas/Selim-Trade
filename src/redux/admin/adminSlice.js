@@ -72,6 +72,7 @@ export const adminSlice = createSlice({
     [logIn.fulfilled]: (state, { payload }) => {
       state.token = payload.token || null;
       saveTokenToLocalStorage(payload.token);
+      console.log("token", payload.token);
     },
     [logIn.rejected]: (state, { payload }) => {
       state.isLoading = false;
