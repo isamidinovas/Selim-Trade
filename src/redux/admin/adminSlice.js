@@ -37,6 +37,8 @@ export const logIn = createAsyncThunk(
         "api/v1/public/auth/login",
         adminData
       );
+      // localStorage.setItem("token", response.data.token);
+      // console.log("took", response.data);
       return response.data;
     } catch (error) {
       return error;

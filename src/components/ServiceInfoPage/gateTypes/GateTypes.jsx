@@ -2,7 +2,6 @@ import React from "react";
 import { GateItem } from "./gate/Gate";
 import styles from "./GateTypes.module.scss";
 
-
 const GateTypes = ({ gates }) => {
   return (
     <div className={styles.types__block}>
@@ -16,7 +15,7 @@ const GateTypes = ({ gates }) => {
               ))}
             </div>
           ) : (
-            <h2>Преимуществ нету</h2>
+            <h2>Ворот нету</h2>
           )}
         </div>
       </div>

@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { adminSlice } from "./admin/adminSlice";
 import { gatesReducer } from "./user/GatesSlice";
 import { newDetailReducer } from "./user/NewsDetailSlice";
 import { newsPaginationReducer } from "./user/NewsPaginationSlice";
@@ -10,6 +9,7 @@ import { projectsReducer } from "./user/ProjectsSlice";
 import { reviewsReducer } from "./user/ReviewsSlice";
 import { similarNewsReducer } from "./user/SimilarNewsSlice";
 import { gateInfoReducer } from "./user/GetGateInfoSlice";
+import adminSlice from "./admin/adminSlice";
 
 export const store = configureStore({
   reducer: {
