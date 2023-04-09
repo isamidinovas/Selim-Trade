@@ -28,17 +28,16 @@ const Revews = () => {
         <h2 className={styles.title}>Отзывы наших клиентов</h2>
         {isloading ? (
           <div className={styles.grid}>
-            <Skeleton width={310} height={240} />
-            <Skeleton width={310} height={240} />
-            <Skeleton width={310} height={240} />
-            <Skeleton width={310} height={240} />
+            <Skeleton width={330} height={240} />
+            <Skeleton width={330} height={240} />
+            <Skeleton width={330} height={240} />
+            <Skeleton width={330} height={240} />
           </div>
         ) : reviewsList.length ? (
           <div className={styles.grid} ref={scrollRef}>
             {reviewsList.map((item) => (
               <ReviewItem item={item} key={item.id} />
             ))}
-            <div className={styles.grid_item}>end</div>
           </div>
         ) : (
           <h2>Пока нету отзывов</h2>
