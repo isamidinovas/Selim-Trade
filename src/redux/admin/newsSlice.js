@@ -4,7 +4,16 @@ import { toast } from "react-toastify";
 
 const initialState = {
   news: [],
+  singleNew: [],
   isLoading: false,
+  newsUpdateValues: {
+    saveDto: {
+      title: "",
+      text: "",
+    },
+    coverImage: null,
+    contentImage: null,
+  },
 };
 
 export const getAllNews = createAsyncThunk(
@@ -12,6 +21,18 @@ export const getAllNews = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const resp = await customFetch.get("api/v1/public/news");
+      return resp.data;
+    } catch (error) {
+      console.log(error.response.data);
+      return error;
+    }
+  }
+);
+export const getNewById = createAsyncThunk(
+  "news/getNewById",
+  async ({ id }, thunkAPI) => {
+    try {
+      const resp = await customFetch.get(`api/v1/public/news/${id}`);
       return resp.data;
     } catch (error) {
       console.log(error.response.data);
@@ -44,6 +65,7 @@ export const createNewItem = createAsyncThunk(
           authorization: `Bearer ${thunkAPI.getState().admin.token}`,
         },
       });
+      console.log(response.data);
       return response.data;
     } catch (error) {
       console.log(error.response);
@@ -55,10 +77,31 @@ export const createNewItem = createAsyncThunk(
 const newsSlice = createSlice({
   name: "news",
   initialState,
-  reducers: {},
+  reducers: {
+    updateNew: (state, { payload }) => {
+      const { title, text, coverImage } = payload;
+      return {
+        ...state,
+        news: [...state.news],
+        singleNew: state.singleNew,
+        newsUpdateValues: {
+          saveDto: {
+            title,
+            text,
+          },
+          coverImage,
+        },
+      };
+    },
+  },
   extraReducers: {
+    // NEW BY ID
+    [getNewById.fulfilled]: (state, { payload }) => {
+      state.singleNew = payload;
+    },
     // CREATE NEW
     [createNewItem.fulfilled]: (state, { payload }) => {
+      console.log(payload);
       state.isLoading = false;
       state.news = [...state.news, payload];
       toast.success("Новость создана.");
@@ -93,4 +136,5 @@ const newsSlice = createSlice({
   },
 });
 
+export const { updateNew } = newsSlice.actions;
 export default newsSlice.reducer;

@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import styles from "./News.module.scss";
 import { useState } from "react";
 import { createNewItem, getAllNews } from "../../../redux/admin/newsSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import NewsList from "../../components/NewsList/NewsList";
@@ -10,6 +10,7 @@ const News = () => {
   const dispatch = useDispatch();
   const contentInputRef = useRef();
   const coverInputRef = useRef();
+  const { newsUpdateValues, singleNew } = useSelector((store) => store.news);
   const [newsValue, setNewsValue] = useState({
     saveDto: {
       title: "",
@@ -18,6 +19,16 @@ const News = () => {
     coverImage: null,
     contentImage: null,
   });
+
+  useEffect(() => {
+    setNewsValue({
+      saveDto: {
+        title: newsUpdateValues.saveDto.title || "",
+        text: newsUpdateValues.saveDto.text || "",
+      },
+      coverImage: newsUpdateValues.coverImage || null,
+    });
+  }, [newsUpdateValues, singleNew]);
 
   const [localImgs, setLocalImgs] = useState({
     coverImage: null,
@@ -43,7 +54,6 @@ const News = () => {
         [name]: value,
       },
     }));
-    // }
   };
 
   const handleSubmit = (e) => {
@@ -78,7 +88,7 @@ const News = () => {
             type="text"
             name="title"
             onChange={handleChange}
-            value={newsValue.title}
+            value={newsValue.saveDto.title}
             className={styles.title_input}
           />
         </div>
@@ -88,8 +98,9 @@ const News = () => {
             type="text"
             name="text"
             onChange={handleChange}
-            value={newsValue.text}
+            value={newsValue.saveDto.text}
             className={styles.text_input}
+            // || newsUpdateValues?.saveDto?.text
           />
         </div>
         <div className={styles.image_selects}>
@@ -109,7 +120,10 @@ const News = () => {
               onChange={handleChange}
             />
             <img
-              src={localImgs.coverImage}
+              src={
+                localImgs.coverImage ||
+                `http://161.35.29.179:8090/api/v1/public/image/${newsValue.coverImage}`
+              }
               alt=""
               className={styles.coverImg}
             />
@@ -131,7 +145,10 @@ const News = () => {
               onChange={handleChange}
             />
             <img
-              src={localImgs.contentImage}
+              src={
+                localImgs.contentImage ||
+                `http://161.35.29.179:8090/api/v1/public/image/${singleNew.contentImage}`
+              }
               alt=""
               className={styles.contentImg}
             />
