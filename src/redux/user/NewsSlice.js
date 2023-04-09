@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getNews } from "./UserThunk";
 
-export const newsSlice = createSlice({
-  name: "news",
+export const newsListSlice = createSlice({
+  name: "newsList",
   initialState: {
     newsList: [],
     loading: false,
@@ -18,4 +18,4 @@ export const newsSlice = createSlice({
     });
   },
 });
-export const newsReducer = newsSlice.reducer;
+export const newsListReducer = newsListSlice.reducer;

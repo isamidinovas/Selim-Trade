@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 
 const ServiceInfo = () => {
-  const { gateInfoList } = useSelector((state) => state.gateInfo);
+  const { gateInfoList, isloading } = useSelector((state) => state.gateInfo);
   const { id: gateId } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -18,7 +18,7 @@ const ServiceInfo = () => {
     <>
       <Hero name={gateInfoList.name} gateInfoList={gateInfoList} />
       <Section description={gateInfoList.description} />
-      <GateTypes gates={gateInfoList.gates} />
+      <GateTypes gates={gateInfoList.gates} isloading={isloading} />
       <Advantages advantages={gateInfoList.advantages} />
     </>
   );

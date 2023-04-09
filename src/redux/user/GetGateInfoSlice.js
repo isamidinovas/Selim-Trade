@@ -5,11 +5,16 @@ export const gateInfoSlice = createSlice({
   name: "gateInfo",
   initialState: {
     gateInfoList: [],
+    isloading: false,
   },
 
   extraReducers: (builder) => {
+    builder.addCase(getGateInfo.pending, (state, action) => {
+      state.isloading = true;
+    });
     builder.addCase(getGateInfo.fulfilled, (state, action) => {
       state.gateInfoList = action.payload;
+      state.isloading = false;
     });
   },
 });

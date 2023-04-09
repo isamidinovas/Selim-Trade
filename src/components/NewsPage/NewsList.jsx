@@ -9,7 +9,7 @@ import { getNews } from "../../redux/user/UserThunk";
 import { useEffect } from "react";
 import axios from "axios";
 const NewsList = () => {
-  const { newsList, loading } = useSelector((state) => state.news);
+  const { newsList, loading } = useSelector((state) => state.newsList);
   const [news, setNews] = useState([]);
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(9);
