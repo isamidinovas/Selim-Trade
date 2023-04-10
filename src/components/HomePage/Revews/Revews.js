@@ -11,7 +11,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 const Revews = () => {
   const [scrollAmount, setScrollAmount] = useState(347);
   const scrollRef = useRef(null);
-  const { reviewsList, isloading } = useSelector((state) => state.reviews);
+  const { reviewsList, isloading } = useSelector((state) => state.reviewsList);
   const dispatch = useDispatch();
   const scrollLeft = () => {
     scrollRef.current.scrollLeft -= scrollAmount;

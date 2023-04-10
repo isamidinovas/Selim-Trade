@@ -2,20 +2,21 @@ import React, { useState } from "react";
 import styles from "./Reviews.module.scss";
 import { createReview } from "../../../redux/admin/reviewsSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { getReviews } from "../../../redux/user/UserThunk";
+import { getGates, getReviews } from "../../../redux/user/UserThunk";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
-import ReviewItem from "../../../components/HomePage/Revews/ReviewItem/ReviewItem";
+import ReviewItem from "../../components/ReviewItem/ReviewItem";
 
 export const Reviews = () => {
   const { reviewsList } = useSelector((state) => state.reviewsList);
-  console.log("rev", reviewsList);
+  const { gatesList } = useSelector((state) => state.gates);
+
   const dispatch = useDispatch();
   const [reviewData, setReviewData] = useState({
     saveDto: {
       firstName: "",
       lastName: "",
-      gateCategory: "",
+      gateCategoryId: "",
       reviewText: "",
     },
     image: null,
@@ -57,7 +58,7 @@ export const Reviews = () => {
     formData.append("firstName", reviewData.firstName);
     formData.append("lastName", reviewData.lastName);
     formData.append("reviewText", reviewData.reviewText);
-    formData.append("gateCategory", reviewData.gateCategory);
+    formData.append("gateCategoryId", reviewData.gateCategoryId);
     formData.append(
       "saveDto",
       new Blob([JSON.stringify(reviewData.saveDto)], {
@@ -68,16 +69,51 @@ export const Reviews = () => {
   };
   useEffect(() => {
     dispatch(getReviews());
+    dispatch(getGates());
   }, [reviewsList.length]);
 
   return (
     <div className="admin_container">
-      <div className={styles.content__top}>
-      </div>
+      <div className={styles.container}>
+        <label>Имя</label>
+        <input
+          type="text"
+          onChange={(e) => onChange(e)}
+          name="firstName"
+          value={reviewData.firstName}
+          className={styles.title_input}
+        />
+        <label>Фамилия</label>
+        <input
+          type="text"
+          onChange={(e) => onChange(e)}
+          name="lastName"
+          value={reviewData.lastName}
+          className={styles.title_input}
+        />
+        <label>Категория</label>
+        <select
+          onChange={(e) => onChange(e)}
+          className={styles.select__category}
+          name="gateCategoryId"
+        >
+          {gatesList.map((item, index) => (
+            <option key={index} name="tag">
+              {item.id}
+            </option>
+          ))}
+        </select>
+        <label>Текст</label>
+        <input
+          type="text"
+          onChange={(e) => onChange(e)}
+          name="reviewText"
+          className={styles.text_input}
+          value={reviewData.reviewText}
+        />
 
-      <div className={styles.modal}>
         <label htmlFor="fileImg" className="select-photo-lable">
-          Добавить фото
+          Фото
         </label>
         <input
           onChange={(event) => {
@@ -88,42 +124,9 @@ export const Reviews = () => {
           accept="image/*"
           type={"file"}
         />
-        <input
-          type="text"
-          onChange={(e) => onChange(e)}
-          name="firstName"
-          className="modal-input"
-          value={reviewData.firstName}
-        />
-        Имя
-        <input
-          type="text"
-          onChange={(e) => onChange(e)}
-          name="lastName"
-          className="modal-input"
-          value={reviewData.lastName}
-        />
-        Фамилия
-        <select
-          onChange={(e) => onChange(e)}
-          className="select-category"
-          name="gateCategory"
-        >
-          {reviewsList.map((item, index) => (
-            <option key={index} name="tag">
-              {item.gateCategory.id}
-            </option>
-          ))}
-        </select>
-        <input
-          type="text"
-          onChange={(e) => onChange(e)}
-          name="reviewText"
-          className="modal-input"
-          value={reviewData.reviewText}
-        />
-        Текст
-        <button onClick={handleClick}>Создать</button>
+        <button onClick={handleClick} className={styles.submit_btn}>
+          Создать ✨
+        </button>
       </div>
       <div className={styles.content}>
         {reviewsList.length > 0 && (
