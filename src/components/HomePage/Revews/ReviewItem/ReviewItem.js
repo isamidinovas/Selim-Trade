@@ -2,7 +2,6 @@ import DefaultProfileIcon from "./img/default-profile-icon.png";
 import styles from "./ReviewItem.module.scss";
 
 const ReviewItem = ({ item }) => {
-  console.log("uu", item);
   const img = item.customerImage
     ? `http://161.35.29.179:8090/api/v1/public/image/${item.customerImage}`
     : DefaultProfileIcon;

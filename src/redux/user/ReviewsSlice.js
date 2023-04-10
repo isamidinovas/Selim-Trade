@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getReviews } from "./UserThunk";
 
-export const reviewsSlice = createSlice({
-  name: "reviews",
+export const reviewsListSlice = createSlice({
+  name: "reviewsList",
   initialState: {
     reviewsList: [],
     isloading: false,
@@ -14,10 +14,9 @@ export const reviewsSlice = createSlice({
     });
     builder.addCase(getReviews.fulfilled, (state, action) => {
       state.reviewsList = action.payload;
-      localStorage.setItem("token", "ваш_токен");
       state.isloading = false;
     });
   },
 });
 
-export const reviewsReducer = reviewsSlice.reducer;
+export const reviewsListReducer = reviewsListSlice.reducer;

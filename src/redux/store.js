@@ -5,18 +5,20 @@ import { newsPaginationReducer } from "./user/NewsPaginationSlice";
 import { ordersReducer } from "./user/OrderSlice";
 import { projectsPaginationReducer } from "./user/ProjectsPaginationSlice";
 import { projectsListReducer } from "./user/ProjectsSlice";
-import { reviewsReducer } from "./user/ReviewsSlice";
+import { reviewsListReducer } from "./user/ReviewsSlice";
 import { similarNewsReducer } from "./user/SimilarNewsSlice";
 import { gateInfoReducer } from "./user/GetGateInfoSlice";
 import adminSlice from "./admin/adminSlice";
 import projectsSlice from "./admin/projectsSlice";
 import { newsListReducer } from "./user/NewsSlice";
 import newsSlice from "./admin/newsSlice";
+import reviewsSlice from "./admin/reviewsSlice";
 export const store = configureStore({
   reducer: {
     admin: adminSlice,
     projects: projectsSlice,
     news: newsSlice,
+    reviews: reviewsSlice,
     newsList: newsListReducer,
     newsPagination: newsPaginationReducer,
     newDetail: newDetailReducer,
@@ -24,7 +26,7 @@ export const store = configureStore({
     projectsPagination: projectsPaginationReducer,
     projectsList: projectsListReducer,
     gates: gatesReducer,
-    reviews: reviewsReducer,
+    reviewsList: reviewsListReducer,
     orders: ordersReducer,
     gateInfo: gateInfoReducer,
   },

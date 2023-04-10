@@ -6,13 +6,6 @@ import AdminLayout from "./AdminLayout";
 
 const ProtectedRoute = () => {
   const token = useSelector((store) => store.admin.token);
-  // const token = localStorage.getItem("token");
-  console.log("token", token);
-  // let token2 = "";
-  // useEffect(() => {
-  //   token2 = token;
-  //   console.log("token2", token2);
-  // }, [token]);
 
   return <div>{token ? <AdminLayout /> : <Authentication />}</div>;
 };
