@@ -1,0 +1,44 @@
+.conatainer {
+  max-width: 1200px;
+  margin: 20px auto;
+}
+.content__top {
+}
+// .btn {
+//   display: block;
+//   width: 200px;
+//   margin: 40px auto;
+//   height: 40px;
+//   background-color: #badce3;
+//   border: none;
+//   font-size: 16px;
+//   font-weight: 700;
+//   border-radius: 10px;
+// }
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+input {
+  width: 300px;
+  height: 40px;
+}
+
+select {
+  width: 300px;
+  height: 40px;
+}
+.content {
+  margin: 50px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+// button {
+//   width: 300px;
+//   height: 40px;
+//   background-color: #e89999;
+// }

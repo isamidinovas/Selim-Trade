@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import NewsList from "../../components/NewsList/NewsList";
+// import NewsList from "../../components/NewsList/NewsList";
+
 const News = () => {
   const dispatch = useDispatch();
   const contentInputRef = useRef();

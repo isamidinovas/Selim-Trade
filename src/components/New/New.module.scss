@@ -67,9 +67,12 @@
   color: #fff;
   border: none;
 }
+.new__img:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .new__item:hover {
   transition: 0.9s;
-  background: linear-gradient(to bottom, #000000, #000000);
+  // background: linear-gradient(to bottom, #000000, #000000);
   .new__text {
     cursor: pointer;
     opacity: 0;

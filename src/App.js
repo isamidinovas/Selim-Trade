@@ -7,6 +7,7 @@ import ProtectedRoute from "./admin/routes/ProtectedRoute";
 import Projects from "./admin/pages/projects/Projects";
 import News from "./admin/pages/news/News";
 import AdminLayout from "./admin/routes/AdminLayout";
+import { Reviews } from "./admin/pages/reviews/Reviews";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route element={<AdminLayout />}>
             <Route path="/admin/news" element={<News />} />
             <Route path="/admin" element={<Projects />} />
+            <Route path="/admin/reviews" element={<Reviews />} />
           </Route>
         </Route>
       </Routes>

@@ -1,7 +1,14 @@
+import DefaultProfileIcon from "./img/default-profile-icon.png";
 import styles from "./ReviewItem.module.scss";
 
 const ReviewItem = ({ item }) => {
-  const img = `http://161.35.29.179:8090/api/v1/public/image/${item.customerImage}`;
+  const img = item.customerImage
+    ? `http://161.35.29.179:8090/api/v1/public/image/${item.customerImage}`
+    : DefaultProfileIcon;
+  const maxLength = 120;
+  const shortenedText =
+    item.reviewText.slice(0, maxLength) +
+    (item.reviewText.length > maxLength ? "..." : "");
   return (
     <>
       <div className={styles.grid_item}>
@@ -13,7 +20,8 @@ const ReviewItem = ({ item }) => {
             <p>{item.gateCategory.name}</p>
           </div>
         </div>
-        <p>{item.reviewText}</p>
+        {/* <p>{item.reviewText}</p> */}
+        <p>{shortenedText}</p>
       </div>
     </>
   );

@@ -14,13 +14,9 @@ import "swiper/css/navigation";
 import { EffectCoverflow, Pagination, Navigation } from "swiper";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import {
-  getProjects,
-  getProjectsPagination,
-} from "../../../redux/user/UserThunk";
-import { WorkItem } from "./WorkItem";
+import { getProjects } from "../../../redux/user/UserThunk";
 const OurWorks = () => {
-  const { projectsList } = useSelector((state) => state.projects);
+  const { projectsList } = useSelector((state) => state.projectsList);
 
   const dispatch = useDispatch();
   useEffect(() => {
