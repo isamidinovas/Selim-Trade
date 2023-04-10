@@ -6,9 +6,7 @@
 .add_work {
   max-width: 500px;
   height: 150px;
-  // background-color: rgb(21, 129, 35);
   background-color: rgb(255, 255, 255);
-  // background-image: linear-gradient(rgba(9, 69, 181, 0.429),  rgba(9, 251, 89, 0.758));
   margin-block: 50px;
   margin-inline: auto;
   display: flex;
@@ -29,7 +27,6 @@
     );
     color: rgb(255, 255, 255);
     font-weight: 500;
-    // outline: 2px rgb(0, 255, 204) solid;
   }
 }
 
