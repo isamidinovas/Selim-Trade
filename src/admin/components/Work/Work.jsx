@@ -14,6 +14,7 @@ const Work = ({ id, image }) => {
   const inputRef = useRef(null);
   const [updatePhoto, setUpdatePhoto] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  const img = `http://161.35.29.179:8090/api/v1/public/image/${image}`;
 
   const handleDelete = (id) => {
     dispatch(deleteProject(id));
@@ -39,10 +40,7 @@ const Work = ({ id, image }) => {
   };
   return (
     <div key={id} className={styles.container}>
-      <img
-        src="https://hello-triggerapp.com/wp-content/uploads/2020/10/pmpmpm.jpg"
-        key={id}
-      />
+      <img src={img} key={id} />
       <div className={styles.btn_container}>
         <button className={styles.delete_btn} onClick={() => handleDelete(id)}>
           Удалить <BsTrash3Fill className={styles.trash_icon} />
