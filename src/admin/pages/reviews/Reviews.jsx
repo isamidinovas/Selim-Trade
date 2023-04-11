@@ -9,6 +9,7 @@ import ReviewItem from "../../components/ReviewItem/ReviewItem";
 
 export const Reviews = () => {
   const { reviews } = useSelector((state) => state.reviews);
+  console.log("ff", reviews);
   const { gatesList } = useSelector((state) => state.gates);
   const [localImage, setLocalImage] = useState(null);
   const dispatch = useDispatch();
@@ -56,28 +57,26 @@ export const Reviews = () => {
 
     const formData = new FormData();
     formData.append("image", reviewData.image);
-
     formData.append(
       "saveDto",
       new Blob([JSON.stringify(reviewData.saveDto)], {
         type: "application/json",
       })
     );
-    console.log("j", formData);
     dispatch(createReview(formData));
   };
 
-  const handleEditClick = () => {
-    setReviewData({
-      saveDto: {
-        firstName: reviews.firstName,
-        lastName: reviews.lastName,
-        gateCategoryId: reviews.gateCategory,
-        reviewText: reviews.reviewText,
-      },
-      image: reviews.image,
-    });
-  };
+  // const handleEditClick = () => {
+  //   setReviewData({
+  //     saveDto: {
+  //       firstName: reviews.firstName,
+  //       lastName: reviews.lastName,
+  //       gateCategoryId: reviews.gateCategory,
+  //       reviewText: reviews.reviewText,
+  //     },
+  //     image: reviews.image,
+  //   });
+  // };
   useEffect(() => {
     dispatch(getReviews());
     dispatch(getGates());
@@ -110,7 +109,7 @@ export const Reviews = () => {
         >
           {gatesList.map((item, index) => (
             <option key={index} name="category">
-              {item.name}
+              {item.id}
             </option>
           ))}
         </select>
@@ -152,7 +151,7 @@ export const Reviews = () => {
               <ReviewItem
                 item={item}
                 // key={item.id}
-                handleEditClick={handleEditClick}
+                // handleEditClick={handleEditClick}
               />
             ))}
           </div>
