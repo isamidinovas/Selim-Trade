@@ -11,7 +11,12 @@
   line-height: 140%;
   padding-bottom: 40px;
 }
-
+.btn_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+  margin-top: 15px;
+}
 .img {
   width: 80px;
   height: 80px;
@@ -27,7 +32,6 @@
   margin-bottom: 7px;
   height: min-content;
 
- 
   h4 {
     font-size: 18px;
     margin-top: 16px;
@@ -53,7 +57,6 @@
 }
 
 @media (max-width: 700px) {
-
   .card_header {
     margin-bottom: 0;
   }

@@ -10,7 +10,7 @@ import ReviewItem from "../../components/ReviewItem/ReviewItem";
 export const Reviews = () => {
   const { reviewsList } = useSelector((state) => state.reviewsList);
   const { gatesList } = useSelector((state) => state.gates);
-
+  const [localImage, setLocalImage] = useState(null);
   const dispatch = useDispatch();
   const [reviewData, setReviewData] = useState({
     saveDto: {
@@ -24,7 +24,6 @@ export const Reviews = () => {
 
   const onChange = (e) => {
     const { name, value } = e.target;
-
     setReviewData((previousValue) => ({
       ...previousValue,
       saveDto: {
@@ -34,19 +33,21 @@ export const Reviews = () => {
     }));
   };
   const handleSelectImage = (image) => {
+    const localBlobImg = URL.createObjectURL(image);
     setReviewData((previousValue) => {
       return {
         ...previousValue,
         image,
       };
     });
+    setLocalImage(localBlobImg);
+    return;
   };
 
   const handleClick = (e) => {
     e.preventDefault();
     const {
       saveDto: { firstName, lastName, gateCategoryId, reviewText },
-      image,
     } = reviewData;
     if (!firstName || !lastName || !gateCategoryId || !reviewText) {
       toast.error("Заполните все поля.");
@@ -55,10 +56,10 @@ export const Reviews = () => {
 
     const formData = new FormData();
     formData.append("image", reviewData.image);
-    formData.append("firstName", reviewData.firstName);
-    formData.append("lastName", reviewData.lastName);
-    formData.append("reviewText", reviewData.reviewText);
-    formData.append("gateCategoryId", reviewData.gateCategoryId);
+    // formData.append("firstName", reviewData.firstName);
+    // formData.append("lastName", reviewData.lastName);
+    // formData.append("reviewText", reviewData.reviewText);
+    // formData.append("gateCategoryId", reviewData.gateCategoryId);
     formData.append(
       "saveDto",
       new Blob([JSON.stringify(reviewData.saveDto)], {
@@ -67,10 +68,11 @@ export const Reviews = () => {
     );
     dispatch(createReview(formData));
   };
+
   useEffect(() => {
     dispatch(getReviews());
     dispatch(getGates());
-  }, [reviewsList.length]);
+  }, []);
 
   return (
     <div className="admin_container">
@@ -124,6 +126,12 @@ export const Reviews = () => {
           accept="image/*"
           type={"file"}
         />
+        <div className={styles.img_placeholder}>
+          {localImage && (
+            <img src={localImage} alt="" className={styles.image} />
+          )}
+        </div>
+
         <button onClick={handleClick} className={styles.submit_btn}>
           Создать ✨
         </button>

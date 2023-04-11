@@ -26,6 +26,26 @@ export const createReview = createAsyncThunk(
   }
 );
 
+
+export const deleteReview = createAsyncThunk(
+  "contentControl/deleteReview",
+  async (id, thunkAPI) => {
+    try {
+      const response = await customFetch.delete(
+        `api/v1/protected/review/${id}`,
+        {
+          headers: {
+            authorization: `Bearer ${thunkAPI.getState().admin.token}`,
+          },
+        }
+      );
+      return id;
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  }
+);
+
 const reviewsSlice = createSlice({
   name: "reviews",
   initialState,
@@ -34,10 +54,7 @@ const reviewsSlice = createSlice({
     [createReview.fulfilled]: (state, { payload }) => {
       state.reviews = [...state.reviews, payload];
     },
-
-    // [getAllProjects.fulfilled]: (state, { payload }) => {
-    //   state.projects = payload.content;
-    // },
+  
   },
 });
 
