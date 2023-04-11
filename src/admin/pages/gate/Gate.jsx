@@ -3,32 +3,48 @@ import styles from "./Gate.module.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import GateList from "../../components/GateList/GateList";
+import { createGate } from "../../../redux/admin/gateSlice";
+import { toast } from "react-toastify";
 
 const Gate = () => {
   const dispatch = useDispatch();
   const [gateValues, setGateValues] = useState({
-    image: "string",
     saveDto: {
-      name: "string",
-      categoryId: 0,
+      name: "",
+      categoryId: 1,
     },
+    image: null,
   });
   const [localPhot, setLocalPhoto] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === "gate_photo") {
+    if (name === "image") {
       const img = e.target.files[0];
       const localImg = URL.createObjectURL(img);
-      setGateValues({ ...gateValues, image: img });
+      setGateValues({ ...gateValues, [name]: img });
       setLocalPhoto(localImg);
     }
-    setGateValues({ ...gateValues, saveDto: { [name]: value } });
-    console.log(gateValues);
+
+    setGateValues((prevState) => ({
+      ...prevState,
+      saveDto: {
+        ...prevState.saveDto,
+        [name]: value,
+      },
+    }));
   };
 
   const handleClick = (e) => {
     e.preventDefault();
+    const {
+      image,
+      saveDto: { name, categoryId },
+    } = gateValues;
+    if (!image || !name || !categoryId) {
+      toast.error("Заполните все поля");
+      return;
+    }
     const formData = new FormData();
     formData.append("image", gateValues.image);
     formData.set(
@@ -37,6 +53,7 @@ const Gate = () => {
         type: "application/json",
       })
     );
+    dispatch(createGate(formData));
   };
   return (
     <div className={styles.container}>
@@ -45,7 +62,7 @@ const Gate = () => {
           onChange={handleChange}
           type="file"
           accept="image/*"
-          name="gate_photo"
+          name="image"
           className={styles.file_input}
         />
         <div className={styles.image_placeholder}>
