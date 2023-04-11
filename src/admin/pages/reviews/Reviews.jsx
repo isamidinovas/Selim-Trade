@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import styles from "./Reviews.module.scss";
-import { createReview } from "../../../redux/admin/reviewsSlice";
+import { createReview, getReviews } from "../../../redux/admin/reviewsSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { getGates, getReviews } from "../../../redux/user/UserThunk";
+import { getGates } from "../../../redux/user/UserThunk";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import ReviewItem from "../../components/ReviewItem/ReviewItem";
 
 export const Reviews = () => {
-  const { reviewsList } = useSelector((state) => state.reviewsList);
+  const { reviews } = useSelector((state) => state.reviews);
   const { gatesList } = useSelector((state) => state.gates);
   const [localImage, setLocalImage] = useState(null);
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ export const Reviews = () => {
       };
     });
     setLocalImage(localBlobImg);
-    return;
+    // return;
   };
 
   const handleClick = (e) => {
@@ -56,23 +56,32 @@ export const Reviews = () => {
 
     const formData = new FormData();
     formData.append("image", reviewData.image);
-    // formData.append("firstName", reviewData.firstName);
-    // formData.append("lastName", reviewData.lastName);
-    // formData.append("reviewText", reviewData.reviewText);
-    // formData.append("gateCategoryId", reviewData.gateCategoryId);
+
     formData.append(
       "saveDto",
       new Blob([JSON.stringify(reviewData.saveDto)], {
         type: "application/json",
       })
     );
+    console.log("j", formData);
     dispatch(createReview(formData));
   };
 
+  const handleEditClick = () => {
+    setReviewData({
+      saveDto: {
+        firstName: reviews.firstName,
+        lastName: reviews.lastName,
+        gateCategoryId: reviews.gateCategory,
+        reviewText: reviews.reviewText,
+      },
+      image: reviews.image,
+    });
+  };
   useEffect(() => {
     dispatch(getReviews());
     dispatch(getGates());
-  }, []);
+  }, [reviews.length]);
 
   return (
     <div className="admin_container">
@@ -100,8 +109,8 @@ export const Reviews = () => {
           name="gateCategoryId"
         >
           {gatesList.map((item, index) => (
-            <option key={index} name="tag">
-              {item.id}
+            <option key={index} name="category">
+              {item.name}
             </option>
           ))}
         </select>
@@ -137,10 +146,14 @@ export const Reviews = () => {
         </button>
       </div>
       <div className={styles.content}>
-        {reviewsList.length > 0 && (
+        {reviews.length > 0 && (
           <div className={styles.content}>
-            {reviewsList.map((item) => (
-              <ReviewItem item={item} key={item.id} />
+            {reviews.map((item) => (
+              <ReviewItem
+                item={item}
+                // key={item.id}
+                handleEditClick={handleEditClick}
+              />
             ))}
           </div>
         )}

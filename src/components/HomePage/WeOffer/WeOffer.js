@@ -7,10 +7,12 @@ import "react-loading-skeleton/dist/skeleton.css";
 import WeOfferItem from "./WeOfferItem/WeOfferItem";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getGates } from "../../../redux/user/UserThunk";
+import { getGatesPagination } from "../../../redux/user/UserThunk";
 
 const WeOffer = () => {
-  const { gatesList, isloading } = useSelector((state) => state.gates);
+  const { gatesPaginationList, isloading } = useSelector(
+    (state) => state.gatesPagination
+  );
   const dispatch = useDispatch();
   const [scrollAmount, setScrollAmount] = useState(270);
   const scrollRef = useRef(null);
@@ -21,7 +23,7 @@ const WeOffer = () => {
     scrollRef.current.scrollLeft += scrollAmount;
   };
   useEffect(() => {
-    dispatch(getGates());
+    dispatch(getGatesPagination());
   }, []);
 
   return (
@@ -37,9 +39,9 @@ const WeOffer = () => {
             <Skeleton width={350} height={240} />
           </div>
         ) : (
-          gatesList.length > 0 && (
+          gatesPaginationList.length > 0 && (
             <div className={styles.page3__block} ref={scrollRef}>
-              {gatesList.map((item) => (
+              {gatesPaginationList.map((item) => (
                 <WeOfferItem item={item} key={item.id} />
               ))}
             </div>
