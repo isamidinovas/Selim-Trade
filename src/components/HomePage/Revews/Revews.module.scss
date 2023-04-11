@@ -33,7 +33,9 @@
   justify-content: end;
   align-items: center;
 }
-
+.scrollBtns :disabled {
+  background-color: red;
+}
 .scrollBtns button:first-child {
   margin-right: 40px;
 }

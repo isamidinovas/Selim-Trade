@@ -8,7 +8,8 @@ const SideBar = () => {
   const { pathname } = useLocation();
   const navigationLinks = [
     { path: "/admin/news", name: "News" },
-    { path: "/admin/projects", name: "Projects" },
+    { path: "/admin", name: "Projects" },
+    { path: "/admin/reviews", name: "Reviews" },
   ];
   const [isOpen, setIsOpen] = useState(false);
 

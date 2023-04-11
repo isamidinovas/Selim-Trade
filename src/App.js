@@ -1,18 +1,13 @@
 import { Route, Routes } from "react-router";
 import routesConfig from "./routes/routesConfig";
-import Navbar from "./components/Navbar/Navbar";
-import Forms from "./components/Forms/Forms";
-import Footer from "./components/Footer/Footer";
-import { adminRoutesConfig } from "./admin/routes/adminRoutesConfig";
 import "./App.css";
-import Home from "./pages/home/Home";
-import NavigateBtn from "./components/HomePage/NavigateBtn/NavigateBtn";
-import { BrowserRouter } from "react-router-dom";
 import Layout from "./routes/Layout";
 import Authentication from "./admin/pages/authentication/Authentication";
 import ProtectedRoute from "./admin/routes/ProtectedRoute";
 import Projects from "./admin/pages/projects/Projects";
 import News from "./admin/pages/news/News";
+import AdminLayout from "./admin/routes/AdminLayout";
+import { Reviews } from "./admin/pages/reviews/Reviews";
 
 function App() {
   return (
@@ -24,10 +19,12 @@ function App() {
           ))}
         </Route>
         {/* ADMIN ROUTES ⬇️ */}
+        <Route path="auth" element={<Authentication />} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/admin/">
-            <Route path="projects" element={<Projects />} />
-            <Route path="news" element={<News />} />
+          <Route element={<AdminLayout />}>
+            <Route path="/admin/news" element={<News />} />
+            <Route path="/admin" element={<Projects />} />
+            <Route path="/admin/reviews" element={<Reviews />} />
           </Route>
         </Route>
       </Routes>
