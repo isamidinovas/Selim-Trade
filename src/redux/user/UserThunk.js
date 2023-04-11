@@ -77,9 +77,9 @@ export const getGates = createAsyncThunk("get/gates", async () => {
   return response.data;
 });
 
-export const getGatesPagination = createAsyncThunk("get/gates", async () => {
+export const getGatesPagination = createAsyncThunk("get/gatesPag", async () => {
   const response = await axios.get(
-    "http://161.35.29.179:8090/api/v1/public/gate_category/{pageNumber}/{pageSize}/{sortDirection}/{sortField}"
+    "http://161.35.29.179:8090/api/v1/public/gate_category/0/5/descending/id"
   );
   if (!response.status) {
     throw new Error("Server error");
