@@ -17,10 +17,23 @@ export const createGate = createAsyncThunk(
           authorization: `Bearer ${thunkAPI.getState().admin.token}`,
         },
       });
+      console.log(response.data);
       return response.data;
     } catch (error) {
       console.log(error.response);
       return error.response;
+    }
+  }
+);
+
+export const getGates = createAsyncThunk(
+  "gates/getGates",
+  async (_, thunkAPI) => {
+    try {
+      const resp = await customFetch.get("/api/v1/public/gate");
+      return resp.data;
+    } catch (err) {
+      console.log(err);
     }
   }
 );
@@ -30,7 +43,17 @@ const gateSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
+    // GET GATES
+    [getGates.fulfilled]: (state, { payload }) => {
+      state.gates = payload;
+      state.isLoading = false;
+    },
+    [getGates.pending]: (state, _) => {
+      state.isLoading = true;
+    },
+    // CREATE GATE
     [createGate.fulfilled]: (state, { payload }) => {
+      console.log(payload);
       state.gates = [...state.gates, payload];
       state.isLoading = false;
       toast.success("Создано");

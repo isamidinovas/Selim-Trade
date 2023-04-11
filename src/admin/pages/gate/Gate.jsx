@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Gate.module.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import GateList from "../../components/GateList/GateList";
-import { createGate } from "../../../redux/admin/gateSlice";
+import { createGate, getGates } from "../../../redux/admin/gateSlice";
 import { toast } from "react-toastify";
 
 const Gate = () => {
@@ -16,6 +16,9 @@ const Gate = () => {
     image: null,
   });
   const [localPhot, setLocalPhoto] = useState(null);
+  useEffect(() => {
+    dispatch(getGates());
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
