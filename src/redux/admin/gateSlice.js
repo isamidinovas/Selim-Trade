@@ -5,6 +5,13 @@ import { toast } from "react-toastify";
 const initialState = {
   gates: [],
   isLoading: false,
+  updateValues: {
+    saveDto: {
+      name: "",
+      categoryId: 1,
+    },
+    image: null,
+  },
 };
 
 export const createGate = createAsyncThunk(
@@ -55,7 +62,22 @@ export const deleteGate = createAsyncThunk(
 const gateSlice = createSlice({
   name: "gate",
   initialState,
-  reducers: {},
+  reducers: {
+    updateGate: (state, { payload }) => {
+      const { name, image, categoryId } = payload;
+      return {
+        ...state,
+        gates: [...state.gates],
+        updateValues: {
+          saveDto: {
+            name,
+            categoryId,
+          },
+          image,
+        },
+      };
+    },
+  },
   extraReducers: {
     // DELETE
     [deleteGate.fulfilled]: (state, { payload }) => {
@@ -85,5 +107,5 @@ const gateSlice = createSlice({
     },
   },
 });
-
+export const { updateGate } = gateSlice.actions;
 export default gateSlice.reducer;

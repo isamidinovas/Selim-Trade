@@ -8,7 +8,8 @@ import { toast } from "react-toastify";
 
 const Gate = () => {
   const dispatch = useDispatch();
-  const { gates } = useSelector((store) => store.gate);
+  const { gates, updateValues } = useSelector((store) => store.gate);
+  const [localPhot, setLocalPhoto] = useState(null);
   const [gateValues, setGateValues] = useState({
     saveDto: {
       name: "",
@@ -16,10 +17,21 @@ const Gate = () => {
     },
     image: null,
   });
-  const [localPhot, setLocalPhoto] = useState(null);
   useEffect(() => {
     dispatch(getGates());
   }, [gates.length]);
+
+  useEffect(() => {
+    setGateValues({
+      saveDto: {
+        name: updateValues.saveDto.name || "",
+        categoryId: 1,
+      },
+      image: updateValues.image || null,
+    });
+
+    setLocalPhoto();
+  }, [updateValues]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -79,13 +91,17 @@ const Gate = () => {
         />
         <div className={styles.image_placeholder}>
           {!localPhot && <h3>Фото</h3>}
-          {localPhot && (
-            <img
-              src={localPhot || ``}
-              alt="image"
-              className={styles.gate_img}
-            />
-          )}
+          {localPhot ||
+            (gateValues.image && (
+              <img
+                src={
+                  localPhot ||
+                  `http://161.35.29.179:8090/api/v1/public/image/${gateValues.image}`
+                }
+                alt="image"
+                className={styles.gate_img}
+              />
+            ))}
         </div>
         <div>
           <label className={styles.name_label}>Названия</label>

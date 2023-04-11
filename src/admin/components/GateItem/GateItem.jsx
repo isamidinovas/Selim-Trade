@@ -6,15 +6,18 @@ import Button from "../Button/Button";
 import { BsTrash3Fill } from "react-icons/bs";
 import { TbEdit } from "react-icons/tb";
 import { useDispatch } from "react-redux";
-import { deleteGate } from "../../../redux/admin/gateSlice";
+import { deleteGate, updateGate } from "../../../redux/admin/gateSlice";
 
-const GateItem = ({ id, image, name }) => {
+const GateItem = ({ id, image, name, categoryId }) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
     dispatch(deleteGate(id));
   };
 
-  const handleUpdate = () => {};
+  const handleUpdate = () => {
+    console.log("Loooooooooooooooooooo");
+    dispatch(updateGate({ id, image, name, categoryId }));
+  };
 
   return (
     <>
