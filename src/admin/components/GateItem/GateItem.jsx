@@ -5,16 +5,17 @@ import { useState } from "react";
 import Button from "../Button/Button";
 import { BsTrash3Fill } from "react-icons/bs";
 import { TbEdit } from "react-icons/tb";
+import { useDispatch } from "react-redux";
+import { deleteGate } from "../../../redux/admin/gateSlice";
 
 const GateItem = ({ id, image, name }) => {
-  const [gate, setGate] = useState({});
-
-  const handleDelete = (e) => {};
+  const dispatch = useDispatch();
+  const handleDelete = () => {
+    dispatch(deleteGate(id));
+  };
 
   const handleUpdate = () => {};
-  useEffect(() => {
-    setGate({ image, name });
-  }, [image, name]);
+
   return (
     <>
       <div className={styles.gate_item}>

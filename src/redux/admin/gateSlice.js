@@ -38,11 +38,33 @@ export const getGates = createAsyncThunk(
   }
 );
 
+export const deleteGate = createAsyncThunk(
+  "gate/deleteGate",
+  async (id, thunkAPI) => {
+    try {
+      const resp = await customFetch.delete(`/api/v1/protected/gate/${id}`, {
+        headers: { authorization: `Bearer ${thunkAPI.getState().admin.token}` },
+      });
+      return id;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const gateSlice = createSlice({
   name: "gate",
   initialState,
   reducers: {},
   extraReducers: {
+    // DELETE
+    [deleteGate.fulfilled]: (state, { payload }) => {
+      const idOfDeletedItem = payload;
+      state.gates = state.gates.filter((gate) => {
+        return gate.id !== idOfDeletedItem;
+      });
+      toast.success("Удалено");
+    },
     // GET GATES
     [getGates.fulfilled]: (state, { payload }) => {
       state.gates = payload;

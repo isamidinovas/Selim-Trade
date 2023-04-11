@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import styles from "./Gate.module.scss";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import GateList from "../../components/GateList/GateList";
 import { createGate, getGates } from "../../../redux/admin/gateSlice";
 import { toast } from "react-toastify";
 
 const Gate = () => {
   const dispatch = useDispatch();
+  const { gates } = useSelector((store) => store.gate);
   const [gateValues, setGateValues] = useState({
     saveDto: {
       name: "",
@@ -18,7 +19,7 @@ const Gate = () => {
   const [localPhot, setLocalPhoto] = useState(null);
   useEffect(() => {
     dispatch(getGates());
-  }, []);
+  }, [gates.length]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -57,6 +58,14 @@ const Gate = () => {
       })
     );
     dispatch(createGate(formData));
+    setGateValues({
+      saveDto: {
+        name: "",
+        categoryId: 1,
+      },
+      image: null,
+    });
+    setLocalPhoto(null);
   };
   return (
     <div className={styles.container}>
@@ -85,6 +94,7 @@ const Gate = () => {
             type="text"
             className={styles.name_input}
             name="name"
+            value={gateValues.saveDto.name}
           />
         </div>
         <button onClick={handleClick}>Создать ✨</button>
