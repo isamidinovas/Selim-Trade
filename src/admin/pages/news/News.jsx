@@ -171,7 +171,7 @@ const News = () => {
               onChange={handleChange}
             />
             <div className={styles.img_border}>
-              {!localImgs.coverImage && <h3>Фото</h3>}
+              {!localImgs.coverImage && !newsValue.coverImage && <h3>Фото</h3>}
               <img
                 src={
                   localImgs.coverImage ||
@@ -201,7 +201,9 @@ const News = () => {
               onChange={handleChange}
             />
             <div className={styles.img_border}>
-              {!localImgs.contentImage && <h3>Фото</h3>}
+              {!localImgs.contentImage && !newsValue.contentImage && (
+                <h3>Фото</h3>
+              )}
               <img
                 onerror="this.style.display='none'"
                 src={
