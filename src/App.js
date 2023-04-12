@@ -9,6 +9,7 @@ import News from "./admin/pages/news/News";
 import AdminLayout from "./admin/routes/AdminLayout";
 import { Reviews } from "./admin/pages/reviews/Reviews";
 import Gate from "./admin/pages/gate/Gate";
+import Orders from "./admin/pages/orders/Orders";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/admin" element={<Projects />} />
             <Route path="/admin/reviews" element={<Reviews />} />
             <Route path="/admin/gates" element={<Gate />} />
+            <Route path="/admin/orders" element={<Orders />} />
           </Route>
         </Route>
       </Routes>

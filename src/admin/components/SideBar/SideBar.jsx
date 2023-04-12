@@ -11,6 +11,7 @@ const SideBar = () => {
     { path: "/admin", name: "Projects" },
     { path: "/admin/reviews", name: "Reviews" },
     { path: "/admin/gates", name: "Gates" },
+    { path: "/admin/orders", name: "Orders" },
   ];
   const [isOpen, setIsOpen] = useState(false);
 
