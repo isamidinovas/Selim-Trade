@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 const initialState = {
   gates: [],
   isLoading: false,
+  isEditing: false,
+  singleGateId: null,
   updateValues: {
     saveDto: {
       name: "",
@@ -13,6 +15,29 @@ const initialState = {
     image: null,
   },
 };
+
+export const updateGateItem = createAsyncThunk(
+  "news/updateGateItem",
+  async ({ formData, id }, thunkAPI) => {
+    try {
+      const response = await customFetch.put(
+        `api/v1/protected/gate/${id}`,
+        formData,
+        {
+          headers: {
+            authorization: `Bearer ${thunkAPI.getState().admin.token}`,
+          },
+        }
+      );
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.log(error.response);
+      return error.response;
+    }
+  }
+);
+
 
 export const createGate = createAsyncThunk(
   "gates/createGate",
@@ -77,6 +102,13 @@ const gateSlice = createSlice({
         },
       };
     },
+
+    changeEditingStatus: (state, { payload }) => {
+      state.isEditing = payload;
+    },
+    getGateId: (state, { payload }) => {
+      state.singleGateId = payload.id;
+    },
   },
   extraReducers: {
     // DELETE
@@ -107,5 +139,5 @@ const gateSlice = createSlice({
     },
   },
 });
-export const { updateGate } = gateSlice.actions;
+export const { updateGate, changeEditingStatus, getGateId } = gateSlice.actions;
 export default gateSlice.reducer;

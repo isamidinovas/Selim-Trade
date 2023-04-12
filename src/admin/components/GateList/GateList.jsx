@@ -1,11 +1,8 @@
 import React from "react";
 import styles from "./GateList.module.scss";
 import GateItem from "../GateItem/GateItem";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getGates } from "../../../redux/admin/gateSlice";
+import { useSelector } from "react-redux";
 const GateList = () => {
-  const dispatch = useDispatch();
   const { gates } = useSelector((store) => store.gate);
   return (
     <>

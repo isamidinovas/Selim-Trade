@@ -1,12 +1,15 @@
 import React from "react";
 import styles from "./GateItem.module.scss";
-import { useEffect } from "react";
-import { useState } from "react";
 import Button from "../Button/Button";
 import { BsTrash3Fill } from "react-icons/bs";
 import { TbEdit } from "react-icons/tb";
 import { useDispatch } from "react-redux";
-import { deleteGate, updateGate } from "../../../redux/admin/gateSlice";
+import {
+  changeEditingStatus,
+  deleteGate,
+  getGateId,
+  updateGate,
+} from "../../../redux/admin/gateSlice";
 
 const GateItem = ({ id, image, name, categoryId }) => {
   const dispatch = useDispatch();
@@ -15,8 +18,9 @@ const GateItem = ({ id, image, name, categoryId }) => {
   };
 
   const handleUpdate = () => {
-    console.log("Loooooooooooooooooooo");
     dispatch(updateGate({ id, image, name, categoryId }));
+    dispatch(getGateId({ id }));
+    dispatch(changeEditingStatus(true));
   };
 
   return (

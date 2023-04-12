@@ -3,12 +3,19 @@ import styles from "./Gate.module.scss";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GateList from "../../components/GateList/GateList";
-import { createGate, getGates } from "../../../redux/admin/gateSlice";
+import {
+  changeEditingStatus,
+  createGate,
+  getGates,
+  updateGateItem,
+} from "../../../redux/admin/gateSlice";
 import { toast } from "react-toastify";
 
 const Gate = () => {
   const dispatch = useDispatch();
-  const { gates, updateValues } = useSelector((store) => store.gate);
+  const { gates, updateValues, isEditing, singleGateId } = useSelector(
+    (store) => store.gate
+  );
   const [localPhot, setLocalPhoto] = useState(null);
   const [gateValues, setGateValues] = useState({
     saveDto: {
@@ -52,6 +59,7 @@ const Gate = () => {
   };
 
   const handleClick = (e) => {
+    console.log(isEditing);
     e.preventDefault();
     const {
       image,
@@ -59,6 +67,29 @@ const Gate = () => {
     } = gateValues;
     if (!image || !name || !categoryId) {
       toast.error("Заполните все поля");
+      return;
+    }
+
+    if (isEditing) {
+      const formData = new FormData();
+      formData.append("image", gateValues.image);
+      formData.set(
+        "updateDto",
+        new Blob([JSON.stringify(gateValues.saveDto)], {
+          type: "application/json",
+        })
+      );
+      const id = singleGateId;
+      dispatch(updateGateItem({ formData, id }));
+      setGateValues({
+        saveDto: {
+          name: "",
+          categoryId: 1,
+        },
+        image: null,
+      });
+      setLocalPhoto(null);
+      dispatch(changeEditingStatus(false));
       return;
     }
     const formData = new FormData();
@@ -90,7 +121,7 @@ const Gate = () => {
           className={styles.file_input}
         />
         <div className={styles.image_placeholder}>
-          {!localPhot && <h3>Фото</h3>}
+          {!localPhot && !gateValues.image && <h3>Фото</h3>}
           {localPhot ||
             (gateValues.image && (
               <img
@@ -113,7 +144,9 @@ const Gate = () => {
             value={gateValues.saveDto.name}
           />
         </div>
-        <button onClick={handleClick}>Создать ✨</button>
+        <button onClick={handleClick}>
+          {isEditing ? "Редактировать ✨" : "Создать ✨"}
+        </button>
       </div>
       <GateList />
     </div>
