@@ -13,13 +13,17 @@ const Work = ({ id, image }) => {
   const dispatch = useDispatch();
   const inputRef = useRef(null);
   const [updatePhoto, setUpdatePhoto] = useState(null);
+  const [localImg, setLocalImg] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-  const img = `http://161.35.29.179:8090/api/v1/public/image/${image}`;
+  const img =
+    localImg || `http://161.35.29.179:8090/api/v1/public/image/${image}`;
 
   const handleDelete = (id) => {
     dispatch(deleteProject(id));
   };
   const handleChange = (e) => {
+    const localUrlImg = URL.createObjectURL(e.target.files[0]);
+    setLocalImg(localUrlImg);
     setIsEditing(!isEditing);
     console.log("is ed");
     e.preventDefault();
@@ -35,7 +39,7 @@ const Work = ({ id, image }) => {
     }
   };
 
-  const aa = () => {
+  const callRef = (e) => {
     inputRef.current.click();
   };
   return (
@@ -50,7 +54,7 @@ const Work = ({ id, image }) => {
             Подтвердить <FaCheck className={styles.check_icon} />
           </button>
         ) : (
-          <button onClick={aa} className={styles.edit_btn}>
+          <button onClick={callRef} className={styles.edit_btn}>
             Редактировать <TbEdit className={styles.edit_icon} />
           </button>
         )}
