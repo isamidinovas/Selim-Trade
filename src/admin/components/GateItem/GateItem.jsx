@@ -1,9 +1,11 @@
 import React from "react";
+import { useEffect, useState } from "react";
+
 import styles from "./GateItem.module.scss";
 import Button from "../Button/Button";
 import { BsTrash3Fill } from "react-icons/bs";
 import { TbEdit } from "react-icons/tb";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   changeEditingStatus,
   deleteGate,
@@ -12,6 +14,13 @@ import {
 } from "../../../redux/admin/gateSlice";
 
 const GateItem = ({ id, image, name, categoryId }) => {
+  const i = `http://161.35.29.179:8090/api/v1/public/image/${image}`;
+  const { full } = useSelector((store) => store.gate);
+  const [render, setRender] = useState(null);
+
+  useEffect(() => {
+    setRender();
+  }, [full]);
   const dispatch = useDispatch();
   const handleDelete = () => {
     dispatch(deleteGate(id));
@@ -26,10 +35,7 @@ const GateItem = ({ id, image, name, categoryId }) => {
   return (
     <>
       <div className={styles.gate_item}>
-        <img
-          src={`http://161.35.29.179:8090/api/v1/public/image/${image}`}
-          alt=""
-        />
+        <img src={i} alt="" />
         <h4>{name}</h4>
       </div>
       <div className={styles.btns_container}>

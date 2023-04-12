@@ -71,16 +71,24 @@ const Gate = () => {
     }
 
     if (isEditing) {
+      const id = singleGateId;
+      const data = {
+        saveDto: {
+          id: id,
+          name: gateValues.saveDto.name,
+          categoryId: 1,
+        },
+        image: null,
+      };
       const formData = new FormData();
       formData.append("image", gateValues.image);
       formData.set(
         "updateDto",
-        new Blob([JSON.stringify(gateValues.saveDto)], {
+        new Blob([JSON.stringify(data.saveDto)], {
           type: "application/json",
         })
       );
-      const id = singleGateId;
-      dispatch(updateGateItem({ formData, id }));
+      dispatch(updateGateItem({ formData }));
       setGateValues({
         saveDto: {
           name: "",

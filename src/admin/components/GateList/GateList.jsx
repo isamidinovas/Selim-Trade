@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState } from "react";
 import styles from "./GateList.module.scss";
 import GateItem from "../GateItem/GateItem";
 import { useSelector } from "react-redux";
