@@ -8,7 +8,11 @@ const NewsList = () => {
     <>
       <div className={styles.container}>
         {news.map((newItem) => {
-          return <NewItem key={newItem.id} {...newItem} />;
+          return (
+            <div key={newItem.id}>
+              <NewItem {...newItem} />
+            </div>
+          );
         })}
       </div>
     </>

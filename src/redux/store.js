@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import adminSlice from "./admin/adminSlice";
 import { gatesReducer } from "./user/GatesSlice";
 import { newDetailReducer } from "./user/NewsDetailSlice";
 import { newsPaginationReducer } from "./user/NewsPaginationSlice";
@@ -8,7 +9,6 @@ import { projectsListReducer } from "./user/ProjectsSlice";
 import { reviewsListReducer } from "./user/ReviewsSlice";
 import { similarNewsReducer } from "./user/SimilarNewsSlice";
 import { gateInfoReducer } from "./user/GetGateInfoSlice";
-import adminSlice from "./admin/adminSlice";
 import projectsSlice from "./admin/projectsSlice";
 import { newsListReducer } from "./user/NewsSlice";
 import newsSlice from "./admin/newsSlice";

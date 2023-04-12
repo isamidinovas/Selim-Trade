@@ -61,14 +61,35 @@
 
   .coverImg {
     border-radius: 8px;
-    margin-top: 15px;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
     object-fit: cover;
   }
 
   .contentImg {
     border-radius: 8px;
-    margin-top: 15px;
+    height: 100%;
+    width: 100%;
+    z-index: 1033;
     object-fit: cover;
+  }
+
+  .img_border {
+    border: 1px solid black;
+    height: 300px;
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 8px;
+    position: relative;
+
+    h3 {
+      position: absolute;
+      top: 45%;
+      right: 45%;
+      z-index: 9;
+      color: rgb(128, 128, 128);
+    }
   }
 }
 .submit_btn {
