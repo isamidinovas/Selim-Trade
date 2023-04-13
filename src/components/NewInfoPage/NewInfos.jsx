@@ -42,9 +42,7 @@ const NewInfos = () => {
             <img src={img} alt="img" />
           </div>
         </div>
-        <h2 className={styles.news__title}>
-          {similarNewsList.length ? "ПОХОЖИЕ НОВОСТИ" : "ПОСЛЕДНИЕ НОВОСТИ"}
-        </h2>
+        <h2 className={styles.news__title}>ПОХОЖИЕ НОВОСТИ</h2>
         {isloading ? (
           <div className={styles.news}>
             <Skeleton width={440} height={300} />

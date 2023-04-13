@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import styles from "./Reviews.module.scss";
-import { createReview, getReviews } from "../../../redux/admin/reviewsSlice";
+import {
+  createReview,
+  editReview,
+  getReviews,
+} from "../../../redux/admin/reviewsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { getGates } from "../../../redux/user/UserThunk";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import ReviewItem from "../../components/ReviewItem/ReviewItem";
+import { changeEditingStatus } from "../../../redux/admin/newsSlice";
 
 export const Reviews = () => {
-  const { reviews } = useSelector((state) => state.reviews);
+  const { reviewsEditData, isEditing, reviews, reviewId } = useSelector(
+    (state) => state.reviews
+  );
+  console.log("id", reviewId);
   const { gatesList } = useSelector((state) => state.gates);
   const [localImage, setLocalImage] = useState(null);
   const dispatch = useDispatch();
@@ -16,10 +24,10 @@ export const Reviews = () => {
     saveDto: {
       firstName: "",
       lastName: "",
-      gateCategoryId: "",
+      gateCategory: "",
       reviewText: "",
     },
-    image: null,
+    customerImage: null,
   });
 
   const onChange = (e) => {
@@ -34,16 +42,15 @@ export const Reviews = () => {
   };
   const handleSelectImage = (image) => {
     const localBlobImg = URL.createObjectURL(image);
+
     setReviewData((previousValue) => {
       return {
         ...previousValue,
-        image,
+        customerImage: image,
       };
     });
     setLocalImage(localBlobImg);
-    // return;
   };
-
   const handleClick = (e) => {
     e.preventDefault();
     const {
@@ -53,31 +60,61 @@ export const Reviews = () => {
       toast.error("Заполните все поля.");
       return;
     }
+    if (isEditing) {
+      const id = reviewId;
+      // const data = {
+      //   saveDto: {
+      //     id: id,
+      //     firstName: reviewData.saveDto.firstName,
+      //     lastName: reviewData.saveDto.lastName,
+      //     gateCategorId: reviewData.saveDto.gateCategoryId,
+      //     reviewText: reviewData.saveDto.reviewText,
+      //   },
+      // };
+      const formData = new FormData();
+      formData.append("image", reviewData.customerImage);
+      formData.set(
+        "updateDto",
+        new Blob([JSON.stringify(reviewData.saveDto)], {
+          type: "application/json",
+        })
+      );
+      dispatch(editReview({ formData, id }));
+      dispatch(changeEditingStatus(false));
+      return;
+    }
 
     const formData = new FormData();
-    formData.append("image", reviewData.image);
-
+    formData.append("image", reviewData.customerImage);
     formData.append(
       "saveDto",
       new Blob([JSON.stringify(reviewData.saveDto)], {
         type: "application/json",
       })
     );
-    console.log("j", formData);
     dispatch(createReview(formData));
-  };
-
-  const handleEditClick = () => {
+    setLocalImage(null);
     setReviewData({
       saveDto: {
-        firstName: reviews.firstName,
-        lastName: reviews.lastName,
-        gateCategoryId: reviews.gateCategory,
-        reviewText: reviews.reviewText,
+        firstName: "",
+        lastName: "",
+        gateCategoryId: "",
+        reviewText: "",
       },
-      image: reviews.image,
+      customerImage: null,
     });
   };
+  useEffect(() => {
+    setReviewData({
+      saveDto: {
+        firstName: reviewsEditData?.saveDto.firstName || "",
+        lastName: reviewsEditData?.saveDto.lastName || "",
+        gateCategoryId: reviewsEditData?.saveDto.gateCategoryId || "",
+        reviewText: reviewsEditData?.saveDto.reviewText || "",
+      },
+      customerImage: reviewsEditData?.customerImage || null,
+    });
+  }, [reviewsEditData]);
   useEffect(() => {
     dispatch(getReviews());
     dispatch(getGates());
@@ -91,7 +128,7 @@ export const Reviews = () => {
           type="text"
           onChange={(e) => onChange(e)}
           name="firstName"
-          value={reviewData.firstName}
+          value={reviewData.saveDto?.firstName}
           className={styles.title_input}
         />
         <label>Фамилия</label>
@@ -99,7 +136,7 @@ export const Reviews = () => {
           type="text"
           onChange={(e) => onChange(e)}
           name="lastName"
-          value={reviewData.lastName}
+          value={reviewData.saveDto?.lastName}
           className={styles.title_input}
         />
         <label>Категория</label>
@@ -109,7 +146,7 @@ export const Reviews = () => {
           name="gateCategoryId"
         >
           {gatesList.map((item, index) => (
-            <option key={index} name="category">
+            <option key={index} name="category" value={item.id}>
               {item.name}
             </option>
           ))}
@@ -120,7 +157,7 @@ export const Reviews = () => {
           onChange={(e) => onChange(e)}
           name="reviewText"
           className={styles.text_input}
-          value={reviewData.reviewText}
+          value={reviewData.saveDto?.reviewText}
         />
 
         <label htmlFor="fileImg" className="select-photo-lable">
@@ -136,13 +173,18 @@ export const Reviews = () => {
           type={"file"}
         />
         <div className={styles.img_placeholder}>
-          {localImage && (
-            <img src={localImage} alt="" className={styles.image} />
-          )}
+          <img
+            src={
+              localImage ||
+              `http://161.35.29.179:8090/api/v1/public/image/${reviewData.customerImage}`
+            }
+            alt=""
+            className={styles.image}
+          />
         </div>
 
         <button onClick={handleClick} className={styles.submit_btn}>
-          Создать ✨
+          {isEditing ? "Редактировать ✨" : "Создать ✨"}
         </button>
       </div>
       <div className={styles.content}>
@@ -151,8 +193,8 @@ export const Reviews = () => {
             {reviews.map((item) => (
               <ReviewItem
                 item={item}
-                // key={item.id}
-                handleEditClick={handleEditClick}
+                key={item?.id}
+                // handleEditClick={handleEditClick}
               />
             ))}
           </div>

@@ -3,7 +3,6 @@
   font-size: 20px;
   text-align: center;
   line-height: 1;
-  background: #fdfdfd;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.13);
   border-radius: 9%;
   display: flex;
@@ -19,8 +18,11 @@
   width: 440px;
   height: 300px;
 }
-
+.new__item .block__hover {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+}
 .new__text {
+  z-index: 1;
   position: absolute;
   font-family: "Montserrat";
   font-weight: 800;
@@ -31,6 +33,9 @@
   color: #fff;
 }
 .block__hover {
+  height: 100%;
+  width: 100%;
+  border-radius: 11px;
   gap: 10px;
   display: flex;
   justify-content: center;
@@ -67,12 +72,9 @@
   color: #fff;
   border: none;
 }
-.new__img:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-}
+
 .new__item:hover {
   transition: 0.9s;
-  // background: linear-gradient(to bottom, #000000, #000000);
   .new__text {
     cursor: pointer;
     opacity: 0;

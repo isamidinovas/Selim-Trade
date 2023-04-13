@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <>
+    <div id="scroll__top">
       <div className={styles.nav_wrapper}>
         <nav className={styles.navbar}>
           {isOpen && (
@@ -123,7 +123,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,8 +1,20 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import customFetch from "../../utils/axios";
+import { toast } from "react-toastify";
 
 const initialState = {
   reviews: [],
+  isEditing: false,
+  reviewId: null,
+  reviewsEditData: {
+    saveDto: {
+      firstName: "",
+      lastName: "",
+      gateCategoryId: "",
+      reviewText: "",
+    },
+    customerImage: null,
+  },
 };
 
 export const createReview = createAsyncThunk(
@@ -47,11 +59,11 @@ export const deleteReview = createAsyncThunk(
 
 export const editReview = createAsyncThunk(
   "contentControl/editReview",
-  async (review, thunkAPI) => {
+  async ({ formData }, thunkAPI) => {
     try {
       const response = await customFetch.put(
-        "api/v1/protected/review",
-        review,
+        `api/v1/protected/review`,
+        formData,
         {
           headers: {
             authorization: `Bearer ${thunkAPI.getState().admin.token}`,
@@ -76,10 +88,42 @@ export const getReviews = createAsyncThunk("get/reviews", async () => {
 const reviewsSlice = createSlice({
   name: "reviews",
   initialState,
-  reducers: {},
+  reducers: {
+    updateReview: (state, { payload }) => {
+      console.log("udate reducer worked");
+      const {
+        id,
+        firstName,
+        lastName,
+        gateCategoryId,
+        reviewText,
+        customerImage,
+      } = payload;
+      return {
+        ...state,
+        reviewsEditData: {
+          saveDto: {
+            id,
+            firstName,
+            lastName,
+            gateCategoryId,
+            reviewText,
+          },
+          customerImage,
+        },
+      };
+    },
+    changeEditingStatus: (state, { payload }) => {
+      state.isEditing = state.isEditing = payload;
+    },
+    getId: (state, { payload }) => {
+      state.reviewId = payload;
+    },
+  },
   extraReducers: {
     [createReview.fulfilled]: (state, { payload }) => {
       state.reviews = [...state.reviews, payload];
+      toast.success("Новость создана.");
     },
     [deleteReview.fulfilled]: (state, { payload }) => {
       state.reviews = state.reviews.filter((review) => review.id !== payload);
@@ -88,9 +132,12 @@ const reviewsSlice = createSlice({
       state.reviews = payload;
     },
     [editReview.fulfilled]: (state, { payload }) => {
-      state.reviews = payload;
+      state.reviews = [...state.reviews, payload];
+      toast.success("Отредактировано.");
     },
   },
 });
+export const { updateReview, changeEditingStatus, getId } =
+  reviewsSlice.actions;
 
 export default reviewsSlice.reducer;

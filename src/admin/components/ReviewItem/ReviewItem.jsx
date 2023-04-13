@@ -3,11 +3,16 @@ import { BsTrash3Fill } from "react-icons/bs";
 import { TbEdit } from "react-icons/tb";
 import styles from "./ReviewItem.module.scss";
 import Button from "../Button/Button";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteReview } from "../../../redux/admin/reviewsSlice";
+import { useDispatch } from "react-redux";
+import {
+  changeEditingStatus,
+  deleteReview,
+  getId,
+  updateReview,
+} from "../../../redux/admin/reviewsSlice";
 
-const ReviewItem = ({ item, handleEditClick }) => {
-  const { reviews } = useSelector((state) => state.reviews);
+const ReviewItem = ({ item }) => {
+  const dispatch = useDispatch();
   const img = item?.customerImage
     ? `http://161.35.29.179:8090/api/v1/public/image/${item.customerImage}`
     : DefaultProfileIcon;
@@ -15,9 +20,32 @@ const ReviewItem = ({ item, handleEditClick }) => {
   const shortenedText =
     item?.reviewText?.slice(0, maxLength) +
     (item?.reviewText?.length > maxLength ? "..." : "");
-  const dispatch = useDispatch();
+
   const handleDeleteReview = () => {
     dispatch(deleteReview(item.id));
+  };
+
+  const handleEdit = () => {
+    const {
+      id,
+      firstName,
+      lastName,
+      reviewText,
+      customerImage,
+      gateCategoryId,
+    } = item;
+    dispatch(
+      updateReview({
+        id,
+        firstName,
+        lastName,
+        reviewText,
+        customerImage,
+        gateCategoryId,
+      })
+    );
+    dispatch(getId(id));
+    dispatch(changeEditingStatus(true));
   };
 
   return (
@@ -37,13 +65,13 @@ const ReviewItem = ({ item, handleEditClick }) => {
         </div>
         <div className={styles.btn_container}>
           <Button
-            handleClick={handleDeleteReview}
+            handleclick={handleDeleteReview}
             text="Удалить"
             outline="#850000 3px solid"
             icon={<BsTrash3Fill />}
           />
           <Button
-            handleClick={handleEditClick}
+            handleclick={handleEdit}
             text="Редактировать"
             outline="#002b5b 3px solid"
             icon={

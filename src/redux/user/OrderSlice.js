@@ -9,11 +9,19 @@ export const ordersSlice = createSlice({
       customerPhone: "",
       message: "",
     },
+    status: null,
+    errMessage: "",
   },
 
   extraReducers: (builder) => {
     builder.addCase(orderCreate.fulfilled, (state, action) => {
       state.orderInfo = action.payload;
+      state.status = "resolved";
+      return;
+    });
+    builder.addCase(orderCreate.rejected, (state, action) => {
+      state.status = "rejected";
+      state.errMessage = "Заполните все поля!";
     });
   },
 });
