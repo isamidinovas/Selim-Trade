@@ -15,6 +15,8 @@ import newsSlice from "./admin/newsSlice";
 import reviewsSlice from "./admin/reviewsSlice";
 import gateSlice from "./admin/gateSlice";
 import { gatesPaginationReducer } from "./user/GetGatesPagination";
+import gateCategoriesSlice from "./admin/gateCategorySlice";
+
 import adminOrdersSlice from "./admin/adminOrdersSlice";
 
 export const store = configureStore({
@@ -25,6 +27,7 @@ export const store = configureStore({
     news: newsSlice,
     gate: gateSlice,
     reviews: reviewsSlice,
+    gateCategories: gateCategoriesSlice,
     newsList: newsListReducer,
     newsPagination: newsPaginationReducer,
     newDetail: newDetailReducer,

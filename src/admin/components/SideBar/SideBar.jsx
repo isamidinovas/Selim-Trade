@@ -7,6 +7,10 @@ import { useState } from "react";
 const SideBar = () => {
   const { pathname } = useLocation();
   const navigationLinks = [
+    { path: "/admin/news", name: "News" },
+    { path: "/admin", name: "Projects" },
+    { path: "/admin/reviews", name: "Reviews" },
+    { path: "/admin/gateCategory", name: "GateCategory" },
     { path: "/admin/news", name: "Новости" },
     { path: "/admin", name: "Наши работы" },
     { path: "/admin/reviews", name: "Отзывы" },
