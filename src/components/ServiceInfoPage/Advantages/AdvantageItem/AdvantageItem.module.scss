@@ -1,7 +1,22 @@
 .item {
   position: relative;
+  width: 45%;
 }
 .number {
+  // font-family: "Montserrat";
+  // font-style: normal;
+  // font-weight: 900;
+  // font-size: 300px;
+  // line-height: 150%;
+  // text-align: justify;
+  // text-transform: uppercase;
+  // opacity: 0.3;
+  // left: 70px;
+  // top: -210px;
+  // font-size: 352px;
+  // color: #ebebeb;
+  // position: absolute;
+
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 900;
@@ -10,9 +25,10 @@
   text-align: justify;
   text-transform: uppercase;
   opacity: 0.3;
-  left: 70px;
-  top: -210px;
-  font-size: 352px;
+  left: 190px;
+
+  top: -132px;
+  font-size: 290px;
   color: #ebebeb;
   position: absolute;
 }
