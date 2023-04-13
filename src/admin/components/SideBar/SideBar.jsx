@@ -10,6 +10,7 @@ const SideBar = () => {
     { path: "/admin/news", name: "News" },
     { path: "/admin", name: "Projects" },
     { path: "/admin/reviews", name: "Reviews" },
+    { path: "/admin/gateCategory", name: "GateCategory" },
   ];
   const [isOpen, setIsOpen] = useState(false);
 

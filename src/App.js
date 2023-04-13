@@ -8,6 +8,7 @@ import Projects from "./admin/pages/projects/Projects";
 import News from "./admin/pages/news/News";
 import AdminLayout from "./admin/routes/AdminLayout";
 import { Reviews } from "./admin/pages/reviews/Reviews";
+import { GateCategory } from "./admin/pages/gateCategory/GateCategory";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/admin/news" element={<News />} />
             <Route path="/admin" element={<Projects />} />
             <Route path="/admin/reviews" element={<Reviews />} />
+            <Route path="/admin/gateCategory" element={<GateCategory />} />
           </Route>
         </Route>
       </Routes>

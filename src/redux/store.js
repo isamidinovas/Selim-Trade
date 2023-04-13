@@ -14,12 +14,14 @@ import { newsListReducer } from "./user/NewsSlice";
 import newsSlice from "./admin/newsSlice";
 import reviewsSlice from "./admin/reviewsSlice";
 import { gatesPaginationReducer } from "./user/GetGatesPagination";
+import gateCategoriesSlice from "./admin/gateCategorySlice";
 export const store = configureStore({
   reducer: {
     admin: adminSlice,
     projects: projectsSlice,
     news: newsSlice,
     reviews: reviewsSlice,
+    gateCategories: gateCategoriesSlice,
     newsList: newsListReducer,
     newsPagination: newsPaginationReducer,
     newDetail: newDetailReducer,

@@ -9,16 +9,16 @@
   line-height: 150%;
   text-align: justify;
   text-transform: uppercase;
-  opacity: 0.3;
-  left: 70px;
-  top: -210px;
-  font-size: 352px;
+  opacity: 0.4;
+  left: 60px;
+  top: -100px;
+  font-size: 170px;
   color: #ebebeb;
   position: absolute;
 }
 .item__title {
   font-weight: 600;
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   text-transform: uppercase;
   line-height: 150%;
@@ -27,24 +27,12 @@
   line-height: 150%;
   text-align: center;
   margin: 0 auto;
-  width: 396px;
+  //   width: 290px;
+  width: 60%;
+  //   max-width: 300px;
   height: 90px;
   font-weight: 300;
   font-size: 20px;
-  text-transform: lowercase;
-}
 
-@media (max-width: 430px) {
-  .item {
-    height: 160px;
-    width: 302px;
-  }
-  .item__text {
-    width: 300px;
-    font-size: 14px;
-  }
-  .item__title {
-    font-size: 20px;
-    // width: 319px;
-  }
+  text-transform: lowercase;
 }
