@@ -132,7 +132,7 @@ const newsSlice = createSlice({
         project.id === updatedItem.id ? updatedItem : project
       );
       state.news = updatedProjects;
-      toast.success("Отредактированно.");
+      toast.success("Отредактировано.");
     },
     // NEW BY ID
     [getNewById.fulfilled]: (state, { payload }) => {

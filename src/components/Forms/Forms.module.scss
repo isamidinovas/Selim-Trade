@@ -47,6 +47,12 @@
   border: 0.5px solid #414141;
   border-radius: 20px;
 }
+.check__err {
+  color: red;
+  font-size: 16px;
+  font-weight: 600;
+}
+
 @media (max-width: 1110px) {
   // .forms {
   //   justify-content: space-between;
@@ -61,6 +67,7 @@
   .form {
     width: 100%;
   }
+
   .forms__title {
     font-size: 30px;
   }
