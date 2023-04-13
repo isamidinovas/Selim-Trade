@@ -6,6 +6,7 @@ const initialState = {
   gates: [],
   isLoading: false,
   isEditing: false,
+  full: false,
   singleGateId: null,
   updateValues: {
     saveDto: {
@@ -18,10 +19,10 @@ const initialState = {
 
 export const updateGateItem = createAsyncThunk(
   "news/updateGateItem",
-  async ({ formData, id }, thunkAPI) => {
+  async ({ formData }, thunkAPI) => {
     try {
       const response = await customFetch.put(
-        `api/v1/protected/gate/${id}`,
+        `api/v1/protected/gate`,
         formData,
         {
           headers: {
@@ -37,7 +38,6 @@ export const updateGateItem = createAsyncThunk(
     }
   }
 );
-
 
 export const createGate = createAsyncThunk(
   "gates/createGate",
@@ -111,6 +111,15 @@ const gateSlice = createSlice({
     },
   },
   extraReducers: {
+    // Update
+    [updateGateItem.fulfilled]: (state, { payload }) => {
+      const updatedProject = payload;
+      state.gates = state.gates.map((project) =>
+        project.id === updatedProject.id ? updatedProject : project
+      );
+      toast.success("Отредактировано");
+      state.full = !state.full;
+    },
     // DELETE
     [deleteGate.fulfilled]: (state, { payload }) => {
       const idOfDeletedItem = payload;

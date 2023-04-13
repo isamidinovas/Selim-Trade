@@ -71,16 +71,24 @@ const Gate = () => {
     }
 
     if (isEditing) {
+      const id = singleGateId;
+      const data = {
+        saveDto: {
+          id: id,
+          name: gateValues.saveDto.name,
+          categoryId: 1,
+        },
+        image: null,
+      };
       const formData = new FormData();
       formData.append("image", gateValues.image);
       formData.set(
         "updateDto",
-        new Blob([JSON.stringify(gateValues.saveDto)], {
+        new Blob([JSON.stringify(data.saveDto)], {
           type: "application/json",
         })
       );
-      const id = singleGateId;
-      dispatch(updateGateItem({ formData, id }));
+      dispatch(updateGateItem({ formData }));
       setGateValues({
         saveDto: {
           name: "",
@@ -122,19 +130,19 @@ const Gate = () => {
         />
         <div className={styles.image_placeholder}>
           {!localPhot && !gateValues.image && <h3>Фото</h3>}
-          {localPhot ||
-            (gateValues.image && (
-              <img
-                src={
-                  localPhot ||
-                  `http://161.35.29.179:8090/api/v1/public/image/${gateValues.image}`
-                }
-                alt="image"
-                className={styles.gate_img}
-              />
-            ))}
+          {/* {localPhot ||
+            (gateValues.image && ( */}
+          <img
+            src={
+              localPhot ||
+              `http://161.35.29.179:8090/api/v1/public/image/${gateValues.image}`
+            }
+            alt=""
+            className={styles.gate_img}
+          />
+          {/* ))} */}
         </div>
-        <div>
+        <div className={styles.input_wraper}>
           <label className={styles.name_label}>Названия</label>
           <input
             onChange={handleChange}

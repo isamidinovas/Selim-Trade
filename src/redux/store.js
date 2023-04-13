@@ -15,8 +15,11 @@ import newsSlice from "./admin/newsSlice";
 import reviewsSlice from "./admin/reviewsSlice";
 import gateSlice from "./admin/gateSlice";
 import { gatesPaginationReducer } from "./user/GetGatesPagination";
+import adminOrdersSlice from "./admin/adminOrdersSlice";
+
 export const store = configureStore({
   reducer: {
+    adminOrders: adminOrdersSlice,
     admin: adminSlice,
     projects: projectsSlice,
     news: newsSlice,

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import customFetch from "../../utils/axios";
 import { getTokenFromLocalStorage } from "../../utils/localStorage";
+import { toast } from "react-toastify";
 
 const initialState = {
   projects: [],
@@ -19,7 +20,6 @@ export const createProject = createAsyncThunk(
           },
         }
       );
-      console.log(response.data);
       return response.data;
     } catch (error) {
       console.log(error.response.data);
@@ -91,6 +91,7 @@ const projectsSlice = createSlice({
   extraReducers: {
     [createProject.fulfilled]: (state, { payload }) => {
       state.projects = [...state.projects, payload];
+      toast.success("Создана");
     },
     [updateProject.fulfilled]: (state, { payload }) => {
       const updatedProject = payload;
@@ -98,6 +99,7 @@ const projectsSlice = createSlice({
         project.id === updatedProject.id ? updatedProject : project
       );
       state.projects = updatedProjects;
+      toast.success("Отредактирована");
     },
     [getAllProjects.fulfilled]: (state, { payload }) => {
       state.projects = payload.content;
@@ -107,6 +109,7 @@ const projectsSlice = createSlice({
       state.projects = state.projects.filter(
         (element) => element.id !== deletedElementId
       );
+      toast.success("Удалено");
     },
   },
 });
