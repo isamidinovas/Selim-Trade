@@ -9,6 +9,8 @@ import News from "./admin/pages/news/News";
 import AdminLayout from "./admin/routes/AdminLayout";
 import { Reviews } from "./admin/pages/reviews/Reviews";
 import { GateCategory } from "./admin/pages/gateCategory/GateCategory";
+import Gate from "./admin/pages/gate/Gate";
+import Orders from "./admin/pages/orders/Orders";
 
 function App() {
   return (
@@ -26,7 +28,10 @@ function App() {
             <Route path="/admin/news" element={<News />} />
             <Route path="/admin" element={<Projects />} />
             <Route path="/admin/reviews" element={<Reviews />} />
+
             <Route path="/admin/gateCategory" element={<GateCategory />} />
+            <Route path="/admin/gates" element={<Gate />} />
+            <Route path="/admin/orders" element={<Orders />} />
           </Route>
         </Route>
       </Routes>

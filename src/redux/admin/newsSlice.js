@@ -143,7 +143,7 @@ const newsSlice = createSlice({
       console.log(payload);
       state.isLoading = false;
       state.news = [...state.news, payload];
-      toast.success("Новость создана.");
+      toast.success("Создана.");
     },
     [createNewItem.pending]: (state, payload) => {
       state.isLoading = true;
