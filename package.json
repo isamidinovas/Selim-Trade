@@ -13,7 +13,7 @@
     "cors": "^2.8.5",
     "image-compressor": "^2.0.3",
     "react": "^18.2.0",
-    "react-admin": "^4.8.4",
+    "react-admin": "^5.14.5",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-loading-skeleton": "^3.2.0",
